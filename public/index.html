@@ -12,6 +12,7 @@
 <meta property="og:title" content="Team One Fitness | Stronger Together.">
 <meta property="og:description" content="Outdoor group training and personal training in Bondi &amp; Coogee. Start your 7-day trial for $15.">
 <meta property="og:url" content="https://teamonefitness.com.au/">
+<meta property="og:image" content="https://teamonefitness.com.au/assets/photos/hero-bondi-sunrise-1920.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,10 +34,12 @@
 </script>
 <style>
   /* Home page only */
-  .hero-media { position: relative; min-height: 560px; display: flex; align-items: center; color: var(--white);
-    background: radial-gradient(70% 80% at 85% 30%, rgba(255,123,0,0.22) 0%, rgba(255,123,0,0) 60%),
-                linear-gradient(160deg, #1b1b1b 0%, #111 55%, #000 100%); }
+  .hero-media { position: relative; min-height: 560px; display: flex; align-items: center; color: var(--white); background: #111; overflow: hidden; }
+  .hero-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+  .hero-media::before { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 100%); }
   .hero h1 .accent { color: var(--orange); }
+  .hero-media .container { width: 100%; }
   .hero-inner { position: relative; z-index: 2; max-width: 640px; }
   .hero h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.0; text-transform: uppercase; }
   .hero .sub { font-size: 18px; color: #d6d6d6; margin: 18px 0 26px; max-width: 40ch; }
@@ -60,7 +63,8 @@
 
   .split { padding: 8px 0 80px; }
   .split .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .split .photo { aspect-ratio: 4/3; background: linear-gradient(140deg, #3a3a3a 0%, #1d1d1d 60%, #000 100%); }
+  .split .photo, .closing .photo { aspect-ratio: 4/3; background: #222; }
+  .photo img, .loc-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .split h2 { margin-bottom: 16px; }
   .split .body { font-size: 16px; color: var(--body); max-width: 48ch; margin-bottom: 18px; }
   @media (max-width: 780px) { .split .grid { grid-template-columns: 1fr; gap: 28px; } }
@@ -82,8 +86,7 @@
   .loc-card > div { position: relative; z-index: 2; color: var(--white); }
   .loc-name { font-family: var(--head); font-weight: 800; font-size: 22px; }
   .loc-sub { font-size: 14px; opacity: 0.9; margin-top: 4px; }
-  .loc-card.bondi { background: linear-gradient(160deg, #163a45 0%, #2f7a8c 55%, #cfe8e6 100%); }
-  .loc-card.coogee { background: linear-gradient(160deg, #163a2f 0%, #2f7a5e 55%, #d8e8cf 100%); }
+  .loc-card { background: #222; }
   @media (max-width: 640px) { .loc-grid { grid-template-columns: 1fr; } .loc-card { aspect-ratio: 4/3; } }
 
   .testimonials { padding: 84px 0; }
@@ -98,7 +101,6 @@
 
   .closing { background: var(--sand); padding: 84px 0 0; }
   .closing .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding-bottom: 64px; }
-  .closing .photo { aspect-ratio: 4/3; background: linear-gradient(150deg, #3a3a3a 0%, #1d1d1d 60%, #000 100%); }
   .closing h2 { margin: 10px 0 20px; }
   .closing .foot { font-size: 14px; color: var(--muted); margin-top: 14px; }
   @media (max-width: 780px) { .closing .grid { grid-template-columns: 1fr; gap: 28px; } }
@@ -145,7 +147,7 @@
 <main>
   <section class="hero">
     <div class="hero-media">
-      <span class="photo-tag">your photo / video</span>
+      <img src="/assets/photos/hero-bondi-sunrise-1920.webp" srcset="/assets/photos/hero-bondi-sunrise-960.webp 960w, /assets/photos/hero-bondi-sunrise-1920.webp 1920w" sizes="100vw" alt="Team One bootcamp class training on Bondi Beach at sunrise" width="1920" height="1440" fetchpriority="high">
       <div class="container">
         <div class="hero-inner">
           <h1>Stronger<br><span class="accent">Together.</span></h1>
@@ -206,7 +208,7 @@
 
   <section class="split">
     <div class="container grid">
-      <div class="photo"><span class="photo-tag">your photo</span></div>
+      <div class="photo"><img src="/assets/photos/community-bondi-1200.webp" srcset="/assets/photos/community-bondi-640.webp 640w, /assets/photos/community-bondi-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 560px" alt="Smiling Team One members after a bootcamp class at Bondi Beach" width="1200" height="900" loading="lazy"></div>
       <div>
         <p class="eyebrow">More than a workout</p>
         <h2>A community that lifts you.</h2>
@@ -240,11 +242,11 @@
       </div>
       <div class="loc-grid">
         <a class="loc-card bondi" href="/training/bootcamp-fitness-training/bootcamp-classes-bondi-beach/">
-          <span class="photo-tag">photo</span>
+          <img src="/assets/photos/bondi-bootcamp-1000.webp" srcset="/assets/photos/bondi-bootcamp-600.webp 600w, /assets/photos/bondi-bootcamp-1000.webp 1000w" sizes="(max-width: 640px) 100vw, 400px" alt="Bootcamp class doing sled pulls on the sand at Bondi Beach" width="1000" height="750" loading="lazy">
           <div><div class="loc-name">Bondi Beach</div><div class="loc-sub">On the sand opposite Hall St · Rain, hail or shine</div></div>
         </a>
         <a class="loc-card coogee" href="/training/bootcamp-fitness-training/bootcamp-classes-in-coogee-beach/">
-          <span class="photo-tag">photo</span>
+          <img src="/assets/photos/coogee-bootcamp-1000.webp" srcset="/assets/photos/coogee-bootcamp-600.webp 600w, /assets/photos/coogee-bootcamp-1000.webp 1000w" sizes="(max-width: 640px) 100vw, 400px" alt="Sunrise bootcamp class holding planks on Coogee Beach" width="1000" height="750" loading="lazy">
           <div><div class="loc-name">Coogee Beach</div><div class="loc-sub">Near the volleyball courts · Rain, hail or shine</div></div>
         </a>
       </div>
@@ -277,7 +279,7 @@
 
   <section class="closing">
     <div class="container grid">
-      <div class="photo"><span class="photo-tag">your photo</span></div>
+      <div class="photo"><img src="/assets/photos/kettlebells-sunrise-1200.webp" srcset="/assets/photos/kettlebells-sunrise-640.webp 640w, /assets/photos/kettlebells-sunrise-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 560px" alt="Kettlebells on the sand at sunrise before a Team One class" width="1200" height="900" loading="lazy"></div>
       <div>
         <p class="eyebrow">Ready to start?</p>
         <h2>Your best self is waiting.</h2>
