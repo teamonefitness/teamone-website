@@ -33,13 +33,14 @@
 </script>
 <style>
   /* Home page only */
-  .hero-media { position: relative; min-height: 560px; display: flex; align-items: center;
-    background: radial-gradient(55% 60% at 16% 88%, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0) 60%),
-                linear-gradient(195deg, #232c33 0%, #6a4f36 32%, #d9873d 54%, #f2c580 70%, #e7ecdf 100%); }
+  .hero-media { position: relative; min-height: 560px; display: flex; align-items: center; color: var(--white);
+    background: radial-gradient(70% 80% at 85% 30%, rgba(255,123,0,0.22) 0%, rgba(255,123,0,0) 60%),
+                linear-gradient(160deg, #1b1b1b 0%, #111 55%, #000 100%); }
+  .hero h1 .accent { color: var(--orange); }
   .hero-inner { position: relative; z-index: 2; max-width: 640px; }
   .hero h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.0; text-transform: uppercase; }
-  .hero .sub { font-size: 18px; color: #2b3035; margin: 18px 0 26px; max-width: 40ch; }
-  .hero .foot { font-size: 14px; color: #3d4247; margin-top: 14px; }
+  .hero .sub { font-size: 18px; color: #d6d6d6; margin: 18px 0 26px; max-width: 40ch; }
+  .hero .foot { font-size: 14px; color: #a9a9a9; margin-top: 14px; }
   @media (max-width: 640px) { .hero-media { min-height: 480px; } }
 
   .intro { padding: 64px 0 8px; }
@@ -59,7 +60,7 @@
 
   .split { padding: 8px 0 80px; }
   .split .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .split .photo { aspect-ratio: 4/3; background: linear-gradient(140deg, #d9a06a 0%, #b96f3e 45%, #4a3a2c 100%); }
+  .split .photo { aspect-ratio: 4/3; background: linear-gradient(140deg, #3a3a3a 0%, #1d1d1d 60%, #000 100%); }
   .split h2 { margin-bottom: 16px; }
   .split .body { font-size: 16px; color: var(--body); max-width: 48ch; margin-bottom: 18px; }
   @media (max-width: 780px) { .split .grid { grid-template-columns: 1fr; gap: 28px; } }
@@ -89,7 +90,7 @@
 
   .closing { background: var(--sand); padding: 84px 0 0; }
   .closing .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding-bottom: 64px; }
-  .closing .photo { aspect-ratio: 4/3; background: linear-gradient(150deg, #cfe0da 0%, #6a8f7d 55%, #263129 100%); }
+  .closing .photo { aspect-ratio: 4/3; background: linear-gradient(150deg, #3a3a3a 0%, #1d1d1d 60%, #000 100%); }
   .closing h2 { margin: 10px 0 20px; }
   .closing .foot { font-size: 14px; color: var(--muted); margin-top: 14px; }
   @media (max-width: 780px) { .closing .grid { grid-template-columns: 1fr; gap: 28px; } }
@@ -106,10 +107,7 @@
 
 <header class="site-header">
   <div class="container">
-    <a class="wordmark-group" href="/">
-      <span class="wordmark">TEAM ONE</span>
-      <span class="wordmark-sub">Outdoor Bootcamp</span>
-    </a>
+    <a class="logo" href="/"><img src="/assets/logo-black.png" alt="Team One" width="171" height="162"></a>
     <nav class="main-nav" aria-label="Main">
       <a href="/">Home</a>
       <a href="/training/">Training</a>
@@ -142,7 +140,7 @@
       <span class="photo-tag">your photo / video</span>
       <div class="container">
         <div class="hero-inner">
-          <h1>Stronger<br>Together.</h1>
+          <h1>Stronger<br><span class="accent">Together.</span></h1>
           <p class="sub">Outdoor group training and personal training in Bondi &amp; Coogee.</p>
           <a class="btn" href="/get-started/">Start your 7-day trial — $15</a>
           <p class="foot">No lock-in contracts. Just results.</p>
@@ -288,10 +286,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="grid">
-      <a class="wordmark-group" href="/">
-        <span class="wordmark">TEAM ONE</span>
-        <span class="wordmark-sub">Outdoor Bootcamp</span>
-      </a>
+      <a class="logo" href="/"><img src="/assets/logo-black.png" alt="Team One" width="171" height="162" style="height:80px;width:auto"></a>
       <div class="links">
         <a href="/training/">Training</a>
         <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
