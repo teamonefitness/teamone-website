@@ -65,6 +65,14 @@
   .split .body { font-size: 16px; color: var(--body); max-width: 48ch; margin-bottom: 18px; }
   @media (max-width: 780px) { .split .grid { grid-template-columns: 1fr; gap: 28px; } }
 
+  .video { padding: 0 0 80px; }
+  .video .frame { position: relative; aspect-ratio: 16/9; max-width: 960px; margin: 0 auto; border-radius: 6px; overflow: hidden; background: #000; }
+  .video .frame img, .video .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+  .video button { all: unset; cursor: pointer; position: absolute; inset: 0; display: grid; place-items: center; }
+  .video .play { width: 84px; height: 84px; border-radius: 50%; background: var(--orange); display: grid; place-items: center; box-shadow: 0 6px 24px rgba(0,0,0,.35); }
+  .video .play::after { content: ""; border-left: 26px solid #fff; border-top: 16px solid transparent; border-bottom: 16px solid transparent; margin-left: 6px; }
+  .video .head { text-align: center; margin-bottom: 24px; }
+  .video h2 { font-size: clamp(24px, 2.8vw, 32px); }
   .locations { background: var(--sand); padding: 80px 0; }
   .locations .head-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 30px; gap: 16px; flex-wrap: wrap; }
   .locations h2 { font-size: clamp(24px, 2.8vw, 32px); }
@@ -204,6 +212,19 @@
         <h2>A community that lifts you.</h2>
         <p class="body">We're here to help you move better, feel better and live better, with Yves and the crew, expert coaching and outdoor training that meets you where you're at. Train with like-minded people and reach your fitness potential.</p>
         <a class="link" href="/about/about-yves-minten/">Meet Yves →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="video">
+    <div class="container">
+      <div class="head">
+        <p class="eyebrow">See it for yourself</p>
+        <h2>Watch a Team One session.</h2>
+      </div>
+      <div class="frame" id="video">
+        <img src="https://i.ytimg.com/vi/QCOvCQM80kU/hqdefault.jpg" alt="Team One training session video" loading="lazy">
+        <button type="button" aria-label="Play the Team One video" onclick="this.parentNode.innerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/QCOvCQM80kU?autoplay=1&quot; title=&quot;Team One video&quot; allow=&quot;autoplay; encrypted-media; picture-in-picture&quot; allowfullscreen></iframe>'"><span class="play"></span></button>
       </div>
     </div>
   </section>
