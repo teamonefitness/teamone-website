@@ -170,6 +170,9 @@
   @media (max-width: 780px) { .two, .cards { grid-template-columns: 1fr; gap: 28px; } .section { padding: 56px 0; } }
   .page-hero.left::before { background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.05) 100%); }
   a.inline { color: var(--orange); }
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .gallery .photo { aspect-ratio: 1/1; background: #222; border-radius: 4px; overflow: hidden; }
+  @media (max-width: 780px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
   .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; margin-left: 10px; }
   .btn-ghost:hover { background: rgba(255,255,255,0.12); }
   .cards.four { grid-template-columns: repeat(2, 1fr); }
@@ -268,6 +271,20 @@
   </section>
 
   <section class="section">
+    <div class="container">
+      <p class="eyebrow">Botany home gym</p>
+      <h2>Private training, fully equipped.</h2>
+      <p class="lead">Train one-on-one in our private home gym and backyard in Botany, with everything you need for strength and cardio.</p>
+      <div class="gallery">
+        <div class="photo"><img src="/assets/photos/homegym-box-jump-700.webp" alt="Box jumps in the Team One home gym in Botany" width="700" height="700" loading="lazy"></div>
+        <div class="photo"><img src="/assets/photos/homegym-skierg-barbell-700.webp" alt="SkiErg and barbell in the Botany home gym" width="700" height="700" loading="lazy"></div>
+        <div class="photo"><img src="/assets/photos/homegym-rower-kettlebells-700.webp" alt="Rower and kettlebells in the Botany home gym" width="700" height="700" loading="lazy"></div>
+        <div class="photo"><img src="/assets/photos/homegym-training-crew-700.webp" alt="Smiling clients after a session in the Botany home gym" width="700" height="700" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
     <div class="container two">
       <div class="body">
         <p class="eyebrow">How we train</p>
@@ -284,7 +301,7 @@
     </div>
   </section>
 
-  <section class="section sand" id="enquire">
+  <section class="section" id="enquire">
     <div class="container" style="max-width:820px">
       <p class="eyebrow">Enquire</p>
       <h2>Book your free consultation.</h2>
@@ -312,7 +329,7 @@
     </div>
   </section>
 
-  <section class="section" id="faq">
+  <section class="section sand" id="faq">
     <div class="container" style="max-width:820px">
       <p class="eyebrow">Questions</p>
       <h2>Personal training FAQs.</h2>
