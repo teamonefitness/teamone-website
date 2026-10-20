@@ -12,7 +12,7 @@
 <meta property="og:title" content="Team One Fitness | Stronger Together.">
 <meta property="og:description" content="Outdoor group training and personal training in Bondi &amp; Coogee. Start your 7-day trial for $15.">
 <meta property="og:url" content="https://teamonefitness.com.au/">
-<meta property="og:image" content="https://teamonefitness.com.au/assets/photos/hero-bondi-sunrise-1920.webp">
+<meta property="og:image" content="https://teamonefitness.com.au/assets/photos/hero-bondi-kettlebells-1920.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -37,9 +37,12 @@
   .hero-media { position: relative; min-height: 560px; display: flex; align-items: center; color: var(--white); background: #111; overflow: hidden; }
   .hero-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
   .hero-media::before { content: ""; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 100%); }
+    background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.2) 100%); }
   .hero h1 .accent { color: var(--orange); }
   .hero-media .container { width: 100%; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; }
+  .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--white); color: var(--black); }
   .hero-inner { position: relative; z-index: 2; max-width: 640px; }
   .hero h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.0; text-transform: uppercase; }
   .hero .sub { font-size: 18px; color: #d6d6d6; margin: 18px 0 26px; max-width: 40ch; }
@@ -147,12 +150,15 @@
 <main>
   <section class="hero">
     <div class="hero-media">
-      <img src="/assets/photos/hero-bondi-sunrise-1920.webp" srcset="/assets/photos/hero-bondi-sunrise-960.webp 960w, /assets/photos/hero-bondi-sunrise-1920.webp 1920w" sizes="100vw" alt="Team One bootcamp class training on Bondi Beach at sunrise" width="1920" height="1440" fetchpriority="high">
+      <img src="/assets/photos/hero-bondi-kettlebells-1920.webp" srcset="/assets/photos/hero-bondi-kettlebells-960.webp 960w, /assets/photos/hero-bondi-kettlebells-1920.webp 1920w" sizes="100vw" alt="Team One bootcamp class swinging kettlebells on Bondi Beach at sunrise" width="1920" height="1440" fetchpriority="high">
       <div class="container">
         <div class="hero-inner">
           <h1>Stronger<br><span class="accent">Together.</span></h1>
           <p class="sub">Outdoor group training and personal training in Bondi &amp; Coogee.</p>
-          <a class="btn" href="/get-started/">Start your 7-day trial — $15</a>
+          <div class="btn-row">
+            <a class="btn" href="/get-started/">Start your 7-day trial — $15</a>
+            <a class="btn btn-ghost" href="/training/personal-training/">Personal training enquiry</a>
+          </div>
           <p class="foot">No lock-in contracts. Just results.</p>
         </div>
       </div>
@@ -188,7 +194,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
           <h3>Personal Training</h3>
           <p>One-on-one coaching in local parks, built around your goals.</p>
-          <a class="link" href="/training/personal-training/">Book a session →</a>
+          <a class="link" href="/training/personal-training/">Enquire now →</a>
         </div>
         <div class="offer-card">
           <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="8" y="14" width="24" height="20" rx="1.5"/><path d="M14 14V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v5"/><line x1="8" y1="21" x2="32" y2="21"/></svg>
@@ -208,7 +214,7 @@
 
   <section class="split">
     <div class="container grid">
-      <div class="photo"><img src="/assets/photos/community-bondi-1200.webp" srcset="/assets/photos/community-bondi-640.webp 640w, /assets/photos/community-bondi-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 560px" alt="Smiling Team One members after a bootcamp class at Bondi Beach" width="1200" height="900" loading="lazy"></div>
+      <div class="photo"><img src="/assets/photos/community-group-1200.webp" srcset="/assets/photos/community-group-640.webp 640w, /assets/photos/community-group-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 560px" alt="Big group of Team One members cheering on the beach after a session" width="1200" height="900" loading="lazy"></div>
       <div>
         <p class="eyebrow">More than a workout</p>
         <h2>A community that lifts you.</h2>
