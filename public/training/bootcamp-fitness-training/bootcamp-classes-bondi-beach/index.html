@@ -30,6 +30,7 @@
         { "@type": "ListItem", "position": 4, "name": "Bondi Beach", "item": "https://teamonefitness.com.au/training/bootcamp-fitness-training/bootcamp-classes-bondi-beach/" }
       ]
     },
+    {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are the Bondi Beach bootcamp classes suitable for beginners?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our group fitness classes are for all fitness levels. We'll show you how to make each exercise easier or harder, so you can train at your own level."}}, {"@type": "Question", "name": "How long is a class?", "acceptedAnswer": {"@type": "Answer", "text": "Every bootcamp class is 45 minutes, so you can train before work and still be on time."}}, {"@type": "Question", "name": "What happens when it rains?", "acceptedAnswer": {"@type": "Answer", "text": "We train rain, hail or shine. On rainy days we move onto the promenade or under one of the huts on the grass area at Bondi."}}, {"@type": "Question", "name": "How do I start?", "acceptedAnswer": {"@type": "Answer", "text": "Start with our 7-day trial for $15. You can come to as many classes as you like for a week, with no lock-in contract."}}, {"@type": "Question", "name": "Can I also train at Coogee Beach?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All memberships let you train at any of our locations, including our Coogee Beach bootcamp."}}, {"@type": "Question", "name": "Is this like an outdoor gym in Bondi?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but with a coach and a group. Instead of training alone, you get a coached 45-minute workout on the sand with kettlebells, dumbbells, ropes and more."}}]},
     {
       "@type": "Service",
       "name": "Bootcamp classes in Bondi Beach",
@@ -74,6 +75,11 @@
   .cta h2 { color: var(--white); }
   .cta p { color: #d6d6d6; max-width: 56ch; }
   .links-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 18px; }
+  .faq { border-bottom: 1px solid var(--line); padding: 16px 0; }
+  .faq summary { cursor: pointer; font-family: var(--head); font-weight: 700; font-size: 17px; list-style: none; }
+  .faq summary::after { content: "+"; float: right; color: var(--orange); font-size: 22px; line-height: 1; }
+  .faq[open] summary::after { content: "–"; }
+  .faq p { color: var(--body); margin: 10px 0 0; }
   @media (max-width: 780px) { .two, .cards { grid-template-columns: 1fr; gap: 28px; } .section { padding: 56px 0; } }
 </style>
 </head>
@@ -124,7 +130,7 @@
       <div class="body">
         <p class="eyebrow">Bondi Beach group training</p>
         <h2>Kick-start your day on the sand.</h2>
-        <p>Join our Bondi Beach bootcamp and train with a friendly group on Tuesday before work or on Saturday morning. Every class is 45 minutes, coached from start to finish, and different every time.</p>
+        <p>Join our outdoor group fitness classes on Bondi Beach and train with a friendly group on Tuesday before work or on Saturday morning. Every class is 45 minutes, coached from start to finish, and different every time.</p>
         <p>We train on the sand at Bondi Beach, rain, hail or shine. On rainy days we move onto the promenade or under one of the huts on the grass area, so the class always goes ahead.</p>
         <p>All fitness levels are welcome. We'll show you how to make each exercise easier or harder.</p>
       </div>
@@ -187,6 +193,19 @@
         <figcaption class="small">Charlie Blight, Bondi</figcaption>
         <p style="margin-top:18px"><a class="link" href="/about/testimonials-2/">Read more reviews →</a></p>
       </figure>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container" style="max-width:820px">
+      <p class="eyebrow">Questions</p>
+      <h2>Bondi Beach bootcamp FAQs.</h2>
+        <details class="faq"><summary>Are the Bondi Beach bootcamp classes suitable for beginners?</summary><p>Yes. Our group fitness classes are for all fitness levels. We'll show you how to make each exercise easier or harder, so you can train at your own level.</p></details>
+        <details class="faq"><summary>How long is a class?</summary><p>Every bootcamp class is 45 minutes, so you can train before work and still be on time.</p></details>
+        <details class="faq"><summary>What happens when it rains?</summary><p>We train rain, hail or shine. On rainy days we move onto the promenade or under one of the huts on the grass area at Bondi.</p></details>
+        <details class="faq"><summary>How do I start?</summary><p>Start with our 7-day trial for $15. You can come to as many classes as you like for a week, with no lock-in contract.</p></details>
+        <details class="faq"><summary>Can I also train at Coogee Beach?</summary><p>Yes. All memberships let you train at any of our locations, including our Coogee Beach bootcamp.</p></details>
+        <details class="faq"><summary>Is this like an outdoor gym in Bondi?</summary><p>Yes, but with a coach and a group. Instead of training alone, you get a coached 45-minute workout on the sand with kettlebells, dumbbells, ropes and more.</p></details>
     </div>
   </section>
 
