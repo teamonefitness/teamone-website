@@ -320,8 +320,9 @@
         <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div><label for="f-location">Preferred location</label>
           <select id="f-location" name="location">
-            <option>Coogee</option><option>Bondi</option><option>Botany</option><option>CBD / Domain</option><option>At my home</option><option>Not sure yet</option>
+            <option>Coogee</option><option>Bondi</option><option>Botany</option><option>CBD / Domain</option><option>At my home</option><option>Somewhere else</option><option>Not sure yet</option>
           </select></div>
+        <div class="full" id="where-wrap" hidden><label for="f-where" id="where-label">Which suburb do you live in?</label><input id="f-where" name="location_details"></div>
         <div class="full"><label for="f-message">Your goals (optional)</label><textarea id="f-message" name="message" placeholder="What would you like to achieve?"></textarea></div>
         <div class="full"><button class="btn" type="submit">Send enquiry</button></div>
       </form>
@@ -389,6 +390,14 @@
 <script>
 (function () {
   var form = document.getElementById('enquiry-form'), msg = document.getElementById('form-msg');
+  var loc = document.getElementById('f-location'), wrap = document.getElementById('where-wrap'), where = document.getElementById('f-where'), lab = document.getElementById('where-label');
+  loc.addEventListener('change', function () {
+    var v = loc.value;
+    wrap.hidden = !(v === 'At my home' || v === 'Somewhere else');
+    where.required = !wrap.hidden;
+    lab.textContent = v === 'At my home' ? 'Which suburb do you live in?' : 'Where would you like to train?';
+    if (wrap.hidden) where.value = '';
+  });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var btn = form.querySelector('button');
