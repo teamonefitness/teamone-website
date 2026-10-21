@@ -12,7 +12,7 @@
 <meta property="og:title" content="Botany Personal Training | Team One Fitness">
 <meta property="og:description" content="Personal training in a fully equipped private home gym in Botany. Free consultation.">
 <meta property="og:url" content="https://teamonefitness.com.au/training/bootcamp-fitness-training/botany-personal-training/">
-<meta property="og:image" content="https://teamonefitness.com.au/assets/photos/homegym-box-jump-700.webp">
+<meta property="og:image" content="https://teamonefitness.com.au/assets/photos/botany-box-jump-1600.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -192,8 +192,8 @@
   .form-msg.err { background: #fdeeee; color: #8a1f1f; }
   .hp { position: absolute; left: -5000px; }
   @media (max-width: 780px) { form.enquiry { grid-template-columns: 1fr; } .btn-ghost { margin: 12px 0 0; } }
-  .page-hero.plain { min-height: 0; background: var(--black); }
-  .page-hero.plain::before { display: none; }
+  .gallery.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 780px) { .gallery.three { grid-template-columns: 1fr 1fr; } }
   .yves { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; }
   .yves .photo { aspect-ratio: 4/5; background: #222; border-radius: 4px; overflow: hidden; }
   @media (max-width: 780px) { .yves { grid-template-columns: 1fr; } .yves .photo { max-width: 320px; } }
@@ -233,7 +233,8 @@
 </header>
 
 <main>
-  <section class="page-hero plain">
+  <section class="page-hero left">
+    <img src="/assets/photos/botany-box-jump-1600.webp" srcset="/assets/photos/botany-box-jump-960.webp 960w, /assets/photos/botany-box-jump-1600.webp 1600w" sizes="100vw" alt="Box jumps in the Team One home gym in Botany" width="1600" height="1200" fetchpriority="high" style="object-position: 50% 8%">
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/training/">Training</a> / <a href="/training/personal-training/">Personal Training</a> / Botany</nav>
       <h1>Botany Personal Training</h1>
@@ -247,8 +248,7 @@
       <p class="eyebrow">Botany home gym</p>
       <h2>Private training, fully equipped.</h2>
       <p class="lead">Our home gym and backyard is at <a class="inline" href="https://www.google.com/maps/search/?api=1&amp;query=Team+One+Fitness+Botany">1481 Botany Road, Botany</a>. It has everything you need for strength and cardio: a rower, SkiErg, echo bike, spin bike, treadmill, dumbbells, Olympic bars, kettlebells, slam balls, battle ropes and boxing gear. We also train at Sir Joseph Banks Park and Booralee Park nearby.</p>
-      <div class="gallery">
-        <div class="photo"><img src="/assets/photos/homegym-box-jump-700.webp" alt="Box jumps in the Team One home gym in Botany" width="700" height="700" loading="lazy"></div>
+      <div class="gallery three">
         <div class="photo"><img src="/assets/photos/homegym-skierg-barbell-700.webp" alt="SkiErg and barbell in the Botany home gym" width="700" height="700" loading="lazy"></div>
         <div class="photo"><img src="/assets/photos/homegym-rower-kettlebells-700.webp" alt="Rower and kettlebells in the Botany home gym" width="700" height="700" loading="lazy"></div>
         <div class="photo"><img src="/assets/photos/homegym-crew-selfie-700.webp" alt="Smiling clients after a session in the Botany home gym" width="700" height="700" loading="lazy"></div>
@@ -286,7 +286,7 @@
       <div class="body">
         <p class="eyebrow">Meet your trainer</p>
         <h2>Train with Yves, a Botany local.</h2>
-        <p>Yves is the founder of Team One. Originally from Belgium, he has worked in fitness since he was 20, moved to Australia in 2009 and started Team One in 2012. He has lived in Botany since 2020.</p>
+        <p>Yves is the founder of Team One. Originally from Belgium, he has a Bachelor of Physical Education and has worked in fitness since he was 20. He moved to Australia in 2009 and started Team One in 2012.</p><p>Yves is also a firefighter and a father of three, and has lived in Botany since 2020.</p>
         <p>Most Botany sessions are with Yves, or one of our experienced Team One coaches.</p>
         <a class="link" href="/about/about-yves-minten/">More about Yves →</a>
       </div>
