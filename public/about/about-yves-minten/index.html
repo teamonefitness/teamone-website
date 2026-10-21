@@ -70,7 +70,8 @@
   .cta { background: var(--black); color: var(--white); padding: 64px 0; }
   .cta h2 { color: var(--white); }
   .cta p { color: #d6d6d6; max-width: 56ch; }
-  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 760px; }
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 780px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
   .gallery .photo { aspect-ratio: 4/5; background: #222; position: relative; border-radius: 4px; overflow: hidden; }
   a.inline { color: var(--orange); }
   .links-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 18px; }
@@ -156,8 +157,10 @@
   <section class="section" style="padding-top:0;background:var(--sand)">
     <div class="container">
       <div class="gallery">
+        <div class="photo"><img src="/assets/photos/yves-beach-sprint-600.webp" alt="Yves sprinting against a resistance band on the beach" width="600" height="750" loading="lazy"></div>
         <div class="photo"><img src="/assets/photos/yves-hyrox-sled-pull-600.webp" alt="Yves pulling a weighted sled with a rope at a HYROX race" width="600" height="750" loading="lazy"></div>
         <div class="photo"><img src="/assets/photos/yves-hyrox-sandbag-600.webp" alt="Yves doing sandbag lunges at a HYROX race" width="600" height="750" loading="lazy"></div>
+        <div class="photo"><img src="/assets/photos/yves-medball-backyard-600.webp" alt="Yves doing a medicine ball sit-up throw in a backyard session" width="600" height="750" loading="lazy"></div>
       </div>
     </div>
   </section>
