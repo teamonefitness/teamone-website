@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- PRIVATE PAGE: keep this line after launch so Google never shows this page -->
+<meta name="robots" content="noindex, nofollow">
+<title>Health and Waiver Form | Team One Fitness</title>
+<meta name="description" content="Team One health and waiver form.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .page-hero { position: relative; min-height: 440px; display: flex; align-items: flex-end; color: var(--white); background: #111; overflow: hidden; }
+  .page-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .page-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.05) 100%); }
+  .page-hero .container { position: relative; z-index: 2; width: 100%; padding-top: 48px; padding-bottom: 48px; }
+  .page-hero h1 { font-size: clamp(34px, 5vw, 58px); text-transform: uppercase; line-height: 1.02; max-width: 14ch; }
+  .page-hero .sub { font-size: 18px; color: #e2e2e2; margin: 14px 0 22px; max-width: 46ch; }
+  .both { margin: 0 0 20px; font-size: 16px; }
+  .both a { color: var(--orange); font-weight: 600; text-decoration: none; }
+  .crumbs { font-size: 13px; color: #cfd2d5; margin-bottom: 14px; }
+  .crumbs a { color: #cfd2d5; text-decoration: none; }
+  .crumbs a:hover { color: var(--orange); }
+  .section { padding: 72px 0; }
+  .section.sand { background: var(--sand); }
+  .section h2 { font-size: clamp(24px, 2.8vw, 32px); margin-bottom: 16px; }
+  .lead { font-size: 17px; color: var(--body); max-width: 70ch; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .two .photo { aspect-ratio: 4/3; background: #222; }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .body p:not(.eyebrow) { color: var(--body); margin: 0 0 14px; }
+  table.times { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 6px; overflow: hidden; margin: 8px 0 20px; }
+  .times th, .times td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .times th { font-family: var(--head); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: #fafafa; }
+  .times td:first-child { font-weight: 600; color: var(--ink); }
+  .small { font-size: 14px; color: var(--muted); }
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 24px; }
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
+  .card h3 { font-size: 18px; margin-bottom: 8px; }
+  .card p { color: var(--body); margin: 0; font-size: 15px; }
+  ul.ticks { padding-left: 20px; color: var(--body); margin: 0 0 20px; line-height: 1.9; }
+  .quote { font-size: 20px; line-height: 1.5; max-width: 40ch; margin: 0 0 10px; color: var(--ink); }
+  .cta { background: var(--black); color: var(--white); padding: 64px 0; }
+  .cta h2 { color: var(--white); }
+  .cta p { color: #d6d6d6; max-width: 56ch; }
+  .links-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 18px; }
+  .faq { border-bottom: 1px solid var(--line); padding: 16px 0; }
+  .faq summary { cursor: pointer; font-family: var(--head); font-weight: 700; font-size: 17px; list-style: none; }
+  .faq summary::after { content: "+"; float: right; color: var(--orange); font-size: 22px; line-height: 1; }
+  .faq[open] summary::after { content: "–"; }
+  .faq p { color: var(--body); margin: 10px 0 0; }
+  @media (max-width: 780px) { .two, .cards { grid-template-columns: 1fr; gap: 28px; } .section { padding: 56px 0; } }
+  .page-hero.left::before { background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.05) 100%); }
+  a.inline { color: var(--orange); }
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+  .gallery .photo { aspect-ratio: 1/1; background: #222; border-radius: 4px; overflow: hidden; }
+  @media (max-width: 780px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; margin-left: 10px; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+  .cards.four { grid-template-columns: repeat(2, 1fr); }
+  .card .tag { font-family: var(--head); font-weight: 700; font-size: 12px; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .pricebox { background: var(--white); border: 2px solid var(--orange); border-radius: 8px; padding: 28px; }
+  .pricebox .price { font-family: var(--head); font-weight: 800; font-size: 46px; color: var(--ink); line-height: 1; margin: 4px 0 10px; }
+  .pricebox .price span { font-size: 16px; color: var(--muted); font-weight: 600; margin-left: 6px; }
+  form.enquiry { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  form.enquiry label { display: block; font-family: var(--head); font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 6px; }
+  form.enquiry .full { grid-column: 1 / -1; }
+  form.enquiry input, form.enquiry select, form.enquiry textarea { width: 100%; font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #cfcfcf; border-radius: 4px; background: var(--white); color: var(--ink); box-sizing: border-box; }
+  form.enquiry textarea { min-height: 120px; resize: vertical; }
+  form.enquiry input:focus, form.enquiry select:focus, form.enquiry textarea:focus { outline: 2px solid var(--orange); border-color: var(--orange); }
+  form.enquiry button { border: 0; cursor: pointer; justify-self: start; }
+  .form-msg { display: none; padding: 16px 18px; border-radius: 6px; background: #eef8ee; color: #1d5b22; margin-top: 16px; }
+  .form-msg.err { background: #fdeeee; color: #8a1f1f; }
+  .hp { position: absolute; left: -5000px; }
+  @media (max-width: 780px) { form.enquiry { grid-template-columns: 1fr; } .btn-ghost { margin: 12px 0 0; } }
+  .gallery.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 780px) { .gallery.three { grid-template-columns: 1fr 1fr; } }
+  .yves { display: grid; grid-template-columns: 420px 1fr; gap: 40px; align-items: center; }
+  .yves .photo { aspect-ratio: 4/5; background: #222; border-radius: 4px; overflow: hidden; }
+  @media (max-width: 780px) { .yves { grid-template-columns: 1fr; } .yves .photo { max-width: 420px; } }
+  .page-hero h1 { max-width: 16ch; }
+  ol.steps { list-style: none; padding: 0; margin: 24px 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  ol.steps li { border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
+  ol.steps .num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--orange); color: var(--white); font-family: var(--head); font-weight: 800; margin-bottom: 12px; }
+  ol.steps h3 { font-size: 18px; margin-bottom: 6px; }
+  ol.steps p { color: var(--body); margin: 0; font-size: 15px; }
+  form.enquiry h3 { font-size: 19px; margin: 18px 0 0; padding-top: 18px; border-top: 1px solid #ddd; }
+  form.enquiry h3:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
+  fieldset { border: 0; padding: 0; margin: 0; }
+  legend { font-family: var(--head); font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 10px; }
+  .checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 20px; }
+  form.enquiry .checks label, form.enquiry .yn label, form.enquiry label.agree { font-family: var(--text); font-weight: 500; font-size: 15px; color: var(--body); display: flex; gap: 8px; align-items: flex-start; margin: 0; }
+  form.enquiry input[type=checkbox], form.enquiry input[type=radio] { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--orange); }
+  .yn { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+  .yn > span { font-family: var(--head); font-weight: 600; font-size: 14px; color: var(--ink); flex: 1 1 100%; }
+  .waiver { background: var(--white); border: 1px solid #ddd; border-radius: 4px; padding: 18px 20px; max-height: 320px; overflow-y: auto; font-size: 14px; color: var(--body); }
+  .waiver h4 { font-size: 15px; margin: 14px 0 6px; }
+  .waiver p { margin: 0 0 10px; }
+  .waiver ul, .waiver ol { margin: 0 0 10px; padding-left: 20px; }
+  .waiver li { margin-bottom: 6px; }
+  form.enquiry .star { color: #d64545; font-weight: 700; margin-left: 3px; }
+  .privacy { font-size: 14px; color: var(--body); margin: 0; }
+  .next-step { background: var(--white); border: 2px solid var(--orange); border-radius: 8px; padding: 28px; margin-top: 18px; }
+  .next-step h3 { font-size: 22px; margin-bottom: 8px; }
+  .next-step p { color: var(--body); }
+  @media (max-width: 780px) { ol.steps, .checks { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/"><img src="/assets/logo-black.png" alt="Team One" width="171" height="162"></a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/training/">Training</a>
+      <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
+      <a href="/sign-up/">Prices</a>
+      <a href="/locations/">Locations</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <a class="btn header-cta" href="/get-started/">Start your 7-day trial</a>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav aria-label="Main (mobile)">
+        <a href="/">Home</a>
+        <a href="/training/">Training</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
+        <a href="/sign-up/">Prices</a>
+        <a href="/locations/">Locations</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/get-started/">Start your 7-day trial</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main>
+  <section class="section sand" id="form">
+    <div class="container" style="max-width:860px">
+      <p class="eyebrow">Team One</p>
+      <h1 style="font-size:clamp(28px,3.4vw,40px);margin-bottom:16px">Health and waiver form.</h1>
+      <p class="lead">This helps us keep you safe and tailor your training. Your answers go straight to Team One and are only used to look after you. Questions marked with a star (<span class="star">*</span>) must be answered.</p>
+      <form class="enquiry" id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0dd69e5c-8628-410c-ae48-f17b4a4d087a">
+        <input type="hidden" name="subject" value="Health and waiver form (separate link) from the Team One website">
+        <input type="hidden" name="from_name" value="Team One website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <h3 class="full">Your details</h3>
+        <div><label for="f-first">First name</label><input id="f-first" name="first_name" autocomplete="given-name" required></div>
+        <div><label for="f-last">Last name</label><input id="f-last" name="last_name" autocomplete="family-name" required></div>
+        <div><label for="f-phone">Mobile</label><input id="f-phone" name="mobile" type="tel" autocomplete="tel" required></div>
+        <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="f-dob">Date of birth</label><input id="f-dob" name="date_of_birth" type="date" autocomplete="bday" required></div>
+        <div><label for="f-start">Preferred start date</label><input id="f-start" name="start_date" type="date" required></div>
+        <div><label for="f-location">Where will you mostly train?</label>
+          <select id="f-location" name="location" required><option value="" selected disabled>Choose</option><option>Bondi Beach</option><option>Coogee Beach</option><option>Both</option></select></div>
+        <div><label for="f-found">How did you find us?</label>
+          <select id="f-found" name="how_found" required>
+            <option value="" selected disabled>Choose</option>
+            <option>Google search</option><option>Google Maps</option><option>Instagram</option><option>Family, friend or colleague</option><option>Another client</option><option>Walking past</option><option>Flyer or poster</option><option>Newsletter</option><option>LinkedIn</option><option>Other</option>
+          </select></div>
+        <div class="full" id="found-wrap" hidden><label for="f-found-more" id="found-label">What's their name?</label><input id="f-found-more" name="how_found_details"></div>
+
+        <h3 class="full">Your health</h3>
+        <fieldset class="full"><legend>Do you have, or have you had, any of the following? Tick all that apply.</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="conditions[]" value="Diabetes"> Diabetes</label>
+            <label><input type="checkbox" name="conditions[]" value="Epilepsy"> Epilepsy</label>
+            <label><input type="checkbox" name="conditions[]" value="Breathing difficulties / asthma"> Breathing difficulties / asthma</label>
+            <label><input type="checkbox" name="conditions[]" value="Muscular pain / cramps"> Muscular pain / cramps</label>
+            <label><input type="checkbox" name="conditions[]" value="High cholesterol"> High cholesterol</label>
+            <label><input type="checkbox" name="conditions[]" value="Mental illness"> Mental illness</label>
+            <label><input type="checkbox" name="conditions[]" value="Hernia / back pain"> Hernia / back pain</label>
+            <label><input type="checkbox" name="conditions[]" value="Pregnant"> Pregnant</label>
+            <label><input type="checkbox" name="conditions[]" value="High blood pressure"> High blood pressure</label>
+            <label><input type="checkbox" name="conditions[]" value="Pain / tightness in the chest"> Pain / tightness in the chest</label>
+            <label><input type="checkbox" name="conditions[]" value="Rheumatic fever"> Rheumatic fever</label>
+            <label><input type="checkbox" name="conditions[]" value="Heart / stroke condition"> Heart / stroke condition</label>
+            <label><input type="checkbox" name="conditions[]" value="Liver / kidney condition"> Liver / kidney condition</label>
+            <label><input type="checkbox" name="conditions[]" value="Arthritis"> Arthritis</label>
+            <label><input type="checkbox" name="conditions[]" value="Over 45 years of age"> Over 45 years of age</label>
+            <label><input type="checkbox" name="conditions[]" value="None of the above"> None of the above</label>
+          </div>
+        </fieldset>
+        <div class="full yn"><span>Do you smoke?</span><label><input type="radio" name="smoker" value="Yes" required> Yes</label><label><input type="radio" name="smoker" value="No"> No</label></div>
+        <div class="full yn"><span>Has a close relative had a stroke, heart attack or heart disease?</span><label><input type="radio" name="family_history" value="Yes" required> Yes</label><label><input type="radio" name="family_history" value="No"> No</label></div>
+        <div class="full yn"><span>Are you taking any medication?</span><label><input type="radio" name="medication" value="Yes" required> Yes</label><label><input type="radio" name="medication" value="No"> No</label></div>
+        <div class="full yn"><span>Have you been in hospital in the last 12 months?</span><label><input type="radio" name="hospital" value="Yes" required> Yes</label><label><input type="radio" name="hospital" value="No"> No</label></div>
+        <div class="full"><label for="f-details">If you ticked a condition or answered yes above, please tell us more. Also mention any injury or anything else that may limit your training</label><textarea id="f-details" name="health_details"></textarea></div>
+        <div><label for="f-ec">Emergency contact name</label><input id="f-ec" name="emergency_contact" required></div>
+        <div><label for="f-ecp">Emergency contact phone</label><input id="f-ecp" name="emergency_phone" type="tel" required></div>
+
+        <h3 class="full">About you</h3>
+        <div><label for="f-fit">Your current fitness level (1 = unfit, 10 = very fit)</label><select id="f-fit" name="fitness_level" required><option value="" selected disabled>Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+        <div><label for="f-diet">Your current diet (1 = poor, 10 = very healthy)</label><select id="f-diet" name="diet_rating" required><option value="" selected disabled>Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+        <div><label for="f-job">Your occupation (optional)</label><input id="f-job" name="occupation"></div>
+        <div><label for="f-work">How active is your work? (optional)</label><select id="f-work" name="work_activity"><option value="" selected>Choose</option><option>Mostly sitting</option><option>Lightly active</option><option>Very active</option></select></div>
+        <div><label for="f-freq">How often have you exercised in the last 6 months?</label><select id="f-freq" name="exercise_frequency" required><option value="" selected disabled>Choose</option><option>Not at all</option><option>1 to 3 times a week</option><option>4 to 5 times a week</option><option>More than 5 times a week</option></select></div>
+        <div><label for="f-type">What exercise do you enjoy or dislike? (optional)</label><input id="f-type" name="exercise_likes" placeholder="For example: love running, hate burpees"></div>
+
+        <h3 class="full">Your goals</h3>
+        <fieldset class="full"><legend>What would you like to achieve? Tick all that apply.</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="goals[]" value="Improve general health"> Improve general health</label>
+            <label><input type="checkbox" name="goals[]" value="Lose weight" id="g-lose"> Lose weight</label>
+            <label><input type="checkbox" name="goals[]" value="Get stronger"> Get stronger</label>
+            <label><input type="checkbox" name="goals[]" value="Toning"> Toning</label>
+            <label><input type="checkbox" name="goals[]" value="Increase energy"> Increase energy</label>
+            <label><input type="checkbox" name="goals[]" value="Reduce stress"> Reduce stress</label>
+            <label><input type="checkbox" name="goals[]" value="Flexibility"> Flexibility</label>
+            <label><input type="checkbox" name="goals[]" value="Self-esteem"> Self-esteem</label>
+            <label><input type="checkbox" name="goals[]" value="Have fun and meet people"> Have fun and meet people</label>
+            <label><input type="checkbox" name="goals[]" value="Rehabilitation"> Rehabilitation</label>
+            <label><input type="checkbox" name="goals[]" value="Weight maintenance"> Weight maintenance</label>
+            <label><input type="checkbox" name="goals[]" value="Gain weight" id="g-gain"> Gain weight</label>
+            <label><input type="checkbox" name="goals[]" value="Training for a sport or event"> Training for a sport or event</label>
+            <label><input type="checkbox" name="goals[]" value="Other" id="g-other"> Other</label>
+          </div>
+        </fieldset>
+        <div id="lose-wrap" hidden><label for="f-lose">How much weight would you like to lose?</label><select id="f-lose" name="weight_loss_target"><option>0 to 5 kg</option><option>5 to 10 kg</option><option>10 to 20 kg</option><option>More than 20 kg</option></select></div>
+        <div class="full" id="other-goal-wrap" hidden><label for="f-other-goal">What is your other goal?</label><input id="f-other-goal" name="other_goal"></div>
+        <div id="gain-wrap" hidden><label for="f-gain">How much weight would you like to gain?</label><select id="f-gain" name="weight_gain_target"><option>0 to 5 kg</option><option>5 to 10 kg</option><option>10 to 20 kg</option><option>More than 20 kg</option></select></div>
+        <div class="full"><label for="f-goals">Anything else you'd like us to know? For example, an event date (optional)</label><textarea id="f-goals" name="anything_else"></textarea></div>
+
+        <h3 class="full">Waiver</h3>
+        <div class="full waiver" id="waiver">
+          <h4>Reservations / cancellations / 7-day trial</h4>
+          <p>I understand that:</p>
+          <ul>
+            <li>I have the option to join any of our sessions at all our training locations.</li>
+            <li>Reserving your spot is essential. This is easy via the <a class="inline" href="https://www.mindbodyonline.com/get-the-app">Mindbody app</a> or on our website.</li>
+            <li>Team One Fitness has a 30 min cancellation policy so if you can't make it to a session, please cancel your reservation on time by logging in to Mindbody on the app or website. This might open a spot for someone who's on the waiting list.</li>
+            <li>Missed sessions (not cancelled within the cancellation window) do not accrue.</li>
+            <li>The $15 7-day trial is for new customers only and is valid for 7 days from the date of first visit.</li>
+          </ul>
+          <h4>Medical statement</h4>
+          <p>I represent and warrant that I have furnished details of any medical condition I have and of all recent medical treatment received by me. I have read the foregoing and I understand it and any questions which may have occurred to me have been answered to my satisfaction.</p>
+          <h4>Photo consent</h4>
+          <p>I understand that Yves Minten trading as Team One Fitness ("Team One Fitness") may use my name, testimonial, image/photograph in publications and advertisements produced by or for Team One Fitness. I understand that these publications will also be placed on web sites and newsletters managed by Team One Fitness for public relations and advertising purposes.</p>
+          <h4>Bad weather, public holidays</h4>
+          <p>I acknowledge that sessions still occur in bad weather but we reserve the right at our discretion to cancel any session because of unforeseen circumstances, including but not limited to extreme weather or public holidays. These cancelled sessions will be forfeited.</p>
+          <h4>6 week Shred plan and lifestyle manual</h4>
+          <p>I acknowledge and agree as follows:</p>
+          <ol>
+            <li>This manual is designed to provide information and advice for educational purposes, it is not intended as medical guidelines. The dietary advice is not intended as a substitute for any exercise routine, treatment or diet that has been prescribed by a doctor. It is expected that participants will consult with their doctor if they have any medical conditions or injuries that contraindicates physical activity. Team One Fitness does not accept liability or responsibility to any person or entity with respect to any loss or damage to be caused or alleged to be caused directly or indirectly by the information contained in this manual.</li>
+          </ol>
+          <h4>Recreational activity warning</h4>
+          <p>I acknowledge and agree as follows:</p>
+          <ol>
+            <li>That by participating in any and each of Yves Minten trading as Team One Fitness activities ("Team One Fitness"), I am undertaking a 'recreational activity' within the meaning of the Civil Liability Act 2002 (NSW). I have been warned that there is a danger and a risk of personal injury or death in the Team One Fitness activities. I accept the risk of injury, death, loss and damage that may occur.</li>
+            <li>Team One Fitness, it's employees, directors, officers, instructors, contractors and agents are not liable to you, your dependants or legal representatives in negligence, tort, breach of contract or statutory duty for personal injury, death, loss or damage suffered by you from any Team One Fitness activities.</li>
+            <li>Team One Fitness excludes liability for breach of any express or implied warranty that the services will be rendered with reasonable care and skill.</li>
+            <li>Team One Fitness shall incur no liability for consequential or other losses or damage whatsoever by entering into this agreement to the extent permitted by law.</li>
+          </ol>
+        </div>
+        <p class="full privacy"><strong>Privacy:</strong> The details you give us, including your health information, are only used to look after you in our sessions and to manage your membership. They go straight to Team One and we don't sell or share them with anyone else, unless the law requires it. You can ask to see or correct your details at any time by emailing <a class="inline" href="mailto:info@teamonefitness.com.au">info@teamonefitness.com.au</a>.</p>
+        <div class="full"><label class="agree"><input type="checkbox" name="waiver_agreed" value="Yes" required> I have read and agree to the waiver and privacy note above, and I confirm I have told Team One about any medical conditions.</label></div>
+
+        <div class="full"><button class="btn" type="submit">Send form</button></div>
+      </form>
+      <div class="form-msg" id="form-msg" role="status"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid">
+      <a class="logo" href="/"><img src="/assets/logo-black.png" alt="Team One" width="171" height="162" style="height:80px;width:auto"></a>
+      <div class="links">
+        <a href="/training/">Training</a>
+        <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
+        <a href="/sign-up/">Prices</a>
+        <a href="/locations/">Locations</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/referral-program/">Refer a friend</a>
+        <a href="/frequently-asked-questions/">FAQ</a>
+        <a href="/terms-and-conditions/">Terms</a>
+      </div>
+      <div class="contact">
+        <a href="tel:+61424245578">0424 245 578</a>
+        <a href="mailto:info@teamonefitness.com.au">info@teamonefitness.com.au</a>
+        <a href="https://www.instagram.com/teamonefitness/">Instagram</a>
+        <a href="https://www.facebook.com/TeamOneFitness">Facebook</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Team One Fitness</span>
+      <span>Bondi · Coogee · Sydney</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var form = document.getElementById('enquiry-form'), msg = document.getElementById('form-msg');
+  var found = document.getElementById('f-found'), fWrap = document.getElementById('found-wrap'), fMore = document.getElementById('f-found-more'), fLab = document.getElementById('found-label');
+  var askFor = { 'Family, friend or colleague': "What's their name?", 'Another client': "What's their name?", 'Other': 'Please tell us how you found us' };
+  found.addEventListener('change', function () {
+    var q = askFor[found.value];
+    fWrap.hidden = !q; fMore.required = !!q;
+    if (q) { fLab.textContent = q; } else { fMore.value = ''; }
+  });
+  var lose = document.getElementById('g-lose'), lWrap = document.getElementById('lose-wrap');
+  lose.addEventListener('change', function () { lWrap.hidden = !lose.checked; });
+  var gain = document.getElementById('g-gain'), gWrap = document.getElementById('gain-wrap');
+  gain.addEventListener('change', function () { gWrap.hidden = !gain.checked; });
+  var oGoal = document.getElementById('g-other'), oWrap = document.getElementById('other-goal-wrap'), oInput = document.getElementById('f-other-goal');
+  oGoal.addEventListener('change', function () { oWrap.hidden = !oGoal.checked; oInput.required = oGoal.checked; if (!oGoal.checked) oInput.value = ''; });
+  function needOneTicked(name, text) {
+    var boxes = form.querySelectorAll('input[name="' + name + '"]'), any = false;
+    boxes.forEach(function (b) { if (b.checked) any = true; });
+    boxes[0].setCustomValidity(any ? '' : text);
+    return any;
+  }
+  var details = document.getElementById('f-details');
+  function checkHealth() {
+    needOneTicked('conditions[]', 'Please tick any that apply, or "None of the above".');
+    needOneTicked('goals[]', 'Please tick at least one goal.');
+    var flagged = false;
+    form.querySelectorAll('input[name="conditions[]"]:checked').forEach(function (b) { if (b.value !== 'None of the above' && b.value !== 'Over 45 years of age') flagged = true; });
+    ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) { var c = form.querySelector('input[name="' + n + '"]:checked'); if (c && c.value === 'Yes') flagged = true; });
+    details.required = flagged;
+  }
+  function markStars() {
+    form.querySelectorAll('.star').forEach(function (s) { s.remove(); });
+    var done = [];
+    function star(el) { if (el && done.indexOf(el) < 0) { done.push(el); var s = document.createElement('span'); s.className = 'star'; s.textContent = '*'; s.setAttribute('aria-hidden', 'true'); el.appendChild(s); } }
+    form.querySelectorAll('[required]').forEach(function (f) {
+      if (f.type === 'checkbox' && f.name === 'waiver_agreed') { star(f.parentNode); return; }
+      if (f.type === 'radio') { star(f.closest('.yn').querySelector('span')); return; }
+      star(form.querySelector('label[for="' + f.id + '"]'));
+    });
+    form.querySelectorAll('fieldset legend').forEach(star);
+  }
+  form.addEventListener('change', function () { checkHealth(); markStars(); });
+  markStars();
+  form.querySelector('button[type=submit]').addEventListener('click', checkHealth);
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button');
+    function err(text) { msg.className = 'form-msg err'; msg.textContent = text; msg.style.display = 'block'; }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var data = new FormData(form);
+    ['conditions', 'goals'].forEach(function (k) {
+      var ticked = data.getAll(k + '[]');
+      data.delete(k + '[]');
+      data.append(k, ticked.length ? ticked.join(', ') : 'None ticked');
+    });
+    fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.success) { throw new Error(); }
+        form.style.display = 'none';
+        msg.className = 'next-step';
+        msg.innerHTML = '<h3>Thanks, we’ve received your form.</h3><p>See you at training! If you have any questions, call or message Yves on 0424 245 578.</p>';
+        msg.style.display = 'block';
+        msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () { btn.disabled = false; btn.textContent = 'Send form'; err('Sorry, something went wrong. Please try again, or call 0424 245 578.'); });
+  });
+})();
+</script>
+
+</body>
+</html>
