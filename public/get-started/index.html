@@ -269,11 +269,12 @@
             <label><input type="checkbox" name="goals[]" value="Have fun and meet people"> Have fun and meet people</label>
             <label><input type="checkbox" name="goals[]" value="Rehabilitation"> Rehabilitation</label>
             <label><input type="checkbox" name="goals[]" value="Weight maintenance"> Weight maintenance</label>
-            <label><input type="checkbox" name="goals[]" value="Gain weight"> Gain weight</label>
+            <label><input type="checkbox" name="goals[]" value="Gain weight" id="g-gain"> Gain weight</label>
             <label><input type="checkbox" name="goals[]" value="Training for a sport or event"> Training for a sport or event</label>
           </div>
         </fieldset>
         <div id="lose-wrap" hidden><label for="f-lose">How much weight would you like to lose?</label><select id="f-lose" name="weight_loss_target"><option>0 to 5 kg</option><option>5 to 10 kg</option><option>10 to 20 kg</option><option>More than 20 kg</option></select></div>
+        <div id="gain-wrap" hidden><label for="f-gain">How much weight would you like to gain?</label><select id="f-gain" name="weight_gain_target"><option>0 to 5 kg</option><option>5 to 10 kg</option><option>10 to 20 kg</option><option>More than 20 kg</option></select></div>
         <div class="full"><label for="f-goals">Anything else you'd like us to know? For example, an event date (optional)</label><textarea id="f-goals" name="anything_else"></textarea></div>
 
         <h3 class="full">Waiver</h3>
@@ -374,6 +375,8 @@
   });
   var lose = document.getElementById('g-lose'), lWrap = document.getElementById('lose-wrap');
   lose.addEventListener('change', function () { lWrap.hidden = !lose.checked; });
+  var gain = document.getElementById('g-gain'), gWrap = document.getElementById('gain-wrap');
+  gain.addEventListener('change', function () { gWrap.hidden = !gain.checked; });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var btn = form.querySelector('button');
