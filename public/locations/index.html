@@ -87,6 +87,18 @@
   dl.facts dt { font-family: var(--head); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--orange); margin-top: 16px; }
   dl.facts dd { margin: 4px 0 0; color: var(--body); }
   .two .photo { position: relative; }
+  .beach-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+  .beach-tile { position: relative; display: block; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: #111; color: var(--white); text-decoration: none; }
+  .beach-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .beach-tile:hover img { transform: scale(1.04); }
+  .beach-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0) 100%); }
+  .tile-text { position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 1; display: flex; flex-direction: column; gap: 6px; }
+  .tile-name { font-family: var(--head); font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); text-transform: uppercase; line-height: 1; }
+  .tile-info { font-size: 15px; color: #e6e6e6; }
+  .tile-link { font-family: var(--head); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--orange); margin-top: 4px; }
+  #bondi .photo, #coogee .photo { align-self: center; }
+  .section h2.beach-name { font-size: clamp(36px, 4.6vw, 56px); text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
+  @media (max-width: 780px) { .beach-tiles { grid-template-columns: 1fr; } }
 </style>
 
 </head>
@@ -139,22 +151,30 @@
       <p class="eyebrow">Where we train</p>
       <h2>Find your nearest Team One class.</h2>
       <p class="lead">Our bootcamp classes run on the sand at Bondi Beach and Coogee Beach, rain, hail or shine. One membership covers both beaches. Below you'll find exactly where we meet and where we go on rainy days.</p>
-      <div class="loc-nav">
-        <a href="#bondi">Bondi Beach</a>
-        <a href="#coogee">Coogee Beach</a>
-        <a href="#personal-training">Personal training</a>
+      <div class="beach-tiles">
+        <a class="beach-tile" href="#bondi">
+          <img src="/assets/photos/bondi-sunset-trx-wall-640.webp" srcset="/assets/photos/bondi-sunset-trx-wall-640.webp 640w, /assets/photos/bondi-sunset-trx-wall-1024.webp 1024w" sizes="(max-width: 780px) 100vw, 580px" alt="Team One members doing suspension training against the sea wall on Bondi Beach at sunset" loading="lazy">
+          <span class="tile-text"><span class="tile-name">Bondi Beach</span><span class="tile-info">Ramp 2, south end · Tuesday &amp; Saturday</span><span class="tile-link">Directions &amp; times →</span></span>
+        </a>
+        <a class="beach-tile" href="#coogee">
+          <img src="/assets/photos/coogee-golden-warm-960.webp" srcset="/assets/photos/coogee-golden-warm-960.webp 960w, /assets/photos/coogee-golden-warm-1920.webp 1920w" sizes="(max-width: 780px) 100vw, 580px" alt="Team One bootcamp at sunrise on Coogee Beach" loading="lazy" style="object-position: 100% 45%">
+          <span class="tile-text"><span class="tile-name">Coogee Beach</span><span class="tile-info">North end, by the volleyball courts · Monday &amp; Friday</span><span class="tile-link">Directions &amp; times →</span></span>
+        </a>
       </div>
+      <p class="small" style="margin-top:16px">Looking for one-on-one coaching? <a class="inline" href="#personal-training">See personal training locations →</a></p>
     </div>
   </section>
 
   <section class="section sand" id="bondi">
     <div class="container two">
       <div class="body">
-        <p class="eyebrow">Bondi Beach bootcamp</p>
-        <h2>Ramp 2, south end of Bondi Beach.</h2>
+        <p class="eyebrow">Bootcamp · Ramp 2, south end</p>
+        <h2 class="beach-name">Bondi Beach</h2>
         <dl class="facts">
           <dt>How to find us</dt>
           <dd>We train at the south end of Bondi Beach, in front of Ramp 2, which is next to the skate park (opposite Hall Street). Look for the Team One flag.</dd>
+          <dt>Meeting point</dt>
+          <dd>6:00am Tuesday and 7:15am Saturday classes: meet in the beach car park opposite the training spot. 6:45am Tuesday and 8:00am Saturday classes: meet at the training spot on the beach.</dd>
           <dt>Rainy days</dt>
           <dd>We move onto the promenade or under one of the huts on the grass area, so we can train rain, hail or shine.</dd>
           <dt>Class times</dt>
@@ -167,19 +187,21 @@
           <a class="link" href="/training/bootcamp-fitness-training/bootcamp-classes-bondi-beach/">Bondi bootcamp →</a>
         </div>
       </div>
-      <div class="photo"><img src="/assets/photos/bondi-bootcamp-1000.webp" srcset="/assets/photos/bondi-bootcamp-600.webp 600w, /assets/photos/bondi-bootcamp-1000.webp 1000w" sizes="(max-width: 780px) 100vw, 560px" alt="Team One bootcamp class on the sand at Bondi Beach" width="1000" height="750" loading="lazy"></div>
+      <div class="photo"><img src="/assets/photos/bondi-log-drag-wide-1200.webp" srcset="/assets/photos/bondi-log-drag-wide-640.webp 640w, /assets/photos/bondi-log-drag-wide-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 560px" alt="Team One members dragging timber logs across the sand at Bondi Beach" width="1200" height="900" loading="lazy"></div>
     </div>
   </section>
 
   <section class="section" id="coogee">
     <div class="container two">
-      <div class="photo"><img src="/assets/photos/coogee-sunrise-1000.webp" srcset="/assets/photos/coogee-sunrise-600.webp 600w, /assets/photos/coogee-sunrise-1000.webp 1000w" sizes="(max-width: 780px) 100vw, 560px" alt="Team One bootcamp class at sunrise on Coogee Beach" width="1000" height="936" loading="lazy"></div>
+      <div class="photo"><img src="/assets/photos/coogee-rope-carry-1200.webp" srcset="/assets/photos/coogee-rope-carry-640.webp 640w, /assets/photos/coogee-rope-carry-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 560px" alt="Team One group carrying a heavy rope overhead on Coogee Beach at sunrise" width="1200" height="900" loading="lazy"></div>
       <div class="body">
-        <p class="eyebrow">Coogee Beach bootcamp</p>
-        <h2>North end, near the volleyball courts.</h2>
+        <p class="eyebrow">Bootcamp · North end, by the volleyball courts</p>
+        <h2 class="beach-name">Coogee Beach</h2>
         <dl class="facts">
           <dt>How to find us</dt>
           <dd>We train at the north end of Coogee Beach, next to the beach volleyball courts. From the Dolphin Street car park, walk down the small white stairs. Look for the Team One flag.</dd>
+          <dt>Meeting point</dt>
+          <dd>6:00am class: meet in the Dolphin Street car park near the Pavilion. 6:45am class: meet at the training spot on the beach.</dd>
           <dt>Rainy days</dt>
           <dd>We move undercover to the huts with the BBQs next to the beach car park, opposite the Pavilion.</dd>
           <dt>Class times</dt>
@@ -199,7 +221,7 @@
     <div class="container">
       <p class="eyebrow">First class</p>
       <h2>Your first class.</h2>
-      <p class="lead">Arrive a few minutes early and say hi to the coach. If you can't find us, call or message Yves on <a class="inline" href="tel:+61424245578">0424 245 578</a>. If we ever need to change the location, we'll let you know beforehand.</p>
+      <p class="lead">Arrive a few minutes early and say hi to the coach. If you can't find us, call or message your trainer: Yves on <a class="inline" href="tel:+61424245578">0424 245 578</a> or Sammy on <a class="inline" href="tel:+61431830384">0431 830 384</a>. If we ever need to change the location, we'll let you know beforehand.</p>
       <a class="btn" href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">View live timetable &amp; book</a>
     </div>
   </section>
