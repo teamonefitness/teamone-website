@@ -185,8 +185,8 @@
       <h2>Three simple steps.</h2>
       <ol class="steps">
         <li><span class="num">1</span><h3>Fill in your details</h3><p>Complete the short health form and waiver below. It takes about 5 minutes.</p></li>
-        <li><span class="num">2</span><h3>Pay $15 in Mindbody</h3><p>Choose your start date, create your Mindbody account and buy the 7-day trial.</p></li>
-        <li><span class="num">3</span><h3>Book your classes</h3><p>Reserve your spots for the week in the <a class="inline" href="https://get.mndbdy.ly/s1ud/urRZJo8ovs">Mindbody app</a>, then come and train.</p></li>
+        <li><span class="num">2</span><h3>Buy the trial in Mindbody</h3><p>Log in or create your free Mindbody account, then buy the $15 7-day trial.</p></li>
+        <li><span class="num">3</span><h3>Book your classes</h3><p>Reserve your first class in the <a class="inline" href="https://get.mndbdy.ly/s1ud/urRZJo8ovs">Mindbody app</a> or on our timetable. Your 7 days start from your first class.</p></li>
       </ol>
       <p class="small">Your trial runs for 7 days from your first class and is for new members only. <a class="inline" href="/sign-up/">See our memberships and prices →</a></p>
     </div>
@@ -412,8 +412,8 @@
         if (!d.success) { throw new Error(); }
         form.style.display = 'none';
         msg.className = 'next-step';
-        msg.innerHTML = '<p class="eyebrow">Step 2</p><h3>Thanks! Now choose your start date and pay $15.</h3>' +
-          '<p>We’ve received your form. Next, create your Mindbody account and buy the 7-day trial. Then book your first classes in the Mindbody app.</p>' +
+        msg.innerHTML = '<p class="eyebrow">Step 2</p><h3>Thanks! Now buy your trial in Mindbody.</h3>' +
+          '<p>We’ve received your form. Next, log in or create your Mindbody account and buy the $15 7-day trial. Then book your first class in the Mindbody app. Your 7 days start from your first class.</p>' +
           '<a class="btn" href="' + TRIAL_URL + '">Go to Mindbody</a>';
         msg.style.display = 'block';
         msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
