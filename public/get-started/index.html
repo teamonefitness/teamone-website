@@ -184,7 +184,7 @@
       <p class="eyebrow">How it works</p>
       <h2>Three simple steps.</h2>
       <ol class="steps">
-        <li><span class="num">1</span><h3>Fill in your details</h3><p>Complete the short health form and waiver below. It takes about 3 minutes.</p></li>
+        <li><span class="num">1</span><h3>Fill in your details</h3><p>Complete the short health form and waiver below. It takes about 5 minutes.</p></li>
         <li><span class="num">2</span><h3>Pay $15 in Mindbody</h3><p>Choose your start date, create your Mindbody account and buy the 7-day trial.</p></li>
         <li><span class="num">3</span><h3>Book your classes</h3><p>Reserve your spots for the week in the <a class="inline" href="https://get.mndbdy.ly/s1ud/urRZJo8ovs">Mindbody app</a>, then come and train.</p></li>
       </ol>
@@ -214,8 +214,9 @@
           <select id="f-location" name="location"><option>Bondi Beach</option><option>Coogee Beach</option><option>Both</option></select></div>
         <div><label for="f-found">How did you find us?</label>
           <select id="f-found" name="how_found">
-            <option>Google search</option><option>Google Maps</option><option>Instagram</option><option>Family, friend or colleague</option><option>Another client</option><option>Walking past</option><option>Flyer or poster</option><option>LinkedIn</option><option>Other</option>
+            <option>Google search</option><option>Google Maps</option><option>Instagram</option><option>Family, friend or colleague</option><option>Another client</option><option>Walking past</option><option>Flyer or poster</option><option>Newsletter</option><option>LinkedIn</option><option>Other</option>
           </select></div>
+        <div class="full" id="found-wrap" hidden><label for="f-found-more" id="found-label">What's their name?</label><input id="f-found-more" name="how_found_details"></div>
 
         <h3 class="full">Your health</h3>
         <fieldset class="full"><legend>Do you have, or have you had, any of the following? Tick all that apply.</legend>
@@ -245,7 +246,35 @@
         <div class="full"><label for="f-details">If you answered yes to anything above, or have an injury or anything else that may limit your training, tell us more (optional)</label><textarea id="f-details" name="health_details"></textarea></div>
         <div><label for="f-ec">Emergency contact name</label><input id="f-ec" name="emergency_contact" required></div>
         <div><label for="f-ecp">Emergency contact phone</label><input id="f-ecp" name="emergency_phone" type="tel" required></div>
-        <div class="full"><label for="f-goals">What would you like to achieve? (optional)</label><textarea id="f-goals" name="goals" placeholder="For example: get fitter, lose weight, get stronger, meet people"></textarea></div>
+
+        <h3 class="full">About you</h3>
+        <div><label for="f-fit">Your current fitness level (1 = unfit, 10 = very fit)</label><select id="f-fit" name="fitness_level" required><option value="" selected disabled>Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+        <div><label for="f-diet">Your current diet (1 = poor, 10 = very healthy)</label><select id="f-diet" name="diet_rating" required><option value="" selected disabled>Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+        <div><label for="f-job">Your occupation</label><input id="f-job" name="occupation"></div>
+        <div><label for="f-work">How active is your work?</label><select id="f-work" name="work_activity"><option>Mostly sitting</option><option>Lightly active</option><option>Very active</option></select></div>
+        <div><label for="f-freq">How often have you exercised in the last 6 months?</label><select id="f-freq" name="exercise_frequency" required><option value="" selected disabled>Choose</option><option>Not at all</option><option>1 to 3 times a week</option><option>4 to 5 times a week</option><option>More than 5 times a week</option></select></div>
+        <div><label for="f-type">What exercise do you enjoy or dislike? (optional)</label><input id="f-type" name="exercise_likes" placeholder="For example: love running, hate burpees"></div>
+
+        <h3 class="full">Your goals</h3>
+        <fieldset class="full"><legend>What would you like to achieve? Tick all that apply.</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="goals[]" value="Improve general health"> Improve general health</label>
+            <label><input type="checkbox" name="goals[]" value="Lose weight" id="g-lose"> Lose weight</label>
+            <label><input type="checkbox" name="goals[]" value="Get stronger"> Get stronger</label>
+            <label><input type="checkbox" name="goals[]" value="Toning"> Toning</label>
+            <label><input type="checkbox" name="goals[]" value="Increase energy"> Increase energy</label>
+            <label><input type="checkbox" name="goals[]" value="Reduce stress"> Reduce stress</label>
+            <label><input type="checkbox" name="goals[]" value="Flexibility"> Flexibility</label>
+            <label><input type="checkbox" name="goals[]" value="Self-esteem"> Self-esteem</label>
+            <label><input type="checkbox" name="goals[]" value="Have fun and meet people"> Have fun and meet people</label>
+            <label><input type="checkbox" name="goals[]" value="Rehabilitation"> Rehabilitation</label>
+            <label><input type="checkbox" name="goals[]" value="Weight maintenance"> Weight maintenance</label>
+            <label><input type="checkbox" name="goals[]" value="Gain weight"> Gain weight</label>
+            <label><input type="checkbox" name="goals[]" value="Training for a sport or event"> Training for a sport or event</label>
+          </div>
+        </fieldset>
+        <div id="lose-wrap" hidden><label for="f-lose">How much weight would you like to lose?</label><select id="f-lose" name="weight_loss_target"><option>0 to 5 kg</option><option>5 to 10 kg</option><option>10 to 20 kg</option><option>More than 20 kg</option></select></div>
+        <div class="full"><label for="f-goals">Anything else you'd like us to know? For example, an event date (optional)</label><textarea id="f-goals" name="anything_else"></textarea></div>
 
         <h3 class="full">Waiver</h3>
         <div class="full waiver" id="waiver">
@@ -336,14 +365,26 @@
   // Direct Mindbody link for the $15 7-day trial
   var TRIAL_URL = 'https://clients.mindbodyonline.com/classic/ws?studioid=188148&stype=41&sTG=22&prodId=10104';
   var form = document.getElementById('enquiry-form'), msg = document.getElementById('form-msg');
+  var found = document.getElementById('f-found'), fWrap = document.getElementById('found-wrap'), fMore = document.getElementById('f-found-more'), fLab = document.getElementById('found-label');
+  var askFor = { 'Family, friend or colleague': "What's their name?", 'Another client': "What's their name?", 'Other': 'Please tell us how you found us' };
+  found.addEventListener('change', function () {
+    var q = askFor[found.value];
+    fWrap.hidden = !q; fMore.required = !!q;
+    if (q) { fLab.textContent = q; } else { fMore.value = ''; }
+  });
+  var lose = document.getElementById('g-lose'), lWrap = document.getElementById('lose-wrap');
+  lose.addEventListener('change', function () { lWrap.hidden = !lose.checked; });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var btn = form.querySelector('button');
     function err(text) { msg.className = 'form-msg err'; msg.textContent = text; msg.style.display = 'block'; }
     btn.disabled = true; btn.textContent = 'Sending...';
-    var data = new FormData(form), ticked = data.getAll('conditions[]');
-    data.delete('conditions[]');
-    data.append('conditions', ticked.length ? ticked.join(', ') : 'None ticked');
+    var data = new FormData(form);
+    ['conditions', 'goals'].forEach(function (k) {
+      var ticked = data.getAll(k + '[]');
+      data.delete(k + '[]');
+      data.append(k, ticked.length ? ticked.join(', ') : 'None ticked');
+    });
     fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
       .then(function (r) { return r.json(); })
       .then(function (d) {
