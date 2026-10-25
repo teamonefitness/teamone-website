@@ -128,6 +128,7 @@
   .waiver p { margin: 0 0 10px; }
   .waiver ul, .waiver ol { margin: 0 0 10px; padding-left: 20px; }
   .waiver li { margin-bottom: 6px; }
+  .star { color: #d64545; font-weight: 700; margin-left: 3px; }
   .privacy { font-size: 14px; color: var(--body); margin: 0; }
   .next-step { background: var(--white); border: 2px solid var(--orange); border-radius: 8px; padding: 28px; margin-top: 18px; }
   .next-step h3 { font-size: 22px; margin-bottom: 8px; }
@@ -196,7 +197,7 @@
     <div class="container" style="max-width:860px">
       <p class="eyebrow">Step 1</p>
       <h2>Health form and waiver.</h2>
-      <p class="lead">This helps us keep you safe and tailor your training. Your answers go straight to Team One and are only used to look after you. All questions need an answer unless they say optional.</p>
+      <p class="lead">This helps us keep you safe and tailor your training. Your answers go straight to Team One and are only used to look after you. Questions marked with a star (<span class="star">*</span>) must be answered.</p>
       <form class="enquiry" id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="0dd69e5c-8628-410c-ae48-f17b4a4d087a">
         <input type="hidden" name="subject" value="New 7-day trial health form from the Team One website">
@@ -393,7 +394,19 @@
     ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) { var c = form.querySelector('input[name="' + n + '"]:checked'); if (c && c.value === 'Yes') flagged = true; });
     details.required = flagged;
   }
-  form.addEventListener('change', checkHealth);
+  function markStars() {
+    form.querySelectorAll('.star').forEach(function (s) { s.remove(); });
+    var done = [];
+    function star(el) { if (el && done.indexOf(el) < 0) { done.push(el); var s = document.createElement('span'); s.className = 'star'; s.textContent = '*'; s.setAttribute('aria-hidden', 'true'); el.appendChild(s); } }
+    form.querySelectorAll('[required]').forEach(function (f) {
+      if (f.type === 'checkbox' && f.name === 'waiver_agreed') { star(f.parentNode); return; }
+      if (f.type === 'radio') { star(f.closest('.yn').querySelector('span')); return; }
+      star(form.querySelector('label[for="' + f.id + '"]'));
+    });
+    form.querySelectorAll('fieldset legend').forEach(star);
+  }
+  form.addEventListener('change', function () { checkHealth(); markStars(); });
+  markStars();
   form.querySelector('button[type=submit]').addEventListener('click', checkHealth);
   form.addEventListener('submit', function (e) {
     e.preventDefault();
