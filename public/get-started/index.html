@@ -196,7 +196,7 @@
     <div class="container" style="max-width:860px">
       <p class="eyebrow">Step 1</p>
       <h2>Health form and waiver.</h2>
-      <p class="lead">This helps us keep you safe and tailor your training. Your answers go straight to Team One and are only used to look after you.</p>
+      <p class="lead">This helps us keep you safe and tailor your training. Your answers go straight to Team One and are only used to look after you. All questions need an answer unless they say optional.</p>
       <form class="enquiry" id="enquiry-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="0dd69e5c-8628-410c-ae48-f17b4a4d087a">
         <input type="hidden" name="subject" value="New 7-day trial health form from the Team One website">
@@ -211,9 +211,10 @@
         <div><label for="f-dob">Date of birth</label><input id="f-dob" name="date_of_birth" type="date" autocomplete="bday" required></div>
         <div><label for="f-start">Preferred start date</label><input id="f-start" name="start_date" type="date" required></div>
         <div><label for="f-location">Where will you mostly train?</label>
-          <select id="f-location" name="location"><option>Bondi Beach</option><option>Coogee Beach</option><option>Both</option></select></div>
+          <select id="f-location" name="location" required><option value="" selected disabled>Choose</option><option>Bondi Beach</option><option>Coogee Beach</option><option>Both</option></select></div>
         <div><label for="f-found">How did you find us?</label>
-          <select id="f-found" name="how_found">
+          <select id="f-found" name="how_found" required>
+            <option value="" selected disabled>Choose</option>
             <option>Google search</option><option>Google Maps</option><option>Instagram</option><option>Family, friend or colleague</option><option>Another client</option><option>Walking past</option><option>Flyer or poster</option><option>Newsletter</option><option>LinkedIn</option><option>Other</option>
           </select></div>
         <div class="full" id="found-wrap" hidden><label for="f-found-more" id="found-label">What's their name?</label><input id="f-found-more" name="how_found_details"></div>
@@ -243,15 +244,15 @@
         <div class="full yn"><span>Has a close relative had a stroke, heart attack or heart disease?</span><label><input type="radio" name="family_history" value="Yes" required> Yes</label><label><input type="radio" name="family_history" value="No"> No</label></div>
         <div class="full yn"><span>Are you taking any medication?</span><label><input type="radio" name="medication" value="Yes" required> Yes</label><label><input type="radio" name="medication" value="No"> No</label></div>
         <div class="full yn"><span>Have you been in hospital in the last 12 months?</span><label><input type="radio" name="hospital" value="Yes" required> Yes</label><label><input type="radio" name="hospital" value="No"> No</label></div>
-        <div class="full"><label for="f-details">If you answered yes to anything above, or have an injury or anything else that may limit your training, tell us more (optional)</label><textarea id="f-details" name="health_details"></textarea></div>
+        <div class="full"><label for="f-details">If you ticked a condition or answered yes above, please tell us more. Also mention any injury or anything else that may limit your training</label><textarea id="f-details" name="health_details"></textarea></div>
         <div><label for="f-ec">Emergency contact name</label><input id="f-ec" name="emergency_contact" required></div>
         <div><label for="f-ecp">Emergency contact phone</label><input id="f-ecp" name="emergency_phone" type="tel" required></div>
 
         <h3 class="full">About you</h3>
         <div><label for="f-fit">Your current fitness level (1 = unfit, 10 = very fit)</label><select id="f-fit" name="fitness_level" required><option value="" selected disabled>Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
         <div><label for="f-diet">Your current diet (1 = poor, 10 = very healthy)</label><select id="f-diet" name="diet_rating" required><option value="" selected disabled>Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
-        <div><label for="f-job">Your occupation</label><input id="f-job" name="occupation"></div>
-        <div><label for="f-work">How active is your work?</label><select id="f-work" name="work_activity"><option>Mostly sitting</option><option>Lightly active</option><option>Very active</option></select></div>
+        <div><label for="f-job">Your occupation (optional)</label><input id="f-job" name="occupation"></div>
+        <div><label for="f-work">How active is your work? (optional)</label><select id="f-work" name="work_activity"><option value="" selected>Choose</option><option>Mostly sitting</option><option>Lightly active</option><option>Very active</option></select></div>
         <div><label for="f-freq">How often have you exercised in the last 6 months?</label><select id="f-freq" name="exercise_frequency" required><option value="" selected disabled>Choose</option><option>Not at all</option><option>1 to 3 times a week</option><option>4 to 5 times a week</option><option>More than 5 times a week</option></select></div>
         <div><label for="f-type">What exercise do you enjoy or dislike? (optional)</label><input id="f-type" name="exercise_likes" placeholder="For example: love running, hate burpees"></div>
 
@@ -377,6 +378,23 @@
   lose.addEventListener('change', function () { lWrap.hidden = !lose.checked; });
   var gain = document.getElementById('g-gain'), gWrap = document.getElementById('gain-wrap');
   gain.addEventListener('change', function () { gWrap.hidden = !gain.checked; });
+  function needOneTicked(name, text) {
+    var boxes = form.querySelectorAll('input[name="' + name + '"]'), any = false;
+    boxes.forEach(function (b) { if (b.checked) any = true; });
+    boxes[0].setCustomValidity(any ? '' : text);
+    return any;
+  }
+  var details = document.getElementById('f-details');
+  function checkHealth() {
+    needOneTicked('conditions[]', 'Please tick any that apply, or "None of the above".');
+    needOneTicked('goals[]', 'Please tick at least one goal.');
+    var flagged = false;
+    form.querySelectorAll('input[name="conditions[]"]:checked').forEach(function (b) { if (b.value !== 'None of the above' && b.value !== 'Over 45 years of age') flagged = true; });
+    ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) { var c = form.querySelector('input[name="' + n + '"]:checked'); if (c && c.value === 'Yes') flagged = true; });
+    details.required = flagged;
+  }
+  form.addEventListener('change', checkHealth);
+  form.querySelector('button[type=submit]').addEventListener('click', checkHealth);
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var btn = form.querySelector('button');
