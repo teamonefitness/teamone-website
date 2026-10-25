@@ -104,6 +104,9 @@
   #bondi .photo, #coogee .photo { align-self: center; }
   .section h2.beach-name { font-size: clamp(36px, 4.6vw, 56px); text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
   @media (max-width: 780px) { .beach-tiles { grid-template-columns: 1fr; } }
+  .page-hero.dark::before { background: linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 80%); }
+  .page-hero.dark .sub { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+  .page-hero.dark h1 { text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
   .intro { background: var(--black); color: var(--white); padding: 56px 0 48px; }
   .intro h1 { font-size: clamp(34px, 5vw, 58px); text-transform: uppercase; line-height: 1.02; color: var(--white); }
   .intro .sub { font-size: 18px; color: #e2e2e2; margin: 14px 0 0; max-width: 52ch; }
@@ -163,7 +166,7 @@
 </header>
 
 <main>
-  <section class="page-hero" style="min-height:560px">
+  <section class="page-hero dark" style="min-height:560px">
     <img src="/assets/photos/bondi-kettlebell-group-1024.webp" srcset="/assets/photos/bondi-kettlebell-group-640.webp 640w, /assets/photos/bondi-kettlebell-group-1024.webp 1024w" sizes="100vw" alt="Team One bootcamp group training with kettlebells on Bondi Beach" width="1024" height="768" fetchpriority="high" style="object-position: 50% 18%">
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Contact</nav>
