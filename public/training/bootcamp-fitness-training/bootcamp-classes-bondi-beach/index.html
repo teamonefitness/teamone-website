@@ -100,6 +100,10 @@
   .review figcaption { font-size: 13.5px; color: var(--muted); }
   .review figcaption strong { color: var(--ink); font-weight: 600; }
   @media (max-width: 780px) { .reviews { grid-template-columns: 1fr; } }
+  .review blockquote.clamp { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; flex: 0 1 auto; }
+  .review blockquote.clamp.open { display: block; }
+  .review .more { background: none; border: 0; padding: 0; margin: -6px 0 14px; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--orange); cursor: pointer; align-self: flex-start; }
+  .review figcaption { margin-top: auto; }
 </style>
 </head>
 <body>
@@ -231,8 +235,8 @@
       <p class="eyebrow">Reviews</p>
       <h2>What our members say.</h2>
       <div class="reviews">
-        <figure class="review"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>"Since I've joined Yves and the Team One Fitness crew in May 2019, I've lost 10Kgs. The crew are easy going with no attitude."</blockquote><figcaption><strong>Sonny T.</strong> · Google review</figcaption></figure>
-        <figure class="review"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>"Great training programs, suitable for all fitness levels but most of all great people to train with! Supportive and motivational. Highly recommended!!!"</blockquote><figcaption><strong>Madeleine K.</strong> · Google review</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="clamp">"Since I've joined Yves and the Team One Fitness crew in May 2019, I've lost 10Kgs. The crew are easy going with no attitude. And Yves is always there to help you in your fitness journey. And what better way to get fit than being outside on the beach."</blockquote><button class="more" type="button" aria-expanded="false">Read more</button><figcaption><strong>Sonny T.</strong> · Google review</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="clamp">"Great training programs, suitable for all fitness levels but most of all great people to train with! Supportive and motivational. Highly recommended!!!"</blockquote><button class="more" type="button" aria-expanded="false">Read more</button><figcaption><strong>Madeleine K.</strong> · Google review</figcaption></figure>
         <figure class="review"><blockquote>"I now enjoy exercise rather than seeing it as a chore."</blockquote><figcaption><strong>Charlie B.</strong> · Bondi member</figcaption></figure>
       </div>
     </div>
@@ -316,5 +320,16 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.review blockquote.clamp').forEach(function (q) {
+    var b = q.nextElementSibling;
+    if (q.scrollHeight <= q.clientHeight + 2) { b.hidden = true; return; }
+    b.addEventListener('click', function () {
+      var open = q.classList.toggle('open');
+      b.textContent = open ? 'Show less' : 'Read more';
+      b.setAttribute('aria-expanded', open);
+    });
+  });
+</script>
 </body>
 </html>

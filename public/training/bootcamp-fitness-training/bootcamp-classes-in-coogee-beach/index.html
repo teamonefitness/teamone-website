@@ -100,6 +100,10 @@
   .review figcaption { font-size: 13.5px; color: var(--muted); }
   .review figcaption strong { color: var(--ink); font-weight: 600; }
   @media (max-width: 780px) { .reviews { grid-template-columns: 1fr; } }
+  .review blockquote.clamp { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; flex: 0 1 auto; }
+  .review blockquote.clamp.open { display: block; }
+  .review .more { background: none; border: 0; padding: 0; margin: -6px 0 14px; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--orange); cursor: pointer; align-self: flex-start; }
+  .review figcaption { margin-top: auto; }
 </style>
 </head>
 <body>
@@ -232,7 +236,7 @@
       <h2>What our members say.</h2>
       <div class="reviews">
         <figure class="review"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>"Having just relocated to Melbourne I dearly miss my sessions with Yves and crew on Coogee beach! Perfect location to make your morning exercise something to look forward to…"</blockquote><figcaption><strong>Sophie O.</strong> · Google review</figcaption></figure>
-        <figure class="review"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>"He connects with everyone training and makes sure you're engaged in the right way at the right level. I feel fitter and generally better (physically and mentally) since starting his training sessions and it's a great feeling to be on the beach while watching the sunrise."</blockquote><figcaption><strong>Cameron M.</strong> · Google review</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="clamp">"Team One Fitness is a great place to improve your health and fitness while having an awesome time. I've been training with Yves for about 6 months and I can say that all the sessions are well thought out and never the same. He connects with everyone training and makes sure you're engaged in the right way at the right level. I feel fitter and generally better (physically and mentally) since starting his training sessions and it's a great feeling to be on the beach while watching the sunrise. I strongly recommend Team One Fitness!"</blockquote><button class="more" type="button" aria-expanded="false">Read more</button><figcaption><strong>Cameron M.</strong> · Google review</figcaption></figure>
         <figure class="review"><blockquote>"It has totally transformed my life and I just love doing exercise now."</blockquote><figcaption><strong>Prue S.</strong> · Coogee member</figcaption></figure>
       </div>
     </div>
@@ -316,5 +320,16 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.review blockquote.clamp').forEach(function (q) {
+    var b = q.nextElementSibling;
+    if (q.scrollHeight <= q.clientHeight + 2) { b.hidden = true; return; }
+    b.addEventListener('click', function () {
+      var open = q.classList.toggle('open');
+      b.textContent = open ? 'Show less' : 'Read more';
+      b.setAttribute('aria-expanded', open);
+    });
+  });
+</script>
 </body>
 </html>
