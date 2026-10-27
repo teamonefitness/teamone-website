@@ -189,6 +189,15 @@
   .review blockquote.clamp.open { display: block; }
   .review .more { background: none; border: 0; padding: 0; margin: -6px 0 14px; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--orange); cursor: pointer; align-self: flex-start; }
   .review figcaption { margin-top: auto; }
+  .social { padding: 0 0 80px; }
+  .social .head { max-width: 640px; margin-bottom: 26px; }
+  .social h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 10px; }
+  .social .head p:not(.eyebrow) { color: var(--body); font-size: 16px; }
+  .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 12px; }
+  .social-grid figure { position: relative; margin: 0; border-radius: 6px; overflow: hidden; background: #222; aspect-ratio: 4/3; }
+  .social-grid figure:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .social-grid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 780px) { .social-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; } .social-grid figure:first-child { grid-row: span 1; aspect-ratio: 4/3; } }
 </style>
 </head>
 <body>
@@ -318,6 +327,23 @@
           <div>1000+<span>people trained</span></div>
           <div>10+<span>years some members have trained with us</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social">
+    <div class="container">
+      <div class="head">
+        <p class="eyebrow">Off the sand</p>
+        <h2>We train hard and celebrate together.</h2>
+        <p>From backyard parties to day trips, Team One social catch ups are where training partners become friends.</p>
+      </div>
+      <div class="social-grid">
+        <figure><img src="/assets/photos/social-park-ocean-1200.webp" srcset="/assets/photos/social-park-ocean-640.webp 640w, /assets/photos/social-park-ocean-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 580px" alt="Team One members and their families at a social catch up on the grass by the beach" width="1200" height="900" loading="lazy"></figure>
+        <figure><img src="/assets/photos/social-backyard-night-1200.webp" srcset="/assets/photos/social-backyard-night-640.webp 640w, /assets/photos/social-backyard-night-1200.webp 1200w" sizes="(max-width: 780px) 50vw, 290px" alt="Team One members at an evening social get-together under string lights" width="1200" height="900" loading="lazy"></figure>
+        <figure><img src="/assets/photos/social-vineyard-trip-1200.webp" srcset="/assets/photos/social-vineyard-trip-640.webp 640w, /assets/photos/social-vineyard-trip-1200.webp 1200w" sizes="(max-width: 780px) 50vw, 290px" alt="Team One members on a social day trip to a vineyard" width="1200" height="900" loading="lazy"></figure>
+        <figure><img src="/assets/photos/social-sports-field-1200.webp" srcset="/assets/photos/social-sports-field-640.webp 640w, /assets/photos/social-sports-field-1200.webp 1200w" sizes="(max-width: 780px) 50vw, 290px" alt="Big group of Team One members and families at a social catch up by a sports field" width="1200" height="900" loading="lazy"></figure>
+        <figure><img src="/assets/photos/social-backyard-party-1200.webp" srcset="/assets/photos/social-backyard-party-640.webp 640w, /assets/photos/social-backyard-party-1200.webp 1200w" sizes="(max-width: 780px) 50vw, 290px" alt="Team One members celebrating together at a backyard party" width="1200" height="900" loading="lazy"></figure>
       </div>
     </div>
   </section>
