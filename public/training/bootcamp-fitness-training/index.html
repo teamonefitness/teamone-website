@@ -163,8 +163,9 @@
   .tile-name { font-family: var(--head); font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); text-transform: uppercase; line-height: 1; }
   .tile-info { font-size: 15px; color: #e6e6e6; }
   .tile-link { font-family: var(--head); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--orange); margin-top: 4px; }
+  .times .slot { display: inline-block; background: #fdf1e4; color: var(--ink); font-size: 14px; font-weight: 500; padding: 3px 9px; border-radius: 4px; margin: 2px 6px 2px 0; white-space: nowrap; }
   .times td a { color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--orange); }
-  @media (max-width: 780px) { .beach-tiles { grid-template-columns: 1fr; } .times th:nth-child(3), .times td:nth-child(3) { display: none; } }
+  @media (max-width: 780px) { .beach-tiles { grid-template-columns: 1fr; } .times th, .times td { padding: 12px 10px; } }
   .page-hero.dark::before { background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.1) 80%); }
   .page-hero.dark h1, .page-hero.dark .sub { text-shadow: 0 2px 12px rgba(0,0,0,0.45); }
   .split { padding: 0 0 80px; }
@@ -258,14 +259,15 @@
         <p class="eyebrow">Timetable</p>
         <h2>Four mornings a week.</h2>
         <table class="times">
-          <thead><tr><th>Day</th><th>Beach</th><th>Class times</th></tr></thead>
+          <thead><tr><th>Day</th><th>Beach</th><th>Two classes (pick one)</th></tr></thead>
           <tbody>
-            <tr><td>Monday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-in-coogee-beach/">Coogee</a></td><td>6:00am · 6:45am</td></tr>
-            <tr><td>Tuesday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-bondi-beach/">Bondi</a></td><td>6:00am · 6:45am</td></tr>
-            <tr><td>Friday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-in-coogee-beach/">Coogee</a></td><td>6:00am · 6:45am</td></tr>
-            <tr><td>Saturday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-bondi-beach/">Bondi</a></td><td>7:15am · 8:00am</td></tr>
+            <tr><td>Monday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-in-coogee-beach/">Coogee</a></td><td><span class="slot">6:00–6:45am</span><span class="slot">6:45–7:30am</span></td></tr>
+            <tr><td>Tuesday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-bondi-beach/">Bondi</a></td><td><span class="slot">6:00–6:45am</span><span class="slot">6:45–7:30am</span></td></tr>
+            <tr><td>Friday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-in-coogee-beach/">Coogee</a></td><td><span class="slot">6:00–6:45am</span><span class="slot">6:45–7:30am</span></td></tr>
+            <tr><td>Saturday</td><td><a href="/training/bootcamp-fitness-training/bootcamp-classes-bondi-beach/">Bondi</a></td><td><span class="slot">7:15–8:00am</span><span class="slot">8:00–8:45am</span></td></tr>
           </tbody>
         </table>
+        <p class="small" style="margin:-8px 0 18px">Each morning has two 45-minute classes back to back. Come to whichever suits you.</p>
         <a class="btn" href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">View live timetable &amp; book</a>
         <p class="small" style="margin-top:12px">Times can change on public holidays. The live timetable is always up to date.</p>
       </div>
