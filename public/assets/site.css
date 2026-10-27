@@ -61,3 +61,18 @@ p { margin: 0; }
 .site-footer a:hover { color: var(--orange); }
 .site-footer .contact { font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
 .site-footer .bottom { border-top: 1px solid #2a2d30; padding-top: 20px; font-size: 12.5px; color: #8a8f94; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+/* Training dropdown in the top menu */
+.nav-drop { position: relative; }
+.nav-drop > a::after { content: ""; display: inline-block; margin-left: 6px; width: 6px; height: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-3px) rotate(45deg); }
+.nav-drop .drop { position: absolute; left: -16px; top: 100%; padding-top: 14px; display: none; min-width: 220px; z-index: 30; }
+.nav-drop .drop::before { content: ""; position: absolute; inset: 14px 0 0 0; background: var(--white); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.nav-drop .drop a { position: relative; display: block; color: var(--ink); padding: 10px 16px; font-size: 14px; }
+.nav-drop .drop a:first-child { margin-top: 6px; }
+.nav-drop .drop a:last-child { margin-bottom: 6px; }
+.nav-drop .drop a:hover { color: var(--orange); }
+.nav-drop:hover .drop, .nav-drop:focus-within .drop { display: block; }
+.menu nav a.sub { padding-left: 26px; font-weight: 500; font-size: 14px; color: var(--body); }
+.main-nav { align-items: center; }
+.nav-drop { display: flex; align-items: center; }
+.nav-drop > a::after { transform: translateY(-2px) rotate(45deg); }
