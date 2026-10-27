@@ -167,6 +167,15 @@
   @media (max-width: 780px) { .beach-tiles { grid-template-columns: 1fr; } .times th:nth-child(3), .times td:nth-child(3) { display: none; } }
   .page-hero.dark::before { background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.1) 80%); }
   .page-hero.dark h1, .page-hero.dark .sub { text-shadow: 0 2px 12px rgba(0,0,0,0.45); }
+  .split { padding: 0 0 80px; }
+  .split .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .split .photo { aspect-ratio: 4/3; background: #222; }
+  .split h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 6px 0 4px; max-width: 480px; }
+  .stats div { font-family: var(--head); font-weight: 800; font-size: 28px; color: var(--ink); line-height: 1; }
+  .stats span { display: block; font-family: var(--text); font-weight: 500; font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.35; }
+  .split .body { font-size: 16px; color: var(--body); max-width: 48ch; margin-bottom: 18px; }
+  @media (max-width: 780px) { .split .grid { grid-template-columns: 1fr; gap: 28px; } }
 </style>
 </head>
 <body>
@@ -278,6 +287,23 @@
       <div class="cards">
         <div class="card"><h3>Hybrid</h3><p>The best of strength and cardio in one workout. Functional strength training combined with high-intensity cardio and conditioning, using dumbbells, kettlebells, medicine balls, ropes, resistance bands and bodyweight exercises. Plenty of variety and a great full-body workout.</p></div>
         <div class="card"><h3>Strength &amp; Burn</h3><p>A workout built around functional compound strength exercises. You'll get stronger and build lean muscle using kettlebells, dumbbells, medicine balls and battle ropes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="container grid">
+      <div class="photo"><img src="/assets/photos/bondi-group-jump-close-800.webp" alt="Team One members and Yves jumping for the camera at Bondi Beach after a session" width="800" height="600" loading="lazy"></div>
+      <div>
+        <p class="eyebrow">More than a workout</p>
+        <h2>Train with a crew that knows your name.</h2>
+        <p class="body">Bootcamp at Team One is a group of locals who meet on the sand before work, push each other through the session and have a laugh along the way. Many of our members have trained together for years.</p>
+        <p class="body">New to bootcamp? You'll get a warm welcome, a coach who checks in on you, and a group that cheers you on from your very first class.</p>
+        <div class="stats">
+          <div>14<span>years in Bondi &amp; Coogee</span></div>
+          <div>1000+<span>people trained</span></div>
+          <div>10+<span>years some members have trained with us</span></div>
+        </div>
       </div>
     </div>
   </section>
