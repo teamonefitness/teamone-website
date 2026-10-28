@@ -199,6 +199,48 @@
   .trial .price span { font-size: 17px; color: var(--muted); font-weight: 600; margin-left: 6px; }
   a.inline { color: var(--orange); }
   @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } .trial { grid-template-columns: 1fr; gap: 10px; padding: 26px; } }
+  /* 2026-10-28 refresh to match the home page */
+  .page-hero { min-height: 560px; align-items: center; }
+  .page-hero > img { transform: scale(1.04); animation: heroZoom 14s ease-out forwards; }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { .page-hero > img { animation: none; transform: none; } }
+  .page-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: 1; background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0)); }
+  .page-hero .container { padding-top: 56px; padding-bottom: 96px; }
+  .page-hero h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; }
+  .page-hero .sub { font-size: 19px; margin: 18px 0 8px; }
+  .trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 18px; font-size: 14px; color: #d0d0d0; }
+  .trust .stars { color: var(--orange); letter-spacing: 2px; font-size: 16px; }
+  .trust span + span::before { content: "·"; margin-right: 18px; color: #777; }
+  .facts { position: relative; z-index: 3; margin-top: -48px; }
+  .facts .bar { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-radius: 8px; box-shadow: 0 14px 40px rgba(0,0,0,0.12); overflow: hidden; }
+  .facts .item { display: flex; gap: 14px; align-items: flex-start; padding: 24px 22px; border-left: 1px solid var(--line); }
+  .facts .item:first-child { border-left: 0; }
+  .facts svg { width: 28px; height: 28px; flex: none; color: var(--orange); margin-top: 2px; }
+  .facts strong { display: block; font-family: var(--head); font-weight: 800; font-size: 17px; color: var(--ink); line-height: 1.2; }
+  .facts small { display: block; font-size: 13.5px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+  @media (max-width: 980px) { .facts .bar { grid-template-columns: repeat(2, 1fr); } .facts .item:nth-child(3) { border-left: 0; } .facts .item:nth-child(n+3) { border-top: 1px solid var(--line); } }
+  @media (max-width: 520px) { .facts { margin-top: -32px; } .facts .item { padding: 18px 14px; gap: 10px; } .facts strong { font-size: 15px; } .facts svg { width: 24px; height: 24px; } }
+  .facts + .section.sand { background: var(--white); }
+  .section { padding: 88px 0; }
+  .section h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .trial { background: #111; border: 0; color: var(--white); padding: 44px; box-shadow: 0 18px 44px rgba(0,0,0,0.18); position: relative; overflow: hidden; }
+  .trial::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(246,142,31,0.35), rgba(246,142,31,0) 70%); pointer-events: none; }
+  .trial h2 { color: var(--white); }
+  .trial .price { color: var(--orange); font-size: 64px; }
+  .trial .price span { color: #bdbdbd; }
+  .trial p[style] { color: #d6d6d6 !important; }
+  .trial > div:last-child { position: relative; z-index: 1; }
+  .plan { border-radius: 8px; padding: 30px 26px; border-top: 4px solid var(--orange); transition: transform .25s ease, box-shadow .25s ease; }
+  .plan:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,0,0,0.12); }
+  .plan .price { font-size: 44px; }
+  .quote-card { margin: 0; background: var(--sand); border-radius: 8px; padding: 34px 32px; position: relative; }
+  .quote-card::before { content: "\201C"; position: absolute; top: -6px; left: 22px; font-family: var(--head); font-size: 96px; line-height: 1; color: var(--orange); opacity: 0.35; }
+  .quote-card .quote { position: relative; font-size: 22px; }
+  .cta { padding: 80px 0; }
+  .cta .links-row { gap: 12px; margin-top: 24px; }
+  .cta .links-row a.link { border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; padding: 12px 16px; transition: background .2s ease, border-color .2s ease; }
+  .cta .links-row a.link:hover { background: rgba(255,255,255,0.08); border-color: var(--orange); }
+  @media (max-width: 780px) { .section { padding: 64px 0; } .trial { padding: 30px 24px; } .trust span + span::before { display: none; } }
 </style>
 </head>
 <body>
@@ -253,6 +295,18 @@
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Memberships</nav>
       <h1>Team One Packages</h1>
       <p class="sub">Outdoor bootcamp memberships and class packs for Bondi and Coogee. No lock-in contracts, no joining fees. Cancel or pause any time with one week's notice.</p>
+      <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Since 2012</span></p>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="At a glance">
+    <div class="container">
+      <div class="bar">
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><div><strong>No lock-in contracts</strong><small>Cancel or pause with a week's notice</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><strong>Bondi &amp; Coogee</strong><small>Every option covers both beaches</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>45-minute classes</strong><small>4 mornings a week</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l8-8h6a2 2 0 0 1 2 2v6l-8 8a2 2 0 0 1-3 0l-5-5a2 2 0 0 1 0-3Z"/><circle cx="15" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg><div><strong>No joining fees</strong><small>No hidden costs</small></div></div>
+      </div>
     </div>
   </section>
 
@@ -313,9 +367,9 @@
         </ul>
         <a class="link" href="/terms-and-conditions/">Full terms and conditions →</a>
       </div>
-      <figure style="margin:0">
+      <figure class="quote-card">
         <blockquote class="quote">"It has totally transformed my life and I just love doing exercise now."</blockquote>
-        <figcaption class="small">Prue Shaw, Coogee</figcaption>
+        <figcaption class="small">Prue S., Coogee member</figcaption>
         <p style="margin-top:18px"><a class="link" href="/about/testimonials-2/">Read more reviews →</a></p>
       </figure>
     </div>
