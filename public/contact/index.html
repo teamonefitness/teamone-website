@@ -167,7 +167,8 @@
         <div class="drop">
           <a href="/training/bootcamp-fitness-training/">Bootcamp</a>
           <a href="/training/personal-training/">Personal Training</a>
-          <a href="/the-rapid-shred/">The Shred</a>
+          <a href="/4-week-weight-loss-challenge/">4 Week Shred</a>
+          <a href="/the-rapid-shred/">Rapid Shred</a>
           <a href="/training/corporate-fitness-training/">Corporate Fitness</a>
         </div>
       </div>
@@ -186,7 +187,8 @@
         <a href="/training/">Training</a>
         <a class="sub" href="/training/bootcamp-fitness-training/">Bootcamp</a>
         <a class="sub" href="/training/personal-training/">Personal Training</a>
-        <a class="sub" href="/the-rapid-shred/">The Shred</a>
+        <a class="sub" href="/4-week-weight-loss-challenge/">4 Week Shred</a>
+        <a class="sub" href="/the-rapid-shred/">Rapid Shred</a>
         <a class="sub" href="/training/corporate-fitness-training/">Corporate Fitness</a>
         <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
         <a href="/sign-up/">Prices</a>
@@ -299,6 +301,12 @@
       .catch(function () { btn.disabled = false; btn.textContent = 'Send message'; show('Sorry, something went wrong. Please call 0424 245 578 or email info@teamonefitness.com.au.', true); });
   });
 })();
+</script>
+<script>
+  (function () {
+    var t = new URLSearchParams(location.search).get('topic'), sel = document.getElementById('f-topic');
+    if (t && sel) { for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].text === t) sel.selectedIndex = i; } }
+  })();
 </script>
 </body>
 </html>
