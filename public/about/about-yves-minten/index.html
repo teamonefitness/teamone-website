@@ -96,6 +96,12 @@
   .intro .txt { padding: 72px 0; }
   .intro h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; max-width: 12ch; }
   .intro .sub { font-size: 19px; margin-top: 18px; }
+  .intro .vid-toggle { position: absolute; right: 20px; bottom: 20px; z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.5); background: rgba(0,0,0,0.35); cursor: pointer; }
+  .intro .vid-toggle::before, .intro .vid-toggle::after { content: ""; position: absolute; top: 13px; width: 4px; height: 14px; background: #fff; border-radius: 1px; }
+  .intro .vid-toggle::before { left: 14px; } .intro .vid-toggle::after { left: 22px; }
+  .intro .vid-toggle.paused::before { left: 15px; top: 12px; width: 0; height: 0; background: none; border-left: 13px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-radius: 0; }
+  .intro .vid-toggle.paused::after { display: none; }
+  .intro .vid-toggle:hover, .intro .vid-toggle:focus-visible { background: var(--orange); border-color: var(--orange); }
   .intro h1 .name { display: block; white-space: nowrap; }
   @media (max-width: 780px) { .intro { min-height: 560px; } .intro::before { background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.55)); } .intro .txt { padding: 56px 0; } .trust span + span::before { display: none; } }
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
@@ -173,6 +179,7 @@
       <source src="/assets/video/yves-hero.mp4" type="video/mp4">
       <source src="/assets/video/yves-hero.webm" type="video/webm">
     </video>
+    <button class="vid-toggle" type="button" aria-label="Pause background video"></button>
     <div class="container">
       <div class="txt">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/about/">About</a> / Yves Minten</nav>
@@ -286,7 +293,14 @@
 <script>
   (function () {
     var v = document.querySelector('.intro video');
-    if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+    var b = document.querySelector('.intro .vid-toggle');
+    if (!v || !b) return;
+    v.muted = true;
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    b.addEventListener('click', function () {
+      if (v.paused) { v.play(); b.classList.remove('paused'); b.setAttribute('aria-label', 'Pause background video'); }
+      else { v.pause(); b.classList.add('paused'); b.setAttribute('aria-label', 'Play background video'); }
+    });
   })();
 </script>
 
