@@ -78,6 +78,9 @@
   .offer-card h3 { font-size: 19px; margin-bottom: 8px; }
   .offer-card p { font-size: 14.5px; color: var(--muted); line-height: 1.55; margin-bottom: 16px; flex: 1; }
   .offer-card .go { font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--orange); }
+  .offer-card .gos { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+  .offer-card a.go { text-decoration: none; }
+  .offer-card a.go:hover, .offer-card a.go:focus-visible { text-decoration: underline; }
   .merch { margin-top: 22px; font-size: 14px; color: var(--muted); }
   .merch b { font-weight: 600; color: var(--ink); }
   @media (max-width: 1020px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -247,10 +250,10 @@
           <span class="pic"><img src="/assets/photos/pt-rower-bondi-640.webp" srcset="/assets/photos/pt-rower-bondi-640.webp 640w, /assets/photos/pt-rower-bondi-1200.webp 1200w" sizes="(max-width: 560px) 100vw, (max-width: 1020px) 50vw, 280px" alt="Personal training session with a rowing machine near Bondi Beach" width="640" height="480" loading="lazy"></span>
           <span class="txt"><h3>Personal Training</h3><p>One-on-one coaching in local parks, built around your goals.</p><span class="go">Enquire now →</span></span>
         </a>
-        <a class="offer-card" href="/4-week-weight-loss-challenge/">
+        <div class="offer-card">
           <span class="pic"><img src="/assets/photos/bondi-log-drag-wide-640.webp" srcset="/assets/photos/bondi-log-drag-wide-640.webp 640w, /assets/photos/bondi-log-drag-wide-1200.webp 1200w" sizes="(max-width: 560px) 100vw, (max-width: 1020px) 50vw, 280px" alt="Team One members dragging a heavy log on Bondi Beach" width="640" height="480" loading="lazy"></span>
-          <span class="txt"><h3>The Shred</h3><p>Short, intense challenges built for real results, a few times a year.</p><span class="go">See The Shred →</span></span>
-        </a>
+          <span class="txt"><h3>The Shred</h3><p>Short, intense challenges built for real results, a few times a year.</p><span class="gos"><a class="go" href="/4-week-weight-loss-challenge/">4 Week Shred →</a><a class="go" href="/the-rapid-shred/">Rapid Shred →</a></span></span>
+        </div>
         <a class="offer-card" href="/training/corporate-fitness-training/">
           <span class="pic"><img src="/assets/photos/bondi-band-pull-hd-960.webp" srcset="/assets/photos/bondi-band-pull-hd-960.webp 960w" sizes="(max-width: 560px) 100vw, (max-width: 1020px) 50vw, 280px" alt="Team One members training on the beach at sunset" width="960" height="720" loading="lazy"></span>
           <span class="txt"><h3>Corporate Fitness</h3><p>Team training that brings the outdoors to your workplace.</p><span class="go">Enquire →</span></span>
