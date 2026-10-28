@@ -208,7 +208,7 @@
   .trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 22px; font-size: 14px; color: #d0d0d0; }
   .trust .stars { color: var(--orange); letter-spacing: 2px; font-size: 16px; }
   .trust span + span::before { content: "·"; margin-right: 18px; color: #777; }
-  @media (max-width: 640px) { .page-hero { min-height: 560px; } .trust span + span::before { display: none; } }
+  @media (max-width: 640px) { .page-hero { min-height: 560px; } .trust span + span::before { display: none; } .page-hero.left::before { background: linear-gradient(90deg, rgba(0,0,0,0.78), rgba(0,0,0,0.55)); } }
   .facts { position: relative; z-index: 3; margin-top: -48px; }
   .facts .bar { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-radius: 8px; box-shadow: 0 14px 40px rgba(0,0,0,0.12); overflow: hidden; }
   .facts .item { display: flex; gap: 14px; align-items: flex-start; padding: 24px 22px; border-left: 1px solid var(--line); }
