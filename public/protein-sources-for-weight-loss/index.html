@@ -123,6 +123,14 @@
   .cta-box > * { position: relative; }
   .cta-box h2 { color: var(--white); font-size: 24px; }
   .cta-box p { color: #d6d6d6; }
+  .cta-box .offers { list-style: none; margin: 0 0 22px; padding: 0; }
+  .cta-box .offers li { margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,0.12); }
+  .cta-box .offers li::before { display: none; }
+  .cta-box .offers a { display: block; padding: 12px 22px 12px 0; text-decoration: none; position: relative; }
+  .cta-box .offers a::after { content: "→"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: var(--orange); transition: transform .2s; }
+  .cta-box .offers a:hover::after { transform: translate(4px, -50%); }
+  .cta-box .offers strong { display: block; font-family: var(--head); font-weight: 700; font-size: 16px; color: var(--white); }
+  .cta-box .offers span { display: block; font-size: 13.5px; color: #bdbdbd; margin-top: 2px; }
   .more, .list { padding: 80px 0 96px; }
   .post-card { border: 0; border-top: 4px solid var(--orange); padding: 28px 26px 24px; box-shadow: 0 8px 28px rgba(0,0,0,0.07); transition: transform .25s ease, box-shadow .25s ease; }
   .post-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.13); }
@@ -236,8 +244,13 @@ Try a mixed bunch for variety and a combo with dried fruit for some added sweetn
       </div>
       <aside class="cta-box">
         <h2>Train with Team One</h2>
-        <p>Outdoor bootcamp on the sand at Bondi and Coogee, for every fitness level. Try a full week for just $15.</p>
-        <a class="btn" href="/get-started/">Start your 7-day trial</a>
+        <p>Outdoor training in Sydney's Eastern Suburbs, for every fitness level.</p>
+        <ul class="offers">
+          <li><a href="/training/bootcamp-fitness-training/"><strong>Bootcamp</strong><span>Bondi &amp; Coogee beach classes</span></a></li>
+          <li><a href="/training/personal-training/"><strong>Personal training</strong><span>One-on-one, from $110</span></a></li>
+          <li><a href="/training/corporate-fitness-training/"><strong>Corporate fitness</strong><span>Team training for your workplace</span></a></li>
+        </ul>
+        <a class="btn" href="/get-started/">Try 7 days for $15</a>
       </aside>
     </div>
   </article>
