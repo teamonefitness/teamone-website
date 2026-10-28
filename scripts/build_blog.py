@@ -352,6 +352,12 @@ STYLE = """<style>
   .post-card h3 { transition: color .2s ease; }
   .post-card:hover h3 { color: var(--orange-dark); }
   .post-card .date::after { content: "Read →"; float: right; font-family: var(--head); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--orange); }
+  .intro.has-photo { padding: 120px 0 96px; }
+  .intro.has-photo .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+  .intro.has-photo::before { left: 0; top: 0; right: 0; bottom: 0; width: auto; height: auto; border-radius: 0; background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.30) 100%); z-index: 1; }
+  .intro.has-photo .container { z-index: 2; }
+  .intro.has-photo::after { z-index: 2; }
+  @media (max-width: 640px) { .intro.has-photo { padding: 88px 0 64px; } .intro.has-photo::before { background: rgba(0,0,0,0.55); } }
   .feature { margin: 0 0 32px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
   .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
   .post-card .thumb { display: block; margin: -28px -26px 22px; aspect-ratio: 3 / 2; overflow: hidden; background: #ddd; }
@@ -452,7 +458,8 @@ def build():
              "author": {"@type": "Person", "name": "Yves Minten", "url": SITE + "/about/about-yves-minten/"},
              "publisher": {"@type": "Organization", "name": "Team One Fitness", "url": SITE + "/"}},
         ]})
-        main = f"""  <section class="intro">
+        main = f"""  <section class="intro has-photo">
+    {photo(p['slug'], eager=True).replace('<img ', '<img class="bg" ', 1).replace('sizes="(max-width: 760px) 100vw, 720px"', 'sizes="100vw"')}
     <div class="container">
       <p class="crumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></p>
       <h1>{html.escape(p['title'])}</h1>
@@ -467,7 +474,6 @@ def build():
   <article class="article">
     <div class="container">
       <div class="body">
-        <figure class="feature">{photo(p['slug'], eager=True)}</figure>
 {p['body']}
       </div>
       <aside class="cta-box">
