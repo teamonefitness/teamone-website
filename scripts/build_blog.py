@@ -116,6 +116,34 @@ def photo(slug, big=True, eager=False):
 BLOCK = re.compile(r"^\s*<(h[1-6]|ul|ol|li|div|p|table|blockquote|figure|img|a [^>]*><img)", re.I)
 
 
+def balance_p(body):
+    """Close any open paragraph before a block tag or a new paragraph, and drop stray closing tags."""
+    out, open_p = [], False
+    for tok in re.split(r"(</?(?:p|ul|ol|h[1-6]|table|blockquote|figure)\b[^>]*>)", body):
+        m = re.match(r"<(/?)(p|ul|ol|h[1-6]|table|blockquote|figure)\b", tok)
+        if not m:
+            out.append(tok)
+            continue
+        closing, name = m.group(1) == "/", m.group(2)
+        if name == "p":
+            if closing:
+                if not open_p:
+                    continue
+                open_p = False
+            else:
+                if open_p:
+                    out.append("</p>")
+                open_p = True
+        elif not closing and open_p:
+            out.append("</p>")
+            open_p = False
+        out.append(tok)
+    if open_p:
+        out.append("</p>")
+    body = "".join(out)
+    return re.sub(r"<p>\s*</p>", "", body)
+
+
 def clean(body):
     body = body.replace("\r\n", "\n").replace("\xa0", " ")
     body = re.sub(r"\[/?su_\w+[^\]]*\]", "", body)               # old plugin shortcodes
@@ -158,7 +186,28 @@ def clean(body):
         else:
             out.append("<p>" + "<br>\n".join(l.strip() for l in block.split("\n") if l.strip()) + "</p>")
     body = "\n".join(out)
+    # line breaks around lists and headings come from the old editor: drop them,
+    # and close the paragraph around a list or heading so it isn't nested inside it
+    tag = r"</?(?:ul|ol|li|h[1-6])\b[^>]*>"
+    body = re.sub(rf"({tag})\s*<br>", r"\1", body)
+    body = re.sub(rf"<br>\s*(?={tag})", "", body)
+    body = re.sub(r"<li>\s*<h[1-6][^>]*>(.*?)</h[1-6]>\s*</li>", r"<li>\1</li>", body, flags=re.S)
+    body = re.sub(r"\s*(<(?:ul|ol)>)", r"</p>\n\1", body)
+    body = re.sub(r"(</(?:ul|ol)>)\s*", r"\1\n<p>", body)
+    body = re.sub(r"\s*(<h[1-6][^>]*>)", r"</p>\n\1", body)
+    body = re.sub(r"(</h[1-6]>)\s*", r"\1\n<p>", body)
     body = re.sub(r"<p>\s*</p>", "", body)
+    while True:
+        fixed = re.sub(r"<p>((?:(?!</p>).)*?)\s*<p>", r"<p>\1</p>\n<p>", body, flags=re.S)
+        fixed = re.sub(r"<p>\s*</p>", "", fixed)
+        if fixed == body:
+            break
+        body = fixed
+    body = re.sub(r"</p>\s*</p>", "</p>", body)
+    body = re.sub(r"(</(?:ul|ol|h[1-6])>)\s*</p>", r"\1", body)
+    body = re.sub(r"\s*<p>\s*$", "", body)
+    body = balance_p(body)
+    body = re.sub(r"<p>\s*<p>", "<p>", body)
     return body
 
 
