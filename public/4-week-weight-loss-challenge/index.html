@@ -294,6 +294,20 @@
   .film .vid { aspect-ratio: 2/1; }
   .film .vid .play { width: 84px; height: 84px; margin: -42px 0 0 -42px; }
   .film .vid .play::before { left: 34px; top: 26px; border-width: 16px 0 16px 25px; }
+  .gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 28px; }
+  .gallery a { position: relative; display: block; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: #222; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .gallery a:hover img, .gallery a:focus-visible img { transform: scale(1.05); }
+  @media (max-width: 780px) { .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding-bottom: 6px; } .gallery a { flex: 0 0 72%; scroll-snap-align: start; } }
+  .lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+  .lightbox::backdrop { background: rgba(0,0,0,0.9); }
+  .lightbox .lb-wrap { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .lightbox img { max-width: 92vw; max-height: 86vh; border-radius: 6px; }
+  .lightbox button { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.5); background: rgba(0,0,0,0.4); color: #fff; font-size: 24px; line-height: 1; cursor: pointer; }
+  .lightbox button:hover, .lightbox button:focus-visible { background: var(--orange); border-color: var(--orange); }
+  .lightbox .lb-close { top: 16px; right: 16px; }
+  .lightbox .lb-prev { left: 16px; top: 50%; margin-top: -24px; }
+  .lightbox .lb-next { right: 16px; top: 50%; margin-top: -24px; }
   .center { text-align: center; } .center .lead { margin: 0 auto; }
   /* Shred pages */
   .page-hero .eyebrow { color: var(--orange); }
@@ -500,6 +514,27 @@
     </div>
   </section>
 
+  <section class="section film-sec" id="photos">
+    <div class="container">
+      <p class="eyebrow">Shred photos</p>
+      <h2>Teamwork, sweat and a lot of fun.</h2>
+      <p class="lead">A few moments from our Super Shred Saturdays. Tap a photo to see it bigger.</p>
+      <div class="gallery">
+        <a href="/assets/photos/shred/shred-bondi-rope-line-1600.webp"><img src="/assets/photos/shred/shred-bondi-rope-line-600.webp" alt="Shredders pulling a long rope together across Bondi Beach" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-dune-crawl-1600.webp"><img src="/assets/photos/shred/shred-dune-crawl-600.webp" alt="Smiling Shredder crawling up a steep sand dune" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-bondi-log-pull-1600.webp"><img src="/assets/photos/shred/shred-bondi-log-pull-600.webp" alt="Members pulling a log through the sand at Bondi" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-beach-group-1600.webp"><img src="/assets/photos/shred/shred-beach-group-600.webp" alt="Big Team One Shred group on the beach" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-dunes-rope-team-1600.webp"><img src="/assets/photos/shred/shred-dunes-rope-team-600.webp" alt="Shred team dragging heavy ropes up a sand dune" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-bondi-rope-drag-1600.webp"><img src="/assets/photos/shred/shred-bondi-rope-drag-600.webp" alt="Two Shredders dragging heavy ropes on Bondi Beach" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-medballs-ropes-1600.webp"><img src="/assets/photos/shred/shred-medballs-ropes-600.webp" alt="Heavy medicine balls tied to ropes in the sand" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-sled-push-1600.webp"><img src="/assets/photos/shred/shred-sled-push-600.webp" alt="Shredder pushing a weighted sled across the sand" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-dunes-group-1600.webp"><img src="/assets/photos/shred/shred-dunes-group-600.webp" alt="Shred group photo at the sand dunes with the Team One flag" width="600" height="450" loading="lazy"></a>
+        <a href="/assets/photos/shred/shred-bondi-celebrate-1600.webp"><img src="/assets/photos/shred/shred-bondi-celebrate-600.webp" alt="Shred group celebrating with arms up at Bondi" width="600" height="450" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+  <dialog class="lightbox" aria-label="Shred photo"><div class="lb-wrap"><img src="" alt=""><button class="lb-prev" type="button" aria-label="Previous photo">&#8249;</button><button class="lb-next" type="button" aria-label="Next photo">&#8250;</button><button class="lb-close" type="button" aria-label="Close">&#215;</button></div></dialog>
+
   <section class="section" id="faq">
     <div class="container" style="max-width:820px">
       <p class="eyebrow">Any questions?</p>
@@ -560,6 +595,18 @@
 </footer>
 
 <script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.gallery a')), dlg = document.querySelector('.lightbox');
+    if (!links.length || !dlg || !dlg.showModal) return;
+    var img = dlg.querySelector('img'), i = 0;
+    function show(n) { i = (n + links.length) % links.length; img.src = links[i].href; img.alt = links[i].querySelector('img').alt; }
+    links.forEach(function (a, n) { a.addEventListener('click', function (e) { e.preventDefault(); show(n); dlg.showModal(); }); });
+    dlg.querySelector('.lb-prev').addEventListener('click', function () { show(i - 1); });
+    dlg.querySelector('.lb-next').addEventListener('click', function () { show(i + 1); });
+    dlg.querySelector('.lb-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.classList.contains('lb-wrap')) dlg.close(); });
+    dlg.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
+  })();
   (function () {
     var v = document.querySelector('.page-hero video'), b = document.querySelector('.page-hero .vid-toggle');
     if (!v || !b) return;
