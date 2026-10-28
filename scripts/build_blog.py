@@ -353,6 +353,16 @@ STYLE = """<style>
   .cta-box > * { position: relative; }
   .cta-box h2 { color: var(--white); font-size: 24px; }
   .cta-box p { color: #d6d6d6; }
+  .side { align-self: stretch; display: flex; flex-direction: column; gap: 24px; }
+  .cat-box { background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--orange); border-radius: 10px; padding: 24px 24px 12px; }
+  .cat-box h2 { font-size: 18px; margin: 0 0 8px; }
+  .cat-box ul { list-style: none; margin: 0; padding: 0; }
+  .cat-box li { margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .cat-box li:first-child { border-top: 0; }
+  .cat-box li::before { display: none; }
+  .cat-box a { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; color: var(--ink); text-decoration: none; font-family: var(--head); font-weight: 600; font-size: 15px; transition: color .2s; }
+  .cat-box a:hover, .cat-box a.on { color: var(--orange-dark); }
+  .cat-box a span { font-family: var(--body-font, inherit); font-weight: 500; font-size: 12.5px; color: var(--muted); background: var(--sand); border-radius: 999px; padding: 2px 9px; }
   .cta-box .offers { list-style: none; margin: 0 0 22px; padding: 0; }
   .cta-box .offers li { margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,0.12); }
   .cta-box .offers li::before { display: none; }
@@ -464,6 +474,15 @@ def write(path, text):
 def build():
     posts = load()
 
+    def cat_list(on):
+        rows = []
+        for key, name in CATEGORIES.items():
+            n = sum(key in q["cats"] for q in posts)
+            cls = ' class="on"' if key in on else ""
+            rows.append(f'          <li><a href="/category/{key}/"{cls}>{name}<span>{n}</span></a></li>')
+        rows.append(f'          <li><a href="/blog/">All posts<span>{len(posts)}</span></a></li>')
+        return "\n".join(rows)
+
     for p in posts:
         path = f"/{p['slug']}/"
         related = [q for q in posts if q is not p and set(q["cats"]) & set(p["cats"])][:3]
@@ -475,6 +494,7 @@ def build():
              "author": {"@type": "Person", "name": "Yves Minten", "url": SITE + "/about/about-yves-minten/"},
              "publisher": {"@type": "Organization", "name": "Team One Fitness", "url": SITE + "/"}},
         ]})
+        cat_links = cat_list(p["cats"])
         main = f"""  <section class="intro post-head">
     <div class="container">
       <p class="crumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></p>
@@ -494,6 +514,13 @@ def build():
         <figure class="feature">{photo(p['slug'], eager=True).replace('<img ', f'<img style="object-position: {BANNER_POS[p["slug"]]}" ' if p['slug'] in BANNER_POS else '<img ', 1)}</figure>
 {p['body']}
       </div>
+      <div class="side">
+      <nav class="cat-box" aria-label="Blog categories">
+        <h2>Browse the blog</h2>
+        <ul>
+{cat_links}
+        </ul>
+      </nav>
       <aside class="cta-box">
         <h2>Train with Team One</h2>
         <p>Outdoor training in Sydney's Eastern Suburbs, for every fitness level.</p>
@@ -504,6 +531,7 @@ def build():
         </ul>
         <a class="btn" href="/get-started/">Try 7 days for $15</a>
       </aside>
+      </div>
     </div>
   </article>
 """

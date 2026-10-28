@@ -123,6 +123,16 @@
   .cta-box > * { position: relative; }
   .cta-box h2 { color: var(--white); font-size: 24px; }
   .cta-box p { color: #d6d6d6; }
+  .side { align-self: stretch; display: flex; flex-direction: column; gap: 24px; }
+  .cat-box { background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--orange); border-radius: 10px; padding: 24px 24px 12px; }
+  .cat-box h2 { font-size: 18px; margin: 0 0 8px; }
+  .cat-box ul { list-style: none; margin: 0; padding: 0; }
+  .cat-box li { margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .cat-box li:first-child { border-top: 0; }
+  .cat-box li::before { display: none; }
+  .cat-box a { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; color: var(--ink); text-decoration: none; font-family: var(--head); font-weight: 600; font-size: 15px; transition: color .2s; }
+  .cat-box a:hover, .cat-box a.on { color: var(--orange-dark); }
+  .cat-box a span { font-family: var(--body-font, inherit); font-weight: 500; font-size: 12.5px; color: var(--muted); background: var(--sand); border-radius: 999px; padding: 2px 9px; }
   .cta-box .offers { list-style: none; margin: 0 0 22px; padding: 0; }
   .cta-box .offers li { margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,0.12); }
   .cta-box .offers li::before { display: none; }
@@ -235,6 +245,19 @@ Tuck jumps or an explosive high knee run, works really well before sprinting.</p
 <p>Make sure you don’t overdo it and don’t tire those muscles out. A few reps should be enough to fully wake up the muscles and fire up your central nervous system.<br>
 Give those fast twitch muscle fibers a signal to wake up and get ready for action!</p>
       </div>
+      <div class="side">
+      <nav class="cat-box" aria-label="Blog categories">
+        <h2>Browse the blog</h2>
+        <ul>
+          <li><a href="/category/workouts/">Workouts<span>8</span></a></li>
+          <li><a href="/category/fitness/" class="on">Fitness<span>23</span></a></li>
+          <li><a href="/category/nutrition/">Nutrition<span>12</span></a></li>
+          <li><a href="/category/recipes/">Recipes<span>2</span></a></li>
+          <li><a href="/category/health/">Health<span>18</span></a></li>
+          <li><a href="/category/motivation/">Motivation<span>15</span></a></li>
+          <li><a href="/blog/">All posts<span>47</span></a></li>
+        </ul>
+      </nav>
       <aside class="cta-box">
         <h2>Train with Team One</h2>
         <p>Outdoor training in Sydney's Eastern Suburbs, for every fitness level.</p>
@@ -245,6 +268,7 @@ Give those fast twitch muscle fibers a signal to wake up and get ready for actio
         </ul>
         <a class="btn" href="/get-started/">Try 7 days for $15</a>
       </aside>
+      </div>
     </div>
   </article>
 
