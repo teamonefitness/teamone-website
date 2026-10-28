@@ -113,6 +113,54 @@
   .social-grid figure:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
   .social-grid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 780px) { .social-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; } .social-grid figure:first-child { grid-row: span 1; aspect-ratio: 4/3; } }
+  /* 2026-10-28 refresh to match the home page */
+  #timetable { scroll-margin-top: 90px; }
+  .page-hero { min-height: 600px; align-items: center; }
+  .page-hero > img { transform: scale(1.04); animation: heroZoom 14s ease-out forwards; }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { .page-hero > img { animation: none; transform: none; } }
+  .page-hero::before { background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.15) 100%); }
+  .page-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: 1; background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0)); }
+  .page-hero .container { padding-top: 56px; padding-bottom: 96px; }
+  .page-hero h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; }
+  .page-hero .sub { font-size: 19px; margin: 18px 0 26px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; }
+  .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--white); color: var(--black); }
+  .trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 22px; font-size: 14px; color: #d0d0d0; }
+  .trust .stars { color: var(--orange); letter-spacing: 2px; font-size: 16px; }
+  .trust span + span::before { content: "·"; margin-right: 18px; color: #777; }
+  @media (max-width: 640px) { .page-hero { min-height: 560px; } .trust span + span::before { display: none; } }
+  .facts { position: relative; z-index: 3; margin-top: -48px; }
+  .facts .bar { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-radius: 8px; box-shadow: 0 14px 40px rgba(0,0,0,0.12); overflow: hidden; }
+  .facts .item { display: flex; gap: 14px; align-items: flex-start; padding: 24px 22px; border-left: 1px solid var(--line); }
+  .facts .item:first-child { border-left: 0; }
+  .facts svg { width: 28px; height: 28px; flex: none; color: var(--orange); margin-top: 2px; }
+  .facts strong { display: block; font-family: var(--head); font-weight: 800; font-size: 17px; color: var(--ink); line-height: 1.2; }
+  .facts small { display: block; font-size: 13.5px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+  @media (max-width: 980px) { .facts .bar { grid-template-columns: repeat(2, 1fr); } .facts .item:nth-child(3) { border-left: 0; } .facts .item:nth-child(n+3) { border-top: 1px solid var(--line); } }
+  @media (max-width: 520px) { .facts { margin-top: -32px; } .facts .item { padding: 18px 14px; gap: 10px; } .facts strong { font-size: 15px; } .facts svg { width: 24px; height: 24px; } }
+  .section { padding: 88px 0; }
+  .section h2, .split h2, .social h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .photo { border-radius: 8px; }
+  table.times { border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .times .slot { display: inline-block; background: #fdf1e4; color: var(--ink); font-size: 14px; font-weight: 500; padding: 3px 9px; border-radius: 4px; margin: 2px 6px 2px 0; white-space: nowrap; }
+  .card { border-radius: 8px; padding: 28px; border-top: 4px solid var(--orange); transition: transform .25s ease, box-shadow .25s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.1); }
+  .card h3 { font-size: 20px; }
+  .split { background: var(--sand); padding: 88px 0; }
+  .split .photo { border-radius: 8px; }
+  .stats div { font-size: 34px; color: var(--orange); }
+  .stats span { margin-top: 8px; }
+  .social { padding: 88px 0 80px; }
+  .social-grid figure { border-radius: 8px; }
+  .review { border-radius: 8px; padding: 26px 24px 22px; }
+  .quote { font-size: 22px; }
+  .cta { padding: 80px 0; }
+  .cta .links-row { gap: 12px; margin-top: 24px; }
+  .cta .links-row a.link { border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; padding: 12px 16px; transition: background .2s ease, border-color .2s ease; }
+  .cta .links-row a.link:hover { background: rgba(255,255,255,0.08); border-color: var(--orange); }
+  @media (max-width: 780px) { .section, .split { padding: 64px 0; } .social { padding: 64px 0 56px; } }
 </style>
 </head>
 <body>
@@ -167,7 +215,22 @@
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/training/">Training</a> / <a href="/training/bootcamp-fitness-training/">Bootcamp</a> / Bondi Beach</nav>
       <h1>Bootcamp Classes in Bondi Beach</h1>
       <p class="sub">45-minute outdoor group training on the sand. All fitness levels welcome.</p>
-      <a class="btn" href="/get-started/">Start your 7-day trial — $15</a>
+      <div class="btn-row">
+        <a class="btn" href="/get-started/">Start your 7-day trial — $15</a>
+        <a class="btn btn-ghost" href="#timetable">See class times</a>
+      </div>
+      <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Rain, hail or shine</span><span>All fitness levels</span></p>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="At a glance">
+    <div class="container">
+      <div class="bar">
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><strong>Ramp 2, south end</strong><small>Look for the Team One flag</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="14" r="5"/><path d="M12 3v3M4.2 7.2l2 2M19.8 7.2l-2 2M2 19h20"/></svg><div><strong>Tue &amp; Sat mornings</strong><small>Two classes back to back</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>45-minute classes</strong><small>For all fitness levels</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><div><strong>$15 for 7 days</strong><small>No lock-in contract</small></div></div>
+      </div>
     </div>
   </section>
 
@@ -192,8 +255,8 @@
         <table class="times">
           <thead><tr><th>Day</th><th>Class times</th><th>Class</th></tr></thead>
           <tbody>
-            <tr><td>Tuesday</td><td>6:00–6:45am · 6:45–7:30am</td><td>Hybrid or Strength &amp; Burn (alternates weekly)</td></tr>
-            <tr><td>Saturday</td><td>7:15–8:00am · 8:00–8:45am</td><td>Hybrid</td></tr>
+            <tr><td>Tuesday</td><td><span class="slot">6:00–6:45am</span><span class="slot">6:45–7:30am</span></td><td>Hybrid or Strength &amp; Burn (alternates weekly)</td></tr>
+            <tr><td>Saturday</td><td><span class="slot">7:15–8:00am</span><span class="slot">8:00–8:45am</span></td><td>Hybrid</td></tr>
           </tbody>
         </table>
         <p class="both">Your membership covers both beaches, so you can also train at Coogee Beach on Monday and Friday. <a href="/training/bootcamp-fitness-training/bootcamp-classes-in-coogee-beach/">See Coogee times →</a></p>
