@@ -99,6 +99,7 @@ PHOTOS = json.loads((Path(__file__).parent / "blog_photos.json").read_text())
 # Where to focus a post's photo in the title banner (default 50% 35%).
 BANNER_POS = {
     "summer-bodies-are-built-in-winter": "50% 85%",
+    "things-not-to-eat": "50% 40%",
 }
 
 
@@ -358,14 +359,17 @@ STYLE = """<style>
   .post-card h3 { transition: color .2s ease; }
   .post-card:hover h3 { color: var(--orange-dark); }
   .post-card .date::after { content: "Read →"; float: right; font-family: var(--head); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--orange); }
-  .intro.has-photo { padding: 120px 0 96px; }
-  .intro.has-photo .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
-  .intro.has-photo::before { left: 0; top: 0; right: 0; bottom: 0; width: auto; height: auto; border-radius: 0; background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.30) 100%); z-index: 1; }
-  .intro.has-photo .container { z-index: 2; }
-  .intro.has-photo::after { z-index: 2; }
-  @media (max-width: 640px) { .intro.has-photo { padding: 88px 0 64px; } .intro.has-photo::before { background: rgba(0,0,0,0.55); } }
+  .post-head { padding: 84px 0 76px; background: radial-gradient(ellipse 60% 90% at 100% 0%, rgba(246,142,31,0.22), rgba(246,142,31,0) 70%), radial-gradient(ellipse 40% 70% at 0% 100%, rgba(246,142,31,0.10), rgba(246,142,31,0) 70%), repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 2px, rgba(255,255,255,0) 2px 14px), #111; }
+  .post-head::before { display: none; }
+  .post-head .eyebrow { font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin: 18px 0 10px; }
+  .post-head .eyebrow a { color: inherit; text-decoration: none; }
+  .post-head .eyebrow a:hover { color: var(--white); }
+  .post-head h1 { font-size: clamp(32px, 5vw, 58px); max-width: 20ch; }
+  .post-head .meta { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); max-width: 720px; }
+  .post-head .meta a:not(.tag) { color: var(--white); text-decoration: none; border-bottom: 1px solid var(--orange); }
+  @media (max-width: 640px) { .post-head { padding: 56px 0 48px; } }
   .feature { margin: 0 0 32px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
-  .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+  .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 380px; object-fit: cover; }
   .post-card .thumb { display: block; margin: -28px -26px 22px; aspect-ratio: 3 / 2; overflow: hidden; background: #ddd; }
   .post-card .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
   .post-card:hover .thumb img { transform: scale(1.04); }
@@ -454,7 +458,6 @@ def build():
 
     for p in posts:
         path = f"/{p['slug']}/"
-        tags = " ".join(f'<a class="tag" href="/category/{c}/">{CATEGORIES[c]}</a>' for c in p["cats"])
         related = [q for q in posts if q is not p and set(q["cats"]) & set(p["cats"])][:3]
         jsonld = ld({"@context": "https://schema.org", "@graph": [
             crumbs_ld([("Home", "/"), ("Blog", "/blog/"), (p["title"], path)]),
@@ -464,15 +467,15 @@ def build():
              "author": {"@type": "Person", "name": "Yves Minten", "url": SITE + "/about/about-yves-minten/"},
              "publisher": {"@type": "Organization", "name": "Team One Fitness", "url": SITE + "/"}},
         ]})
-        main = f"""  <section class="intro has-photo">
-    {photo(p['slug'], eager=True).replace('<img ', f'<img class="bg" style="object-position: {BANNER_POS[p["slug"]]}" ' if p['slug'] in BANNER_POS else '<img class="bg" ', 1).replace('sizes="(max-width: 760px) 100vw, 720px"', 'sizes="100vw"')}
+        main = f"""  <section class="intro post-head">
     <div class="container">
       <p class="crumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></p>
+      <p class="eyebrow">{" · ".join(f'<a href="/category/{c}/">{CATEGORIES[c]}</a>' for c in p["cats"])}</p>
       <h1>{html.escape(p['title'])}</h1>
       <div class="meta">
+        <span>By <a href="/about/about-yves-minten/">Yves Minten</a></span>
         <span>Posted {nice_date(p['date'])}</span>
         <span>{p['minutes']} min read</span>
-        {tags}
       </div>
     </div>
   </section>
@@ -480,6 +483,7 @@ def build():
   <article class="article">
     <div class="container">
       <div class="body">
+        <figure class="feature">{photo(p['slug'], eager=True).replace('<img ', f'<img style="object-position: {BANNER_POS[p["slug"]]}" ' if p['slug'] in BANNER_POS else '<img ', 1)}</figure>
 {p['body']}
       </div>
       <aside class="cta-box">

@@ -129,14 +129,17 @@
   .post-card h3 { transition: color .2s ease; }
   .post-card:hover h3 { color: var(--orange-dark); }
   .post-card .date::after { content: "Read →"; float: right; font-family: var(--head); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--orange); }
-  .intro.has-photo { padding: 120px 0 96px; }
-  .intro.has-photo .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
-  .intro.has-photo::before { left: 0; top: 0; right: 0; bottom: 0; width: auto; height: auto; border-radius: 0; background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.30) 100%); z-index: 1; }
-  .intro.has-photo .container { z-index: 2; }
-  .intro.has-photo::after { z-index: 2; }
-  @media (max-width: 640px) { .intro.has-photo { padding: 88px 0 64px; } .intro.has-photo::before { background: rgba(0,0,0,0.55); } }
+  .post-head { padding: 84px 0 76px; background: radial-gradient(ellipse 60% 90% at 100% 0%, rgba(246,142,31,0.22), rgba(246,142,31,0) 70%), radial-gradient(ellipse 40% 70% at 0% 100%, rgba(246,142,31,0.10), rgba(246,142,31,0) 70%), repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 2px, rgba(255,255,255,0) 2px 14px), #111; }
+  .post-head::before { display: none; }
+  .post-head .eyebrow { font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin: 18px 0 10px; }
+  .post-head .eyebrow a { color: inherit; text-decoration: none; }
+  .post-head .eyebrow a:hover { color: var(--white); }
+  .post-head h1 { font-size: clamp(32px, 5vw, 58px); max-width: 20ch; }
+  .post-head .meta { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.12); max-width: 720px; }
+  .post-head .meta a:not(.tag) { color: var(--white); text-decoration: none; border-bottom: 1px solid var(--orange); }
+  @media (max-width: 640px) { .post-head { padding: 56px 0 48px; } }
   .feature { margin: 0 0 32px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
-  .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+  .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 380px; object-fit: cover; }
   .post-card .thumb { display: block; margin: -28px -26px 22px; aspect-ratio: 3 / 2; overflow: hidden; background: #ddd; }
   .post-card .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
   .post-card:hover .thumb img { transform: scale(1.04); }
@@ -190,15 +193,15 @@
 </header>
 
 <main>
-  <section class="intro has-photo">
-    <img class="bg" src="/assets/photos/blog/measure-workout-intensity-800.webp" srcset="/assets/photos/blog/measure-workout-intensity-600.webp 600w, /assets/photos/blog/measure-workout-intensity-800.webp 800w" sizes="100vw" alt="" width="800" height="600" fetchpriority="high">
+  <section class="intro post-head">
     <div class="container">
       <p class="crumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></p>
+      <p class="eyebrow"><a href="/category/fitness/">Fitness</a></p>
       <h1>Measure Workout Intensity</h1>
       <div class="meta">
+        <span>By <a href="/about/about-yves-minten/">Yves Minten</a></span>
         <span>Posted 29 April 2016</span>
         <span>2 min read</span>
-        <a class="tag" href="/category/fitness/">Fitness</a>
       </div>
     </div>
   </section>
@@ -206,6 +209,7 @@
   <article class="article">
     <div class="container">
       <div class="body">
+        <figure class="feature"><img src="/assets/photos/blog/measure-workout-intensity-800.webp" srcset="/assets/photos/blog/measure-workout-intensity-600.webp 600w, /assets/photos/blog/measure-workout-intensity-800.webp 800w" sizes="(max-width: 760px) 100vw, 720px" alt="" width="800" height="600" fetchpriority="high"></figure>
 <p>Lately I have been writing a few articles related to the intensity of working out, and how the intensity can effect your training results. I'm sure that a lot of people wonder how to measure workout intensity or in other words the level of intensity they are working at.</p>
 <p>First of all, let's divide the intensity in three different levels: low, moderate and vigorous. There are a few different ways to measure workout intensity of a workout making sure that you're getting maximum results, and some are easier or more suitable for some than others.<br>
 These measurement methods include; heart rate, talk test, exertion rating scale.</p>
