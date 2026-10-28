@@ -96,6 +96,7 @@
   .intro .txt { padding: 72px 0; }
   .intro h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; max-width: 12ch; }
   .intro .sub { font-size: 19px; margin-top: 18px; }
+  .intro h1 .name { display: block; white-space: nowrap; }
   @media (max-width: 780px) { .intro { min-height: 560px; } .intro::before { background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.55)); } .intro .txt { padding: 56px 0; } .trust span + span::before { display: none; } }
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
   .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; }
@@ -175,7 +176,7 @@
     <div class="container">
       <div class="txt">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/about/">About</a> / Yves Minten</nav>
-        <h1>About Yves Minten</h1>
+        <h1>About <span class="name">Yves Minten</span></h1>
         <p class="sub">Founder and head trainer of Team One. Firefighter, dad of three and lover of the outdoors.</p>
         <div class="btn-row"><a class="btn" href="/get-started/">Start your 7-day trial</a><a class="btn btn-ghost" href="/training/personal-training/">Personal training</a></div>
         <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Founded Team One in 2012</span><span>25 years in fitness</span></p>
