@@ -86,6 +86,38 @@
   @media (max-width: 780px) { .vids { grid-template-columns: 1fr 1fr; gap: 12px; } }
   .links-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 18px; }
   @media (max-width: 780px) { .two, .yves, .cards.three { grid-template-columns: 1fr; gap: 28px; } .yves .photo { max-width: 420px; } .section { padding: 56px 0; } }
+  /* 2026-10-28 refresh to match the home page */
+  .intro { position: relative; overflow: hidden; padding: 0; }
+  .intro .container { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: center; }
+  .intro .txt { padding: 72px 0; }
+  .intro h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; }
+  .intro .sub { font-size: 19px; margin-top: 18px; }
+  .intro .portrait { position: relative; align-self: end; aspect-ratio: 3/4; margin-top: 40px; border-radius: 10px 10px 0 0; overflow: hidden; background: #222; }
+  .intro .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .intro::before { content: ""; position: absolute; right: -160px; top: -160px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(246,142,31,0.28), rgba(246,142,31,0)); }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; }
+  .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--white); color: var(--black); }
+  .trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 22px; font-size: 14px; color: #d0d0d0; }
+  .trust .stars { color: var(--orange); letter-spacing: 2px; font-size: 16px; }
+  .trust span + span::before { content: "·"; margin-right: 18px; color: #777; }
+  @media (max-width: 780px) { .intro .container { grid-template-columns: 1fr; gap: 0; } .intro .txt { padding: 56px 0 8px; } .intro .portrait { display: none; } .intro::before { opacity: .5; } .trust span + span::before { display: none; } }
+  .section { padding: 88px 0; }
+  .section h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .photo, .yves .photo, .two .photo, .gallery .photo { border-radius: 8px; }
+  .gallery .photo img { transition: transform .5s ease; }
+  .gallery .photo:hover img { transform: scale(1.05); }
+  .stats div { font-size: 34px; color: var(--orange); }
+  .stats span { margin-top: 8px; }
+  .yt { border-radius: 8px; }
+  .card { border: 0; border-top: 4px solid var(--orange); border-radius: 8px; padding: 30px 28px 24px; background: var(--sand); position: relative; }
+  .card::before { content: "\201C"; position: absolute; right: 22px; top: 6px; font-family: var(--head); font-weight: 800; font-size: 64px; line-height: 1; color: var(--orange); opacity: .35; }
+  .card .quote { font-size: 19px; }
+  .cta { padding: 80px 0; }
+  .cta .links-row { gap: 12px; margin-top: 24px; }
+  .cta .links-row a.link { border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; padding: 12px 16px; transition: background .2s ease, border-color .2s ease; }
+  .cta .links-row a.link:hover { background: rgba(255,255,255,0.08); border-color: var(--orange); }
+  @media (max-width: 780px) { .section { padding: 64px 0; } }
 </style>
 </head>
 <body>
@@ -136,15 +168,20 @@
 <main>
   <section class="intro">
     <div class="container">
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/about/">About</a> / Yves Minten</nav>
-      <h1>About Yves Minten</h1>
-      <p class="sub">Founder and head trainer of Team One. Firefighter, dad of three and lover of the outdoors.</p>
+      <div class="txt">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/about/">About</a> / Yves Minten</nav>
+        <h1>About Yves Minten</h1>
+        <p class="sub">Founder and head trainer of Team One. Firefighter, dad of three and lover of the outdoors.</p>
+        <div class="btn-row"><a class="btn" href="/get-started/">Start your 7-day trial</a><a class="btn btn-ghost" href="/training/personal-training/">Personal training</a></div>
+        <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Founded Team One in 2012</span><span>25 years in fitness</span></p>
+      </div>
+      <div class="portrait"><img src="/assets/photos/yves-minten-900.webp" srcset="/assets/photos/yves-minten-500.webp 500w, /assets/photos/yves-minten-900.webp 900w" sizes="(max-width: 780px) 320px, 380px" alt="Yves Minten in a Team One shirt" width="900" height="1200" fetchpriority="high"></div>
     </div>
   </section>
 
   <section class="section">
     <div class="container yves">
-      <div class="photo"><img src="/assets/photos/yves-family-coast-close-700.webp" srcset="/assets/photos/yves-family-coast-close-500.webp 500w, /assets/photos/yves-family-coast-close-700.webp 700w" sizes="(max-width: 780px) 100vw, 420px" alt="Yves Minten, founder and head trainer of Team One, with his daughter on a coastal walk" width="700" height="875" fetchpriority="high"></div>
+      <div class="photo"><img src="/assets/photos/yves-family-coast-close-700.webp" srcset="/assets/photos/yves-family-coast-close-500.webp 500w, /assets/photos/yves-family-coast-close-700.webp 700w" sizes="(max-width: 780px) 100vw, 420px" alt="Yves Minten, founder and head trainer of Team One, with his daughter on a coastal walk" width="700" height="875" loading="lazy"></div>
       <div class="body">
         <p class="eyebrow">Meet Yves</p>
         <h2>25 years of helping people get fitter.</h2>
@@ -204,7 +241,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section sand">
     <div class="container">
       <p class="eyebrow">Videos</p>
       <h2>Train along with Yves.</h2>
@@ -217,14 +254,14 @@
     </div>
   </section>
 
-  <section class="section sand">
+  <section class="section">
     <div class="container">
       <p class="eyebrow">What members say</p>
       <h2>Training with Yves.</h2>
       <div class="cards three">
-        <div class="card"><p class="quote">"Yves makes training fun and enjoyable."</p><p class="who">Carmen Garcia, Coogee</p></div>
-        <div class="card"><p class="quote">"Yves' energy, knowledge and enthusiasm rubs off on the entire class."</p><p class="who">Kelly Patterson, CBD / Domain</p></div>
-        <div class="card"><p class="quote">"The group in Bondi and Coogee has a great energy."</p><p class="who">Fernanda Cilento, Bondi</p></div>
+        <div class="card"><p class="quote">"Yves makes training fun and enjoyable."</p><p class="who">Carmen G., Coogee</p></div>
+        <div class="card"><p class="quote">"Yves' energy, knowledge and enthusiasm rubs off on the entire class."</p><p class="who">Kelly P., CBD / Domain</p></div>
+        <div class="card"><p class="quote">"The group in Bondi and Coogee has a great energy."</p><p class="who">Fernanda C., Bondi</p></div>
       </div>
     </div>
   </section>
