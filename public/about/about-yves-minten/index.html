@@ -94,7 +94,7 @@
   .intro .sub { font-size: 19px; margin-top: 18px; }
   .intro .portrait { position: relative; align-self: end; aspect-ratio: 3/4; margin-top: 40px; border-radius: 10px 10px 0 0; overflow: hidden; background: #222; }
   .intro .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .intro::before { content: ""; position: absolute; right: -160px; top: -160px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(246,142,31,0.28), rgba(246,142,31,0)); }
+  .intro::before { content: ""; position: absolute; right: -160px; top: -160px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle closest-side, rgba(246,142,31,0.28), rgba(246,142,31,0)); }
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
   .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; }
   .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--white); color: var(--black); }
