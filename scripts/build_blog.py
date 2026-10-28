@@ -96,6 +96,11 @@ IMAGE_SWAPS = {
 PHOTOS = json.loads((Path(__file__).parent / "blog_photos.json").read_text())
 
 
+# Headings Yves asked to reword (the browser title tag and the address stay the same).
+TITLE_FIX = {
+    "slow-versus-rapid-weight-loss": "Benefits of slow vs rapid weight loss",
+}
+
 # Where to focus a post's photo in the title banner (default 50% 35%).
 BANNER_POS = {
     "summer-bodies-are-built-in-winter": "50% 85%",
@@ -255,7 +260,7 @@ def load():
         words = text_only(body)
         desc = src["seo_description"].strip() or " ".join(words[:28]) + "..."
         seo_title = re.sub(r"\s*-\s*Team One Fitness\s*$", "", src["seo_title"].strip())
-        title = html.unescape(src["title"].strip())
+        title = TITLE_FIX.get(slug) or html.unescape(src["title"].strip())
         posts.append({
             "slug": slug,
             "title": title,
