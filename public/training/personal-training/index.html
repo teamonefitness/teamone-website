@@ -191,6 +191,69 @@
   .form-msg.err { background: #fdeeee; color: #8a1f1f; }
   .hp { position: absolute; left: -5000px; }
   @media (max-width: 780px) { form.enquiry { grid-template-columns: 1fr; } .btn-ghost { margin: 12px 0 0; } }
+  /* 2026-10-28 refresh to match the home page */
+  #enquire { scroll-margin-top: 90px; }
+  .page-hero { min-height: 600px; align-items: center; }
+  .page-hero > img { transform: scale(1.04); animation: heroZoom 14s ease-out forwards; }
+  @keyframes heroZoom { to { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { .page-hero > img { animation: none; transform: none; } }
+  .page-hero.left::before { background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.15) 100%); }
+  .page-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: 1; background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0)); }
+  .page-hero .container { padding-top: 56px; padding-bottom: 96px; }
+  .page-hero h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; }
+  .page-hero .sub { font-size: 19px; margin: 18px 0 26px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-row .btn-ghost { margin: 0; }
+  .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--white); color: var(--black); }
+  .trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 22px; font-size: 14px; color: #d0d0d0; }
+  .trust .stars { color: var(--orange); letter-spacing: 2px; font-size: 16px; }
+  .trust span + span::before { content: "·"; margin-right: 18px; color: #777; }
+  @media (max-width: 640px) { .page-hero { min-height: 560px; } .trust span + span::before { display: none; } }
+  .facts { position: relative; z-index: 3; margin-top: -48px; }
+  .facts .bar { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-radius: 8px; box-shadow: 0 14px 40px rgba(0,0,0,0.12); overflow: hidden; }
+  .facts .item { display: flex; gap: 14px; align-items: flex-start; padding: 24px 22px; border-left: 1px solid var(--line); }
+  .facts .item:first-child { border-left: 0; }
+  .facts svg { width: 28px; height: 28px; flex: none; color: var(--orange); margin-top: 2px; }
+  .facts strong { display: block; font-family: var(--head); font-weight: 800; font-size: 17px; color: var(--ink); line-height: 1.2; }
+  .facts small { display: block; font-size: 13.5px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+  @media (max-width: 980px) { .facts .bar { grid-template-columns: repeat(2, 1fr); } .facts .item:nth-child(3) { border-left: 0; } .facts .item:nth-child(n+3) { border-top: 1px solid var(--line); } }
+  @media (max-width: 520px) { .facts { margin-top: -32px; } .facts .item { padding: 18px 14px; gap: 10px; } .facts strong { font-size: 15px; } .facts svg { width: 24px; height: 24px; } }
+  .section { padding: 88px 0; }
+  .section h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .photo { border-radius: 8px; overflow: hidden; }
+  ul.ticks { list-style: none; padding-left: 0; }
+  ul.ticks li { position: relative; padding-left: 30px; }
+  ul.ticks li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 18px; height: 18px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 11px no-repeat; }
+  .faq ul.ticks li { padding-left: 0; } .faq ul.ticks li::before { display: none; }
+  .card { background: var(--white); border-radius: 8px; padding: 28px; border-top: 4px solid var(--orange); transition: transform .25s ease, box-shadow .25s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.1); }
+  .card h3 { font-size: 20px; }
+  .gallery { gap: 14px; }
+  .gallery .photo { border-radius: 8px; }
+  .gallery .photo img { transition: transform .5s ease; }
+  .gallery .photo:hover img { transform: scale(1.05); }
+  .pricebox { position: relative; overflow: hidden; background: var(--black); border: 0; border-radius: 10px; padding: 36px 32px; color: var(--white); box-shadow: 0 18px 44px rgba(0,0,0,0.18); }
+  .pricebox::before { content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(246,142,31,0.35), rgba(246,142,31,0)); }
+  .pricebox > * { position: relative; }
+  .pricebox .price { color: var(--orange); font-size: 56px; }
+  .pricebox .price span { color: #bdbdbd; }
+  .pricebox p[style] { color: #d6d6d6 !important; }
+  #enquire form.enquiry { background: var(--white); border-radius: 10px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+  .meet { display: grid; grid-template-columns: 420px 1fr; gap: 64px; align-items: center; }
+  .meet .photo { position: relative; aspect-ratio: 4/5; background: #222; }
+  .meet .body p:not(.eyebrow) { font-size: 16.5px; }
+  .quote-card { position: relative; background: var(--sand); border-radius: 8px; padding: 22px 24px 18px 56px; margin: 22px 0 20px; }
+  .quote-card::before { content: "\201C"; position: absolute; left: 18px; top: 6px; font-family: var(--head); font-weight: 800; font-size: 56px; line-height: 1; color: var(--orange); }
+  .quote-card blockquote { margin: 0; font-size: 17px; line-height: 1.55; color: var(--ink); }
+  .quote-card figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .quote-card .stars { color: var(--orange); letter-spacing: 2px; margin-right: 6px; }
+  @media (max-width: 780px) { .meet { grid-template-columns: 1fr; gap: 28px; } .meet .photo { max-width: 420px; } }
+  @media (max-width: 520px) { #enquire form.enquiry { padding: 20px 16px; } }
+  .cta { padding: 80px 0; }
+  .cta .links-row { gap: 12px; margin-top: 24px; }
+  .cta .links-row a.link { border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; padding: 12px 16px; transition: background .2s ease, border-color .2s ease; }
+  .cta .links-row a.link:hover { background: rgba(255,255,255,0.08); border-color: var(--orange); }
+  @media (max-width: 780px) { .section { padding: 64px 0; } }
 </style>
 </head>
 <body>
@@ -245,7 +308,19 @@
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/training/">Training</a> / Personal Training</nav>
       <h1>Personal Training in Coogee &amp; Bondi</h1>
       <p class="sub">Personal training across Sydney's Eastern Suburbs: on the beach, in the park, in our Botany gym or at your home.</p>
-      <a class="btn" href="#enquire">Book a free consultation</a><a class="btn btn-ghost" href="tel:+61424245578">Call 0424 245 578</a>
+      <div class="btn-row"><a class="btn" href="#enquire">Book a free consultation</a><a class="btn btn-ghost" href="tel:+61424245578">Call 0424 245 578</a></div>
+      <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Since 2012</span><span>Coached by Yves, 25 years in fitness</span></p>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="At a glance">
+    <div class="container">
+      <div class="bar">
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><div><strong>From $110</strong><small>Per 1-hour session</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><div><strong>Free consultation</strong><small>Tell us your goals first</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><strong>Coogee, Bondi, Botany</strong><small>Or at your home</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/></svg><div><strong>Train with a friend</strong><small>Buddy and small groups up to 4</small></div></div>
+      </div>
     </div>
   </section>
 
@@ -313,7 +388,21 @@
     </div>
   </section>
 
-  <section class="section" id="enquire">
+  <section class="section">
+    <div class="container meet">
+      <div class="photo"><img src="/assets/photos/yves-minten-900.webp" srcset="/assets/photos/yves-minten-500.webp 500w, /assets/photos/yves-minten-900.webp 900w" sizes="(max-width: 780px) 100vw, 420px" alt="Yves Minten, founder of Team One and personal trainer" width="900" height="1200" loading="lazy"></div>
+      <div class="body">
+        <p class="eyebrow">Meet your trainer</p>
+        <h2>Train one-on-one with Yves.</h2>
+        <p>Yves Minten is the founder of Team One. Originally from Belgium, he has a Bachelor of Physical Education and has worked in the fitness industry for 25 years. He moved to Australia in 2009 and started Team One in 2012.</p>
+        <p>Most personal training sessions are with Yves, or one of our experienced Team One coaches.</p>
+        <figure class="quote-card"><blockquote>Yves is friendly and a pleasure to train with while also pushing and corrects my form when needed.</blockquote><figcaption><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> Andre F., Google review</figcaption></figure>
+        <a class="link" href="/about/about-yves-minten/">More about Yves →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand" id="enquire">
     <div class="container" style="max-width:820px">
       <p class="eyebrow">Enquire</p>
       <h2>Book your free consultation.</h2>
@@ -342,7 +431,7 @@
     </div>
   </section>
 
-  <section class="section sand" id="faq">
+  <section class="section" id="faq">
     <div class="container" style="max-width:820px">
       <p class="eyebrow">Questions</p>
       <h2>Personal training FAQs.</h2>
