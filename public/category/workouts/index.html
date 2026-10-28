@@ -116,6 +116,11 @@
   .post-card h3 { transition: color .2s ease; }
   .post-card:hover h3 { color: var(--orange-dark); }
   .post-card .date::after { content: "Read →"; float: right; font-family: var(--head); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--orange); }
+  .feature { margin: 0 0 32px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
+  .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+  .post-card .thumb { display: block; margin: -28px -26px 22px; aspect-ratio: 3 / 2; overflow: hidden; background: #ddd; }
+  .post-card .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .post-card:hover .thumb img { transform: scale(1.04); }
   @media (max-width: 960px) { .article .container { grid-template-columns: 1fr; gap: 44px; } .cta-box { position: relative; top: auto; max-width: 720px; } }
   @media (max-width: 640px) { .intro { padding: 56px 0 48px; } .more, .list { padding: 56px 0 64px; } }
 </style>
@@ -187,48 +192,56 @@
     <div class="container">
       <div class="posts">
       <a class="post-card" href="/anzac-workout/">
+        <span class="thumb"><img src="/assets/photos/blog/anzac-workout-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Workouts</span>
         <h3>My Anzac Day Workout</h3>
         <p>Try this short high intensity workout which requires little equipment. No equipment available? The workout can easily be modified to a body weight workout.</p>
         <span class="date">28 April 2017</span>
       </a>
       <a class="post-card" href="/amrap-five-plus/">
+        <span class="thumb"><img src="/assets/photos/blog/amrap-five-plus-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Workouts</span>
         <h3>AMRAP Five Plus</h3>
         <p>Try this home workout which requires no equipment. The &#x27;AMRAP Five Plus&#x27; workout is for those who want results in a short amount of time.</p>
         <span class="date">3 February 2017</span>
       </a>
       <a class="post-card" href="/every-minute-minute/">
+        <span class="thumb"><img src="/assets/photos/blog/every-minute-minute-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Workouts</span>
         <h3>EMOM body weight workout (Every Minute on the Minute)</h3>
         <p>Try this EMOM body weight workout. The workout doesn&#x27;t require any equipment or a lot of space and so ideal to do on your own.</p>
         <span class="date">4 December 2016</span>
       </a>
       <a class="post-card" href="/home-leg-workout/">
+        <span class="thumb"><img src="/assets/photos/blog/home-leg-workout-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Workouts</span>
         <h3>Home Leg Workout</h3>
         <p>Want to work the legs in your own time but don&#x27;t have a lot of time on your hands? Give this 10 to 15 min home leg workout a go!</p>
         <span class="date">16 September 2016</span>
       </a>
       <a class="post-card" href="/seven/">
+        <span class="thumb"><img src="/assets/photos/blog/seven-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Workouts</span>
         <h3>Seven</h3>
         <p>&#x27;Seven&#x27; is a great bodyweight workout to do in your own time. All you need is a little bit of space on a beach or park and 28 minutes of your time.</p>
         <span class="date">21 July 2016</span>
       </a>
       <a class="post-card" href="/squats-benefits/">
+        <span class="thumb"><img src="/assets/photos/blog/squats-benefits-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Health · Workouts</span>
         <h3>Health and fitness benefits of squats</h3>
         <p>Find out the many health and fitness benefits of incorporating squats into your training regime and your daily lifestyle.</p>
         <span class="date">22 January 2016</span>
       </a>
       <a class="post-card" href="/keeping-fit-on-holiday/">
+        <span class="thumb"><img src="/assets/photos/blog/keeping-fit-on-holiday-600.webp" alt="" width="600" height="600" loading="lazy"></span>
         <span class="cats">Fitness · Workouts</span>
         <h3>Keeping fit on holiday.</h3>
         <p>Keeping fit on holiday does not have to be a hassle, check out some tips on keeping your fitness levels up whilst still enjoying your holiday!</p>
         <span class="date">18 December 2015</span>
       </a>
       <a class="post-card" href="/ciabatta-or-is-it-tabata/">
+        <span class="thumb"><img src="/assets/photos/blog/ciabatta-or-is-it-tabata-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Workouts · Fitness</span>
         <h3>Ciabatta or is it Tabata?</h3>
         <p>Why are tabata workouts so popular these days? Check out what they are, where the name comes from and why they are so effective.</p>

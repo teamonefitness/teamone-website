@@ -116,6 +116,11 @@
   .post-card h3 { transition: color .2s ease; }
   .post-card:hover h3 { color: var(--orange-dark); }
   .post-card .date::after { content: "Read →"; float: right; font-family: var(--head); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--orange); }
+  .feature { margin: 0 0 32px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
+  .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+  .post-card .thumb { display: block; margin: -28px -26px 22px; aspect-ratio: 3 / 2; overflow: hidden; background: #ddd; }
+  .post-card .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .post-card:hover .thumb img { transform: scale(1.04); }
   @media (max-width: 960px) { .article .container { grid-template-columns: 1fr; gap: 44px; } .cta-box { position: relative; top: auto; max-width: 720px; } }
   @media (max-width: 640px) { .intro { padding: 56px 0 48px; } .more, .list { padding: 56px 0 64px; } }
 </style>
@@ -187,108 +192,126 @@
     <div class="container">
       <div class="posts">
       <a class="post-card" href="/the-best-and-worst-alcohol-drinks-for-weight-loss/">
+        <span class="thumb"><img src="/assets/photos/blog/the-best-and-worst-alcohol-drinks-for-weight-loss-600.webp" alt="" width="600" height="338" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>The best and worst alcohol drinks for weight loss</h3>
         <p>Are you on a weight loss journey but you do like a drink sometimes, then check out this list of the best and worst alcohol drinks for weight loss.</p>
         <span class="date">18 December 2021</span>
       </a>
       <a class="post-card" href="/things-not-to-eat/">
+        <span class="thumb"><img src="/assets/photos/blog/things-not-to-eat-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>Things not to eat</h3>
         <p>Maintaining a healthy diet ain&#x27;t always easy and is often easier said than done. Here is a list of a few things which you better not include in your diet.</p>
         <span class="date">28 October 2018</span>
       </a>
       <a class="post-card" href="/simple-changes-for-a-better-healthier-life/">
+        <span class="thumb"><img src="/assets/photos/blog/simple-changes-for-a-better-healthier-life-600.webp" alt="" width="600" height="510" loading="lazy"></span>
         <span class="cats">Health · Motivation</span>
         <h3>Simple swaps for a better &amp; healthier life</h3>
         <p>We all want the highest possible quality of life. Here are a bunch of simple changes for a better &amp; healthier life.</p>
         <span class="date">20 September 2018</span>
       </a>
       <a class="post-card" href="/get-your-butt-of-your-chair/">
+        <span class="thumb"><img src="/assets/photos/blog/get-your-butt-of-your-chair-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Health · Motivation</span>
         <h3>Get your butt off your chair</h3>
         <p>Research says to &#x27;get your butt of your chair&#x27; more often. We need to focus on the exercise regime but also on the amount of time we spend being sedentary.</p>
         <span class="date">10 February 2017</span>
       </a>
       <a class="post-card" href="/what-are-your-new-years-resolutions/">
+        <span class="thumb"><img src="/assets/photos/blog/what-are-your-new-years-resolutions-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Motivation · Health</span>
         <h3>What are your New Years resolutions?</h3>
         <p>The start of a new year is the best time to make some changes to our daily routine. Check out some tips to find your New Years Resolutions.</p>
         <span class="date">13 January 2017</span>
       </a>
       <a class="post-card" href="/benefits-of-beach-training/">
+        <span class="thumb"><img src="/assets/photos/blog/benefits-of-beach-training-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Fitness · Health</span>
         <h3>Benefits of beach training</h3>
         <p>Most of Team One Fitness bootcamp sessions are on the beach. Not sure about the whole beach exercising thing? Check out some benefits of beach training.</p>
         <span class="date">11 November 2016</span>
       </a>
       <a class="post-card" href="/nutritional-guidelines/">
+        <span class="thumb"><img src="/assets/photos/blog/nutritional-guidelines-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>Nutritional guidelines</h3>
         <p>Here are a few nutritional tips that will improve your diet. Combine a healthy diet with an active lifestyle and burn more calories then you are taking in.</p>
         <span class="date">5 November 2016</span>
       </a>
       <a class="post-card" href="/some-tips-when-fast-food-is-unavoidable/">
+        <span class="thumb"><img src="/assets/photos/blog/some-tips-when-fast-food-is-unavoidable-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>Some tips when fast food is unavoidable</h3>
         <p>Life is fast and we all experience situations where &#x27;fast food&#x27; is the only choice. Here are some tips when fast food is unavoidable.</p>
         <span class="date">14 October 2016</span>
       </a>
       <a class="post-card" href="/how-water-can-improve-weight-loss/">
+        <span class="thumb"><img src="/assets/photos/blog/how-water-can-improve-weight-loss-600.webp" alt="" width="600" height="600" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>How water can improve weight loss</h3>
         <p>Are you getting enough water and did you know that water can improve weight loss? Here are some surprising facts about how water can help with weight loss.</p>
         <span class="date">7 October 2016</span>
       </a>
       <a class="post-card" href="/dealing-with-injuries/">
+        <span class="thumb"><img src="/assets/photos/blog/dealing-with-injuries-600.webp" alt="" width="600" height="400" loading="lazy"></span>
         <span class="cats">Health · Fitness</span>
         <h3>Dealing with Injuries</h3>
         <p>Isn&#x27;t this frustrating? You fitness levels are improving, and then you get injured. Check out some tips about dealing with injuries.</p>
         <span class="date">23 May 2016</span>
       </a>
       <a class="post-card" href="/tips-on-how-to-make-waking-up-easier/">
+        <span class="thumb"><img src="/assets/photos/blog/tips-on-how-to-make-waking-up-easier-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Motivation · Health</span>
         <h3>Tips on how to make waking up easier</h3>
         <p>Waking up at 5.30am to work out isn&#x27;t always easy. Check out some tips on how to make waking up easier. Once you&#x27;re up, you&#x27;ll know that is was all worth it</p>
         <span class="date">12 March 2016</span>
       </a>
       <a class="post-card" href="/anti-aging-foods/">
+        <span class="thumb"><img src="/assets/photos/blog/anti-aging-foods-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>Anti-Aging Foods</h3>
         <p>No-one really likes to get old and we all want to stay young! Check out a list of anti-aging foods that will keep you more youthful and looking younger.</p>
         <span class="date">6 February 2016</span>
       </a>
       <a class="post-card" href="/benefits-bodyweight-exercises/">
+        <span class="thumb"><img src="/assets/photos/blog/benefits-bodyweight-exercises-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Health · Fitness</span>
         <h3>Benefits of doing bodyweight exercises</h3>
         <p>The benefits of incorporating bodyweight exercises into your training. Build strength, burn calories and improve your overall fitness level.</p>
         <span class="date">29 January 2016</span>
       </a>
       <a class="post-card" href="/squats-benefits/">
+        <span class="thumb"><img src="/assets/photos/blog/squats-benefits-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Health · Workouts</span>
         <h3>Health and fitness benefits of squats</h3>
         <p>Find out the many health and fitness benefits of incorporating squats into your training regime and your daily lifestyle.</p>
         <span class="date">22 January 2016</span>
       </a>
       <a class="post-card" href="/finding-balance-in-life/">
+        <span class="thumb"><img src="/assets/photos/blog/finding-balance-in-life-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Health · Motivation</span>
         <h3>Finding a Balance in Life; simple changes to make the most of your time and improve your wellbeing.</h3>
         <p>Finding balance in life can be tricky in this busy world we live in. Try these simple changes to make the most of your time and improve your wellbeing.</p>
         <span class="date">20 November 2015</span>
       </a>
       <a class="post-card" href="/myths-around-cardio-training/">
+        <span class="thumb"><img src="/assets/photos/blog/myths-around-cardio-training-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Fitness · Health</span>
         <h3>Cardio training, identifying the myths</h3>
         <p>Cardio training can be great for weight loss and general fitness, here are some tips on cardio myths and how to maximise the benefits.</p>
         <span class="date">15 November 2015</span>
       </a>
       <a class="post-card" href="/slow-versus-rapid-weight-loss/">
+        <span class="thumb"><img src="/assets/photos/blog/slow-versus-rapid-weight-loss-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>Weight loss; benefits of slow vs rapid weight loss</h3>
         <p>Things to consider when deciding what type of weight loss journey will work for you, and how to maximise your results and make them last.</p>
         <span class="date">7 November 2015</span>
       </a>
       <a class="post-card" href="/portion-control/">
+        <span class="thumb"><img src="/assets/photos/blog/portion-control-600.webp" alt="" width="600" height="450" loading="lazy"></span>
         <span class="cats">Nutrition · Health</span>
         <h3>How to control your portion sizes</h3>
         <p>As well as eating the right things, portion control is key to achieving weight loss. Check out some useful tips on how to control your portion sizes.</p>

@@ -10,6 +10,7 @@ The post text is copied word for word. Only the old WordPress formatting is
 cleaned (shortcodes, inline styles, empty headings) so it fits the new design.
 """
 import html
+import json
 import re
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -90,6 +91,20 @@ KEEP = {
 IMAGE_SWAPS = {
     "IMG_6085-web2-300x223.jpg": ('/assets/photos/community-group-1200.webp', 1200, 900),
 }
+
+# One photo per post (old featured photo, or one of Yves's own). Files in public/assets/photos/blog/.
+PHOTOS = json.loads((Path(__file__).parent / "blog_photos.json").read_text())
+
+
+def photo(slug, big=True, eager=False):
+    lw, lh, sw, sh = PHOTOS[slug]
+    base = f"/assets/photos/blog/{slug}"
+    if big:
+        srcset = f'{base}-{sw}.webp {sw}w, {base}-{lw}.webp {lw}w' if sw != lw else f'{base}-{lw}.webp {lw}w'
+        load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+        return f'<img src="{base}-{lw}.webp" srcset="{srcset}" sizes="(max-width: 760px) 100vw, 720px" alt="" width="{lw}" height="{lh}" {load}>'
+    return f'<img src="{base}-{sw}.webp" alt="" width="{sw}" height="{sh}" loading="lazy">'
+
 
 BLOCK = re.compile(r"^\s*<(h[1-6]|ul|ol|li|div|p|table|blockquote|figure|img|a [^>]*><img)", re.I)
 
@@ -337,12 +352,17 @@ STYLE = """<style>
   .post-card h3 { transition: color .2s ease; }
   .post-card:hover h3 { color: var(--orange-dark); }
   .post-card .date::after { content: "Read →"; float: right; font-family: var(--head); font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--orange); }
+  .feature { margin: 0 0 32px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
+  .article .body .feature img { margin: 0; border-radius: 0; display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; }
+  .post-card .thumb { display: block; margin: -28px -26px 22px; aspect-ratio: 3 / 2; overflow: hidden; background: #ddd; }
+  .post-card .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .post-card:hover .thumb img { transform: scale(1.04); }
   @media (max-width: 960px) { .article .container { grid-template-columns: 1fr; gap: 44px; } .cta-box { position: relative; top: auto; max-width: 720px; } }
   @media (max-width: 640px) { .intro { padding: 56px 0 48px; } .more, .list { padding: 56px 0 64px; } }
 </style>"""
 
 
-def page(title, desc, path, og_type, jsonld, main):
+def page(title, desc, path, og_type, jsonld, main, image="/assets/photos/hero-bondi-kettlebells-clean-1920.webp"):
     return f"""<!doctype html>
 <html lang="en-AU">
 <head>
@@ -357,7 +377,7 @@ def page(title, desc, path, og_type, jsonld, main):
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:url" content="{SITE}{path}">
-<meta property="og:image" content="{SITE}/assets/photos/hero-bondi-kettlebells-clean-1920.webp">
+<meta property="og:image" content="{SITE}{image}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -396,6 +416,7 @@ def crumbs_ld(items):
 def card(p):
     cats = " · ".join(CATEGORIES[c] for c in p["cats"])
     return f"""      <a class="post-card" href="/{p['slug']}/">
+        <span class="thumb">{photo(p['slug'], big=False)}</span>
         <span class="cats">{cats}</span>
         <h3>{html.escape(p['title'])}</h3>
         <p>{html.escape(p['desc'])}</p>
@@ -427,6 +448,7 @@ def build():
             crumbs_ld([("Home", "/"), ("Blog", "/blog/"), (p["title"], path)]),
             {"@type": "BlogPosting", "headline": p["title"], "description": p["desc"],
              "datePublished": p["date"].strftime("%Y-%m-%d"), "url": SITE + path,
+             "image": f"{SITE}/assets/photos/blog/{p['slug']}-{PHOTOS[p['slug']][0]}.webp",
              "author": {"@type": "Person", "name": "Yves Minten", "url": SITE + "/about/about-yves-minten/"},
              "publisher": {"@type": "Organization", "name": "Team One Fitness", "url": SITE + "/"}},
         ]})
@@ -445,6 +467,7 @@ def build():
   <article class="article">
     <div class="container">
       <div class="body">
+        <figure class="feature">{photo(p['slug'], eager=True)}</figure>
 {p['body']}
       </div>
       <aside class="cta-box">
@@ -466,7 +489,8 @@ def build():
     </div>
   </section>
 """
-        write(path, page(f"{p['seo_title']} | Team One Fitness", p["desc"], path, "article", jsonld, main))
+        write(path, page(f"{p['seo_title']} | Team One Fitness", p["desc"], path, "article", jsonld, main,
+                         f"/assets/photos/blog/{p['slug']}-{PHOTOS[p['slug']][0]}.webp"))
 
     def listing(path, h1, sub, crumbs, on, items, title, desc):
         jsonld = ld({"@context": "https://schema.org", "@graph": [

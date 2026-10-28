@@ -108,15 +108,6 @@
   .trust .stars { color: var(--orange); letter-spacing: 2px; font-size: 16px; }
   .trust span + span::before { content: "·"; margin-right: 18px; color: #777; }
   @media (max-width: 640px) { .intro { min-height: 480px; } .intro::before { background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.55)); } .trust span + span::before { display: none; } }
-  .glance { position: relative; z-index: 3; margin-top: -48px; }
-  .glance .bar { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-radius: 8px; box-shadow: 0 14px 40px rgba(0,0,0,0.12); overflow: hidden; }
-  .glance .item { display: flex; gap: 14px; align-items: flex-start; padding: 24px 22px; border-left: 1px solid var(--line); }
-  .glance .item:first-child { border-left: 0; }
-  .glance svg { width: 28px; height: 28px; flex: none; color: var(--orange); margin-top: 2px; }
-  .glance strong { display: block; font-family: var(--head); font-weight: 800; font-size: 17px; color: var(--ink); line-height: 1.2; }
-  .glance small { display: block; font-size: 13.5px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
-  @media (max-width: 980px) { .glance .bar { grid-template-columns: repeat(2, 1fr); } .glance .item:nth-child(3) { border-left: 0; } .glance .item:nth-child(n+3) { border-top: 1px solid var(--line); } }
-  @media (max-width: 520px) { .glance { margin-top: -32px; } .glance .item { padding: 18px 14px; gap: 10px; } .glance strong { font-size: 15px; } .glance svg { width: 24px; height: 24px; } }
   .section { padding: 80px 0 88px; }
   .program { border: 0; border-top: 4px solid var(--orange); box-shadow: 0 8px 28px rgba(0,0,0,0.07); transition: transform .25s ease, box-shadow .25s ease; }
   .program:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.13); }
@@ -187,16 +178,6 @@
     </div>
   </section>
 
-  <section class="glance" aria-label="At a glance">
-    <div class="container">
-      <div class="bar">
-        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><strong>Bondi &amp; Coogee</strong><small>Bootcamp, 4 mornings a week</small></div></div>
-        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1Z"/></svg><div><strong>Botany home gym</strong><small>Private personal training</small></div></div>
-        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><div><strong>From $110</strong><small>Personal training session</small></div></div>
-        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><div><strong>$15 for 7 days</strong><small>Bootcamp trial, no lock-in</small></div></div>
-      </div>
-    </div>
-  </section>
 
   <section class="section">
     <div class="container">
