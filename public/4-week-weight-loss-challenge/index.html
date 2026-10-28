@@ -280,6 +280,21 @@
   .quote-card .quote { font-size: 21px; max-width: none; }
   @media (max-width: 780px) { .reviews-sec { padding: 0 0 64px; } }
 
+  .page-hero > video.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .page-hero .vid-toggle { position: absolute; right: 20px; bottom: 64px; z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.5); background: rgba(0,0,0,0.35); cursor: pointer; }
+  .page-hero .vid-toggle::before, .page-hero .vid-toggle::after { content: ""; position: absolute; top: 13px; width: 4px; height: 14px; background: #fff; border-radius: 1px; }
+  .page-hero .vid-toggle::before { left: 14px; } .page-hero .vid-toggle::after { left: 22px; }
+  .page-hero .vid-toggle.paused::before { left: 15px; top: 12px; width: 0; height: 0; background: none; border-left: 13px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-radius: 0; }
+  .page-hero .vid-toggle.paused::after { display: none; }
+  .page-hero .vid-toggle:hover, .page-hero .vid-toggle:focus-visible { background: var(--orange); border-color: var(--orange); }
+  .film-sec { background: #111; color: var(--white); }
+  .film-sec h2 { color: var(--white); }
+  .film-sec .lead { color: #d6d6d6; }
+  .film { max-width: 980px; margin: 24px auto 0; }
+  .film .vid { aspect-ratio: 16/9; }
+  .film .vid .play { width: 84px; height: 84px; margin: -42px 0 0 -42px; }
+  .film .vid .play::before { left: 34px; top: 26px; border-width: 16px 0 16px 25px; }
+  .center { text-align: center; } .center .lead { margin: 0 auto; }
   /* Shred pages */
   .page-hero .eyebrow { color: var(--orange); }
   .price-card { background: var(--white); border-radius: 10px; padding: 34px 32px; box-shadow: 0 14px 36px rgba(0,0,0,0.08); border-top: 4px solid var(--orange); }
@@ -364,7 +379,10 @@
 
 <main>
   <section class="page-hero dark">
-    <img src="/assets/photos/bondi-log-drag-wide-1200.webp" srcset="/assets/photos/bondi-log-drag-wide-640.webp 640w, /assets/photos/bondi-log-drag-wide-1200.webp 1200w" sizes="100vw" alt="Team One members dragging a heavy log across the sand at Bondi Beach during a tough group workout" width="1200" height="900" fetchpriority="high">
+    <video class="bg" autoplay muted loop playsinline preload="metadata" poster="/assets/video/shred/shred-banner.webp" aria-hidden="true">
+      <source src="/assets/video/shred/shred-banner.mp4" type="video/mp4">
+    </video>
+    <button class="vid-toggle" type="button" aria-label="Pause background video"></button>
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/training/">Training</a> / 4 Week Shred</nav>
       <p class="eyebrow">Ready to level up?</p>
@@ -402,6 +420,15 @@
         <p>Unlike many restrictive and unsustainable diets, this program offers flexibility and variety, so you can choose the foods you enjoy and make long-term changes to the way you eat to maintain your transformation results. The manual includes vegetarian and vegan options.</p>
         <p>The 4 Week Shred offers the opportunity to work together with likeminded people to achieve health and fitness goals and to boost confidence!</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section film-sec" id="film">
+    <div class="container center">
+      <p class="eyebrow">Watch The Shred</p>
+      <h2>See what The Shred is like.</h2>
+      <p class="lead">Super Shred Saturdays on Bondi Beach: ropes, tyres, logs and a lot of teamwork. Tap to play with sound.</p>
+      <div class="film"><button class="vid" type="button" data-src="/assets/video/shred/shred-film.mp4"><img src="/assets/video/shred/shred-film.webp" alt="" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true"></span><span class="who">The Shred film</span><span class="sr">Play The Shred film</span></button></div>
     </div>
   </section>
 
@@ -532,6 +559,14 @@
 </footer>
 
 <script>
+  (function () {
+    var v = document.querySelector('.page-hero video'), b = document.querySelector('.page-hero .vid-toggle');
+    if (!v || !b) return;
+    b.addEventListener('click', function () {
+      if (v.paused) { v.play(); b.classList.remove('paused'); b.setAttribute('aria-label', 'Pause background video'); }
+      else { v.pause(); b.classList.add('paused'); b.setAttribute('aria-label', 'Play background video'); }
+    });
+  })();
   document.querySelectorAll('button.vid').forEach(function (b) {
     b.addEventListener('click', function () {
       document.querySelectorAll('.vid video').forEach(function (v) { v.pause(); });
