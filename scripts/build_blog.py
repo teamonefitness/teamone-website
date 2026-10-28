@@ -96,6 +96,12 @@ IMAGE_SWAPS = {
 PHOTOS = json.loads((Path(__file__).parent / "blog_photos.json").read_text())
 
 
+# Where to focus a post's photo in the title banner (default 50% 35%).
+BANNER_POS = {
+    "summer-bodies-are-built-in-winter": "50% 85%",
+}
+
+
 def photo(slug, big=True, eager=False):
     lw, lh, sw, sh = PHOTOS[slug]
     base = f"/assets/photos/blog/{slug}"
@@ -459,7 +465,7 @@ def build():
              "publisher": {"@type": "Organization", "name": "Team One Fitness", "url": SITE + "/"}},
         ]})
         main = f"""  <section class="intro has-photo">
-    {photo(p['slug'], eager=True).replace('<img ', '<img class="bg" ', 1).replace('sizes="(max-width: 760px) 100vw, 720px"', 'sizes="100vw"')}
+    {photo(p['slug'], eager=True).replace('<img ', f'<img class="bg" style="object-position: {BANNER_POS[p["slug"]]}" ' if p['slug'] in BANNER_POS else '<img class="bg" ', 1).replace('sizes="(max-width: 760px) 100vw, 720px"', 'sizes="100vw"')}
     <div class="container">
       <p class="crumbs"><a href="/">Home</a> / <a href="/blog/">Blog</a></p>
       <h1>{html.escape(p['title'])}</h1>
