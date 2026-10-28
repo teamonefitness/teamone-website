@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
+<link rel="preload" as="image" href="/assets/photos/yves-hero-poster-1920.webp" fetchpriority="high">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -87,21 +88,21 @@
   .links-row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 18px; }
   @media (max-width: 780px) { .two, .yves, .cards.three { grid-template-columns: 1fr; gap: 28px; } .yves .photo { max-width: 420px; } .section { padding: 56px 0; } }
   /* 2026-10-28 refresh to match the home page */
-  .intro { position: relative; overflow: hidden; padding: 0; }
-  .intro .container { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: center; }
+  .intro { position: relative; overflow: hidden; padding: 0; min-height: 600px; display: flex; align-items: center; background: #111; }
+  .intro .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .intro::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.15) 100%); }
+  .intro::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: 1; background: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0)); }
+  .intro .container { position: relative; z-index: 2; width: 100%; }
   .intro .txt { padding: 72px 0; }
-  .intro h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; }
+  .intro h1 { font-size: clamp(40px, 6vw, 72px); line-height: 0.98; max-width: 12ch; }
   .intro .sub { font-size: 19px; margin-top: 18px; }
-  .intro .portrait { position: relative; align-self: end; aspect-ratio: 3/4; margin-top: 40px; border-radius: 10px 10px 0 0; overflow: hidden; background: #222; }
-  .intro .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .intro::before { content: ""; position: absolute; right: -160px; top: -160px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle closest-side, rgba(246,142,31,0.28), rgba(246,142,31,0)); }
+  @media (max-width: 780px) { .intro { min-height: 560px; } .intro::before { background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(0,0,0,0.55)); } .intro .txt { padding: 56px 0; } .trust span + span::before { display: none; } }
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
   .btn-ghost { background: transparent; border: 2px solid var(--white); padding: 12px 24px; }
   .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--white); color: var(--black); }
   .trust { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; margin-top: 22px; font-size: 14px; color: #d0d0d0; }
   .trust .stars { color: var(--orange); letter-spacing: 2px; font-size: 16px; }
   .trust span + span::before { content: "·"; margin-right: 18px; color: #777; }
-  @media (max-width: 780px) { .intro .container { grid-template-columns: 1fr; gap: 0; } .intro .txt { padding: 56px 0 8px; } .intro .portrait { display: none; } .intro::before { opacity: .5; } .trust span + span::before { display: none; } }
   .section { padding: 88px 0; }
   .section h2 { font-size: clamp(28px, 3.4vw, 40px); }
   .photo, .yves .photo, .two .photo, .gallery .photo { border-radius: 8px; }
@@ -167,6 +168,10 @@
 
 <main>
   <section class="intro">
+    <video class="bg" autoplay muted loop playsinline preload="metadata" poster="/assets/photos/yves-hero-poster-1920.webp" aria-hidden="true">
+      <source src="/assets/video/yves-hero.mp4" type="video/mp4">
+      <source src="/assets/video/yves-hero.webm" type="video/webm">
+    </video>
     <div class="container">
       <div class="txt">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/about/">About</a> / Yves Minten</nav>
@@ -175,7 +180,6 @@
         <div class="btn-row"><a class="btn" href="/get-started/">Start your 7-day trial</a><a class="btn btn-ghost" href="/training/personal-training/">Personal training</a></div>
         <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Founded Team One in 2012</span><span>25 years in fitness</span></p>
       </div>
-      <div class="portrait"><img src="/assets/photos/yves-minten-900.webp" srcset="/assets/photos/yves-minten-500.webp 500w, /assets/photos/yves-minten-900.webp 900w" sizes="(max-width: 780px) 320px, 380px" alt="Yves Minten in a Team One shirt" width="900" height="1200" fetchpriority="high"></div>
     </div>
   </section>
 
@@ -278,6 +282,12 @@
     </div>
   </section>
 </main>
+<script>
+  (function () {
+    var v = document.querySelector('.intro video');
+    if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+  })();
+</script>
 
 <footer class="site-footer">
   <div class="container">
