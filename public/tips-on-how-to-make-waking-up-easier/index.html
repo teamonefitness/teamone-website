@@ -97,6 +97,12 @@
   .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
   .filters a { border: 1px solid #3a3a3a; color: var(--white); border-radius: 999px; padding: 8px 16px; font-family: var(--head); font-weight: 600; font-size: 14px; text-decoration: none; }
   .filters a:hover, .filters a.on { border-color: var(--orange); background: var(--orange); }
+  .search { position: relative; max-width: 420px; margin-top: 18px; }
+  .search input { width: 100%; padding: 12px 16px 12px 44px; border: 1px solid #3a3a3a; border-radius: 999px; background: #1c1c1c; color: var(--white); font: inherit; font-size: 15px; }
+  .search input::placeholder { color: #9a9a9a; }
+  .search input:focus { outline: none; border-color: var(--orange); }
+  .search svg { position: absolute; left: 16px; top: 50%; width: 18px; height: 18px; margin-top: -9px; color: #9a9a9a; pointer-events: none; }
+  .no-results { display: none; color: var(--body); font-size: 16px; padding: 8px 0 24px; }
   .list { padding: 56px 0 80px; }
   .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .post-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 24px; text-decoration: none; color: inherit; transition: border-color .2s, transform .2s; }

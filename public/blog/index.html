@@ -78,6 +78,12 @@
   .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
   .filters a { border: 1px solid #3a3a3a; color: var(--white); border-radius: 999px; padding: 8px 16px; font-family: var(--head); font-weight: 600; font-size: 14px; text-decoration: none; }
   .filters a:hover, .filters a.on { border-color: var(--orange); background: var(--orange); }
+  .search { position: relative; max-width: 420px; margin-top: 18px; }
+  .search input { width: 100%; padding: 12px 16px 12px 44px; border: 1px solid #3a3a3a; border-radius: 999px; background: #1c1c1c; color: var(--white); font: inherit; font-size: 15px; }
+  .search input::placeholder { color: #9a9a9a; }
+  .search input:focus { outline: none; border-color: var(--orange); }
+  .search svg { position: absolute; left: 16px; top: 50%; width: 18px; height: 18px; margin-top: -9px; color: #9a9a9a; pointer-events: none; }
+  .no-results { display: none; color: var(--body); font-size: 16px; padding: 8px 0 24px; }
   .list { padding: 56px 0 80px; }
   .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .post-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 24px; text-decoration: none; color: inherit; transition: border-color .2s, transform .2s; }
@@ -209,11 +215,16 @@
         <a href="/category/health/">Health</a>
         <a href="/category/motivation/">Motivation</a>
       </nav>
+      <div class="search" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input type="search" id="blog-search" placeholder="Search the blog, e.g. protein" aria-label="Search blog posts by title" autocomplete="off">
+      </div>
     </div>
   </section>
 
   <section class="list">
     <div class="container">
+      <p class="no-results" id="no-results">No posts with that word in the title. Try another word, or pick a category above.</p>
       <div class="posts">
       <a class="post-card" href="/the-best-and-worst-alcohol-drinks-for-weight-loss/">
         <span class="thumb"><img src="/assets/photos/blog/the-best-and-worst-alcohol-drinks-for-weight-loss-600.webp" alt="" width="600" height="338" loading="lazy"></span>
@@ -547,6 +558,21 @@
       </div>
     </div>
   </section>
+  <script>
+    (function () {
+      var box = document.getElementById('blog-search'), none = document.getElementById('no-results');
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.posts .post-card'));
+      if (!box) return;
+      box.addEventListener('input', function () {
+        var q = box.value.trim().toLowerCase(), shown = 0;
+        cards.forEach(function (c) {
+          var hit = !q || c.querySelector('h3').textContent.toLowerCase().indexOf(q) !== -1;
+          c.style.display = hit ? '' : 'none'; if (hit) shown++;
+        });
+        none.style.display = shown ? 'none' : 'block';
+      });
+    })();
+  </script>
 
 </main>
 
