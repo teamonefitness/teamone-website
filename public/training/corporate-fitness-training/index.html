@@ -242,6 +242,9 @@
   fieldset.checks legend { font-family: var(--head); font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 8px; padding: 0; }
   form.enquiry label.check { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-family: var(--body, inherit); font-weight: 500; font-size: 15px; background: var(--white); border: 1px solid #cfcfcf; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
   form.enquiry label.check input { width: auto; margin: 0; accent-color: var(--orange); }
+  .tb-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+  .tb-strip img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; display: block; }
+  @media (max-width: 780px) { .tb-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; } .tb-strip img { flex: 0 0 72%; scroll-snap-align: start; } }
 </style>
 </head>
 <body>
@@ -360,8 +363,9 @@
         <p>Yves has a lot of experience running team-building activities from his work in Belgium, before he moved to Australia. We'll tailor the activities to your team, your goals and the time you have.</p>
         <a class="link" href="#enquire">Ask about team building →</a>
       </div>
-      <div class="photo"><img src="/assets/photos/group-beach-celebration-960.webp" alt="Team One group celebrating together on the beach" width="960" height="720" loading="lazy"></div>
+      <div class="photo"><img src="/assets/photos/team-building-pole-race-960.webp" srcset="/assets/photos/team-building-pole-race-960.webp 960w, /assets/photos/team-building-pole-race-1600.webp 1600w" sizes="(max-width: 780px) 100vw, 560px" alt="Corporate team-building race in a park: two people carry a teammate hanging upside down from a pole while she holds a red cup" width="1600" height="1200" loading="lazy"></div>
     </div>
+    <div class="container"><div class="tb-strip"><img src="/assets/photos/team-building-piggyback-race-600.webp" srcset="/assets/photos/team-building-piggyback-race-600.webp 600w, /assets/photos/team-building-piggyback-race-1200.webp 1200w" sizes="(max-width: 780px) 72vw, 380px" alt="Two teams laughing during a piggyback relay race in a park" width="1200" height="900" loading="lazy"><img src="/assets/photos/team-building-balloon-tower-600.webp" srcset="/assets/photos/team-building-balloon-tower-600.webp 600w, /assets/photos/team-building-balloon-tower-1200.webp 1200w" sizes="(max-width: 780px) 72vw, 380px" alt="A team standing on a sandstone wall, working together to build a tower that holds up a balloon" width="1200" height="900" loading="lazy"><img src="/assets/photos/team-building-balance-beam-600.webp" srcset="/assets/photos/team-building-balance-beam-600.webp 600w, /assets/photos/team-building-balance-beam-1200.webp 1200w" sizes="(max-width: 780px) 72vw, 380px" alt="A team balancing together along a wooden beam on the grass" width="1200" height="900" loading="lazy"></div></div>
   </section>
 
   <section class="section sand">
