@@ -238,6 +238,10 @@
   .clients { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); text-align: center; }
   .client-list { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .client-list li { font-family: var(--head); font-weight: 600; font-size: 15px; color: var(--ink); background: var(--sand); border-radius: 999px; padding: 8px 16px; }
+  fieldset.checks { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  fieldset.checks legend { font-family: var(--head); font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 8px; padding: 0; }
+  form.enquiry label.check { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-family: var(--body, inherit); font-weight: 500; font-size: 15px; background: var(--white); border: 1px solid #cfcfcf; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  form.enquiry label.check input { width: auto; margin: 0; accent-color: var(--orange); }
 </style>
 </head>
 <body>
@@ -405,6 +409,7 @@
             <option>Regular weekly classes</option><option>A one-off session</option><option>Team-building activity</option><option>Not sure yet</option>
           </select></div>
         <div><label for="f-size">Number of people (approx.)</label><input id="f-size" name="team_size" inputmode="numeric"></div>
+        <fieldset class="full checks"><legend>What kind of training are you after? (tick any)</legend><label class="check"><input type="checkbox" class="tt" value="Hybrid"> Hybrid</label><label class="check"><input type="checkbox" class="tt" value="Strength &amp; Burn"> Strength &amp; Burn</label><label class="check"><input type="checkbox" class="tt" value="Box Fit"> Box Fit</label><label class="check"><input type="checkbox" class="tt" value="Legs &amp; Bums"> Legs &amp; Bums</label><label class="check"><input type="checkbox" class="tt" value="Stretching"> Stretching</label><label class="check"><input type="checkbox" class="tt" value="Not sure yet"> Not sure yet</label></fieldset>
         <div class="full"><label for="f-message">Anything else? (optional)</label><textarea id="f-message" name="message" placeholder="Where is your office, and what days or times suit your team?"></textarea></div>
         <div class="full"><button class="btn" type="submit">Send enquiry</button></div>
       </form>
@@ -475,7 +480,10 @@
     function show(text, err) { msg.textContent = text; msg.className = 'form-msg' + (err ? ' err' : ''); msg.style.display = 'block'; }
     if (form.access_key.value === 'PENDING') { show('This form is not connected yet (test version). Please call 0424 245 578.', true); return; }
     btn.disabled = true; btn.textContent = 'Sending...';
-    fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+    var fd = new FormData(form), picked = [];
+    form.querySelectorAll('input.tt:checked').forEach(function (c) { picked.push(c.value); });
+    fd.append('training_type', picked.length ? picked.join(', ') : 'Not answered');
+    fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         if (d.success) { form.style.display = 'none'; show("Thanks! We've received your enquiry and will be in touch soon."); }
