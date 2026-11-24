@@ -221,6 +221,52 @@
   .principle p { color: var(--body); }
   @media (max-width: 780px) { .principle { grid-template-columns: 1fr; gap: 24px; } .principle.flip .photo { order: 0; } }
 </style>
+<style>
+  .story { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
+  .story .photo { position: relative; aspect-ratio: 4/5; background: #222; }
+  .lead-q { font-family: var(--head); font-weight: 700; font-size: clamp(20px, 2.2vw, 24px); line-height: 1.4; color: var(--ink); margin: 0 0 18px; }
+  .sig { font-family: var(--head); font-weight: 700; color: var(--ink); margin-top: 6px; }
+  .sig span { display: block; font-weight: 500; font-size: 14px; color: var(--muted); }
+  .timeline { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 2px; background: var(--line); }
+  .timeline li { position: relative; padding: 30px 18px 0 0; }
+  .timeline li::before { content: ""; position: absolute; left: 0; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px var(--white); }
+  .timeline strong { display: block; font-family: var(--head); font-weight: 800; font-size: 26px; color: var(--orange); line-height: 1; }
+  .timeline span { display: block; color: var(--body); font-size: 15px; margin-top: 8px; line-height: 1.45; }
+  .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 28px; }
+  .why .tile { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.06); transition: transform .25s ease, box-shadow .25s ease; }
+  .why .tile:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.1); }
+  .why .ph { position: relative; aspect-ratio: 4/3; background: #222; }
+  .why .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .why .tx { padding: 20px 22px 24px; }
+  .why h3 { font-size: 19px; margin-bottom: 6px; }
+  .why p { color: var(--body); font-size: 15px; margin: 0; }
+  .community { background: var(--black); color: var(--white); padding: 88px 0; }
+  .community h2 { color: var(--white); }
+  .community .head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; margin-bottom: 32px; }
+  .community .head p { color: #d6d6d6; margin: 0; }
+  .community blockquote { margin: 0; font-family: var(--head); font-weight: 700; font-size: clamp(18px, 2vw, 21px); line-height: 1.45; color: var(--white); border-left: 4px solid var(--orange); padding-left: 20px; }
+  .community blockquote cite { display: block; font-style: normal; font-weight: 500; font-size: 14px; color: #bdbdbd; margin-top: 10px; }
+  .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 12px; }
+  .social-grid figure { position: relative; margin: 0; border-radius: 8px; overflow: hidden; background: #222; aspect-ratio: 4/3; }
+  .social-grid figure:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .social-grid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ima { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+  .ima .card h3 { font-size: 24px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .carnegie { margin: 48px auto 0; max-width: 46ch; text-align: center; font-family: var(--head); font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4; color: var(--ink); }
+  .carnegie cite { display: block; font-style: normal; font-weight: 500; font-size: 15px; color: var(--muted); margin-top: 12px; }
+  @media (max-width: 980px) { .why { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 780px) {
+    .story, .community .head, .ima { grid-template-columns: 1fr; gap: 28px; }
+    .story .photo { max-width: 380px; }
+    .timeline { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+    .timeline::before { display: none; }
+    .social-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
+    .social-grid figure:first-child { grid-row: span 1; aspect-ratio: 4/3; }
+    .community { padding: 64px 0; }
+  }
+  @media (max-width: 520px) { .why { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
@@ -275,40 +321,88 @@
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/about/">About</a> / About Team One Fitness</nav>
       <h1>About Team One Fitness</h1>
-      <p class="sub">Founded in July 2012 by Yves Minten. A bootcamp style of training, with no sergeant major!</p>
+      <p class="sub">Outdoor training for body and mind, with a community that keeps you coming back. In Bondi and Coogee since 2012.</p>
       <div class="btn-row"><a class="btn" href="/get-started/">Start your 7-day trial — $15</a><a class="btn btn-ghost" href="/contact/">Contact us</a></div>
       <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Since 2012</span><span>Bondi &amp; Coogee</span></p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container two">
-      <div class="body">
-        <p class="eyebrow">Our story</p>
-        <h2>Exercise can be part of your life.</h2>
-        <p>Team One was founded in July 2012 by <a class="inline" href="/about/about-yves-minten/">Yves Minten</a>. Our workouts feature a bootcamp style of training, with no sergeant major!</p>
-        <p>By taking action, our goal is to inspire, motivate and guide you towards achieving your health and fitness goals. We exercise in a safe and effective way, and we will partner with you as you reach your goals.</p>
-        <p>We take the approach that exercise should be fun – a means to de-stress, keep fit, re-energise or simply take time out for yourself. Exercise can be part of your life.</p>
+  <section class="facts" aria-label="At a glance">
+    <div class="container">
+      <div class="bar">
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><strong>Since July 2012</strong><small>14 years of outdoor training</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/></svg><div><strong>700+ people trained</strong><small>Some for 10+ years</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><strong>Bondi &amp; Coogee</strong><small>On the sand, rain, hail or shine</small></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><div><strong>Body and mind</strong><small>Fitter, stronger and happier</small></div></div>
       </div>
-      <div class="photo"><img src="/assets/photos/bondi-group-photo-960.webp" srcset="/assets/photos/bondi-group-photo-960.webp 960w, /assets/photos/bondi-group-photo-1920.webp 1920w" sizes="(max-width: 780px) 100vw, 560px" alt="The Team One group together on the sand at Bondi Beach with the Team One flag" width="1200" height="900" loading="lazy"></div>
     </div>
   </section>
 
-  <section class="section sand values">
+  <section class="section">
+    <div class="container">
+      <div class="story">
+        <div class="body">
+          <p class="eyebrow">Our story</p>
+          <h2>Why I started Team One.</h2>
+          <p class="lead-q">“I started Team One in July 2012 because I love helping people reach their goals, not just physically but mentally too.”</p>
+          <p>Training makes you stronger, and it also clears your head and lifts your mood. That’s why we train outdoors, on the sand and in the fresh air, where you get all the benefits of being outside.</p>
+          <p>Our workouts feature a bootcamp style of training, with no sergeant major! We exercise in a safe and effective way, and we partner with you as you reach your goals.</p>
+          <p class="sig">Yves Minten<span>Founder and head trainer · <a class="inline" href="/about/about-yves-minten/">Meet Yves</a></span></p>
+        </div>
+        <div class="photo"><img src="/assets/photos/yves-medball-partner-600.webp" alt="Yves coaching a member through a medicine ball partner exercise on the beach" width="600" height="750" loading="lazy"></div>
+      </div>
+      <ol class="timeline">
+        <li><strong>2009</strong><span>Yves moves from Belgium to Australia</span></li>
+        <li><strong>2012</strong><span>Team One starts in July</span></li>
+        <li><strong>2020</strong><span>Yves moves to Botany, where he now also runs personal training</span></li>
+        <li><strong>Today</strong><span>Bootcamp at Bondi and Coogee, plus personal training</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <p class="eyebrow">What makes us different</p>
+      <h2>More than a workout.</h2>
+      <div class="why">
+        <div class="tile"><div class="ph"><img src="/assets/photos/community-group-640.webp" alt="A happy Team One group with arms raised on the sand" width="640" height="480" loading="lazy"></div><div class="tx"><h3>A real community</h3><p>The thing members love most. Friendly people of all ages and fitness levels, who cheer each other on.</p></div></div>
+        <div class="tile"><div class="ph"><img src="/assets/photos/coogee-sunrise-dumbbells-640.webp" alt="Team One members training on Coogee Beach at sunrise" width="640" height="480" loading="lazy"></div><div class="tx"><h3>Outdoors, on the beach</h3><p>Fresh air, sunrise and the sand under your feet instead of four walls.</p></div></div>
+        <div class="tile"><div class="ph"><img src="/assets/photos/bondi-rope-smiles-640.webp" alt="Team One members smiling while training with ropes at Bondi" width="640" height="480" loading="lazy"></div><div class="tx"><h3>Body and mind</h3><p>Training that builds strength and fitness, and leaves you feeling better in your head too.</p></div></div>
+        <div class="tile"><div class="ph"><img src="/assets/photos/bondi-log-drag-wide-640.webp" alt="Team One members dragging logs through the sand at Bondi Beach" width="640" height="480" loading="lazy"></div><div class="tx"><h3>No sergeant major</h3><p>Hard work without the shouting. Every session is different, and every exercise can be made easier or harder.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="community">
+    <div class="container">
+      <div class="head">
+        <div>
+          <p class="eyebrow">The Team One community</p>
+          <h2>We train hard and celebrate together.</h2>
+          <p>From backyard parties to day trips, Team One social catch ups are where training partners become friends.</p>
+        </div>
+        <blockquote>“Such a friendly chilled group of people… The sessions are just so much fun! We also have some great social catch ups!”<cite>Vicki W. · Google review</cite></blockquote>
+      </div>
+      <div class="social-grid">
+        <figure><img src="/assets/photos/social-sports-field-1200.webp" srcset="/assets/photos/social-sports-field-640.webp 640w, /assets/photos/social-sports-field-1200.webp 1200w" sizes="(max-width: 780px) 100vw, 580px" alt="Big group of Team One members and families at a social catch up by a sports field" width="1200" height="900" loading="lazy"></figure>
+        <figure><img src="/assets/photos/social-backyard-night-640.webp" alt="Team One members at an evening social get-together under string lights" width="640" height="480" loading="lazy"></figure>
+        <figure><img src="/assets/photos/social-vineyard-trip-640.webp" alt="Team One members on a social day trip to a vineyard" width="640" height="480" loading="lazy"></figure>
+        <figure><img src="/assets/photos/social-backyard-party-640.webp" alt="Team One members celebrating together at a backyard party" width="640" height="480" loading="lazy"></figure>
+        <figure><img src="/assets/photos/group-beach-celebration-960.webp" alt="A big Team One group cheering together on the sand" width="960" height="720" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <p class="eyebrow">What we stand for</p>
       <h2>Inspire. Motivate. Action.</h2>
-      <div class="cards three">
-        <div class="card"><p class="tag">Inspire</p>
-          <p class="q">“If you really want to do something you’ll find a way. If you don’t you’ll find an excuse.”</p>
-          <p>We want to inspire people to be the best they’ve ever been, so they find the motivation to achieve the goals they want.</p></div>
-        <div class="card"><p class="tag">Motivate</p>
-          <p>At Team One, you will find the motivation to achieve the look you want and find the intrinsic satisfaction to keep going. In motivating people, we want to help you achieve your extrinsic fitness goals.</p>
-          <p style="margin-top:12px">At Team One we also want to focus on intrinsic motivations, such as feeling good and enjoying yourself while exercising. Intrinsic motivation is needed for continued exercise in order to create a sustainable healthy lifestyle.</p></div>
-        <div class="card"><p class="tag">Action</p>
-          <p class="q">“Inaction breeds doubt and fear. Action breeds confidence and courage. If you want to conquer fear, do not sit home and think about it. Go out and get busy.”<span>Dale Carnegie</span></p>
-          <p>A healthy life is an active one! Our goal is to give people the motivation to kick-start their training routine, while at the same time ensuring they are driven and inspired to maintain long-term health and fitness goals.</p></div>
+      <div class="ima">
+        <div class="card"><h3>Inspire</h3><p>“If you really want to do something you’ll find a way. If you don’t you’ll find an excuse.” We want to inspire people to be the best they’ve ever been.</p></div>
+        <div class="card"><h3>Motivate</h3><p>Reach the goals you can see, like getting fitter and stronger, and enjoy the feeling good part too. That enjoyment is what keeps you training for life.</p></div>
+        <div class="card"><h3>Action</h3><p>A healthy life is an active one! We help you kick-start your training, then keep you going for the long term.</p></div>
       </div>
+      <p class="carnegie">“Inaction breeds doubt and fear. Action breeds confidence and courage. If you want to conquer fear, do not sit home and think about it. Go out and get busy.”<cite>Dale Carnegie</cite></p>
     </div>
   </section>
 
