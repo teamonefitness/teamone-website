@@ -222,8 +222,8 @@
   @media (max-width: 780px) { .principle { grid-template-columns: 1fr; gap: 24px; } .principle.flip .photo { order: 0; } }
 </style>
 <style>
-  .story { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
-  .story .photo { position: relative; aspect-ratio: 4/5; background: #222; }
+  .story { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .story .photo { position: relative; aspect-ratio: 4/3; background: #222; }
   .lead-q { font-family: var(--head); font-weight: 700; font-size: clamp(20px, 2.2vw, 24px); line-height: 1.4; color: var(--ink); margin: 0 0 18px; }
   .sig { font-family: var(--head); font-weight: 700; color: var(--ink); margin-top: 6px; }
   .sig span { display: block; font-weight: 500; font-size: 14px; color: var(--muted); }
@@ -258,7 +258,6 @@
   @media (max-width: 980px) { .why { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 780px) {
     .story, .community .head, .ima { grid-template-columns: 1fr; gap: 28px; }
-    .story .photo { max-width: 380px; }
     .timeline { grid-template-columns: 1fr 1fr; row-gap: 28px; }
     .timeline::before { display: none; }
     .social-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
@@ -349,7 +348,7 @@
           <p>Our workouts feature a bootcamp style of training, with no sergeant major! We exercise in a safe and effective way, and we partner with you as you reach your goals.</p>
           <p class="sig">Yves Minten<span>Founder and head trainer · <a class="inline" href="/about/about-yves-minten/">Meet Yves</a></span></p>
         </div>
-        <div class="photo"><img src="/assets/photos/yves-medball-partner-600.webp" alt="Yves coaching a member through a medicine ball partner exercise on the beach" width="600" height="750" loading="lazy"></div>
+        <div class="photo"><img src="/assets/photos/bondi-group-whiteboard-800.webp" srcset="/assets/photos/bondi-group-whiteboard-800.webp 800w, /assets/photos/bondi-group-whiteboard-1600.webp 1600w" sizes="(max-width: 780px) 100vw, 540px" alt="Yves with a smiling Team One group and the workout whiteboard on the sand at Bondi Beach" width="800" height="600" loading="lazy"></div>
       </div>
     </div>
   </section>
