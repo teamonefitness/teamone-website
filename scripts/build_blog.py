@@ -294,7 +294,7 @@ HEADER = """<header class="site-header">
       <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
       <a href="/sign-up/">Prices</a>
       <a href="/locations/">Locations</a>
-      <a href="/about/">About</a>
+      <a href="/about/about-team-one-fitness/">About</a>
       <a href="/blog/">Blog</a>
       <a href="/contact/">Contact</a>
     </nav>
@@ -312,7 +312,7 @@ HEADER = """<header class="site-header">
         <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
         <a href="/sign-up/">Prices</a>
         <a href="/locations/">Locations</a>
-        <a href="/about/">About</a>
+        <a href="/about/about-team-one-fitness/">About</a>
         <a href="/blog/">Blog</a>
         <a href="/contact/">Contact</a>
         <a href="/get-started/">Start your 7-day trial</a>
@@ -330,7 +330,7 @@ FOOTER = """<footer class="site-footer">
         <a href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=-7&amp;sView=week">Timetable</a>
         <a href="/sign-up/">Prices</a>
         <a href="/locations/">Locations</a>
-        <a href="/about/">About</a>
+        <a href="/about/about-team-one-fitness/">About</a>
         <a href="/blog/">Blog</a>
         <a href="/contact/">Contact</a>
         <a href="/referral-program/">Refer a friend</a>

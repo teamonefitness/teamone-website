@@ -1,0 +1,3 @@
+# Forwarding rules (301 = moved for good). Google passes ranking to the new address.
+/about/ /about/about-team-one-fitness/ 301
+/about /about/about-team-one-fitness/ 301
