@@ -192,6 +192,18 @@
   .wall .review blockquote p:last-child { margin-bottom: 0; }
   .wall .review blockquote.clamp { -webkit-line-clamp: 8; }
   .review-cta { text-align: center; margin-top: 26px; }
+  .vids { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  .vid { position: relative; display: block; width: 100%; aspect-ratio: 16/9; padding: 0; border: 0; border-radius: 10px; overflow: hidden; background: #111; cursor: pointer; font: inherit; color: #fff; text-align: left; }
+  .vid img, .vid video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .vid video { object-fit: contain; background: #000; }
+  .vid::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 45%); }
+  .vid .play { position: absolute; left: 50%; top: 50%; width: 60px; height: 60px; margin: -30px 0 0 -30px; border-radius: 50%; background: var(--orange); z-index: 1; box-shadow: 0 8px 24px rgba(0,0,0,0.35); transition: transform .2s; }
+  .vid .play::before { content: ""; position: absolute; left: 24px; top: 19px; border-style: solid; border-width: 11px 0 11px 17px; border-color: transparent transparent transparent #fff; }
+  .vid:hover .play, .vid:focus-visible .play { transform: scale(1.08); }
+  .vid .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .vid.playing::after, .vid.playing .play { display: none; }
+  .vid-more { margin-top: 22px; }
+  @media (max-width: 780px) { .vids { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-right: -16px; padding-right: 16px; } .vids .vid { flex: 0 0 82%; scroll-snap-align: start; } }
 </style>
 </head>
 <body>
@@ -250,7 +262,7 @@
       <p class="sub">Real words from members who train with Yves on the beach, in the park and in personal training.</p>
       <div class="btn-row">
         <a class="btn" href="/get-started/">Start your 7-day trial — $15</a>
-        <a class="btn btn-ghost" href="#reviews">Read the reviews</a>
+        <a class="btn btn-ghost" href="#videos">Watch member videos</a>
       </div>
       <p class="trust"><span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> 5-star reviews on Google</span><span>Since 2012</span><span>All fitness levels</span></p>
     </div>
@@ -277,7 +289,17 @@
     </div>
   </section>
 
-  <section class="section" id="reviews">
+  <section class="section" id="videos">
+    <div class="container">
+      <p class="eyebrow">Member videos</p>
+      <h2>Hear it from our members.</h2>
+      <p class="lead">Tap a video to play it with sound.</p>
+      <div class="vids"><button class="vid" type="button" data-src="/assets/video/members/member-1.mp4"><img src="/assets/video/members/member-1.webp" alt="" width="640" height="360" loading="lazy"><span class="play" aria-hidden="true"></span><span class="sr">Play member video 1</span></button><button class="vid" type="button" data-src="/assets/video/members/member-2.mp4"><img src="/assets/video/members/member-2.webp" alt="" width="640" height="360" loading="lazy"><span class="play" aria-hidden="true"></span><span class="sr">Play member video 2</span></button><button class="vid" type="button" data-src="/assets/video/members/member-3.mp4"><img src="/assets/video/members/member-3.webp" alt="" width="640" height="360" loading="lazy"><span class="play" aria-hidden="true"></span><span class="sr">Play member video 3</span></button><button class="vid" type="button" data-src="/assets/video/members/member-4.mp4"><img src="/assets/video/members/member-4.webp" alt="" width="640" height="360" loading="lazy"><span class="play" aria-hidden="true"></span><span class="sr">Play member video 4</span></button><button class="vid" type="button" data-src="/assets/video/members/member-5.mp4"><img src="/assets/video/members/member-5.webp" alt="" width="640" height="360" loading="lazy"><span class="play" aria-hidden="true"></span><span class="sr">Play member video 5</span></button><button class="vid" type="button" data-src="/assets/video/members/member-6.mp4"><img src="/assets/video/members/member-6.webp" alt="" width="640" height="360" loading="lazy"><span class="play" aria-hidden="true"></span><span class="sr">Play member video 6</span></button></div>
+      <p class="vid-more"><a class="link" href="/the-rapid-shred/#stories">Watch our Shred stories →</a></p>
+    </div>
+  </section>
+
+  <section class="section sand" id="reviews">
     <div class="container">
       <div class="wall-head">
         <div>
@@ -320,7 +342,7 @@
     </div>
   </section>
 
-  <section class="section sand">
+  <section class="section">
     <div class="container" style="text-align:center;max-width:720px">
       <p class="eyebrow">Your turn</p>
       <h2>Try 7 days for $15.</h2>
@@ -388,6 +410,15 @@
       document.querySelectorAll('.wall .review').forEach(function (r) {
         r.hidden = !(f === 'all' || (' ' + r.getAttribute('data-tags') + ' ').indexOf(' ' + f + ' ') > -1);
       });
+    });
+  });
+  document.querySelectorAll('button.vid').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.vid video').forEach(function (v) { v.pause(); });
+      var box = document.createElement('div'); box.className = 'vid playing';
+      var v = document.createElement('video'); v.src = b.getAttribute('data-src'); v.controls = true; v.playsInline = true;
+      v.setAttribute('aria-label', b.querySelector('.sr').textContent.replace('Play ', ''));
+      box.appendChild(v); b.replaceWith(box); v.play();
     });
   });
 </script>
