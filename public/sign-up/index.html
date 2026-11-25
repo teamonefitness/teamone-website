@@ -248,6 +248,13 @@
   .refer-line { margin-top: 24px; padding: 14px 18px; background: var(--white); border-left: 4px solid var(--orange); border-radius: 4px; font-size: 16px; }
   .refer-line.on-white { background: var(--sand); }
   .refer-line a { color: var(--orange); font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .refer-band { padding: 0 0 64px; background: var(--sand); }
+  .refer-card { background: var(--white); border-radius: 8px; border-left: 6px solid var(--orange); box-shadow: 0 10px 28px rgba(0,0,0,.08); padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+  .refer-card h2 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 8px; }
+  .refer-card p { margin: 0; color: var(--body); max-width: 58ch; }
+  .refer-card .eyebrow { margin: 0 0 8px; color: var(--orange); }
+  .refer-card .btn { flex: none; }
+  @media (max-width: 780px) { .refer-card { flex-direction: column; align-items: flex-start; padding: 26px 22px; } }
 </style>
 </head>
 <body>
@@ -356,7 +363,15 @@
         <div class="plan"><h3>10 classes</h3><p class="price">$280<span></span></p><p class="what">$28 per class</p><p class="small">Valid for 4 months</p><a class="btn" href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=41&amp;sTG=22&amp;prodId=10127">Sign up</a></div>
         <div class="plan"><h3>20 classes</h3><p class="price">$520<span></span></p><p class="what">$26 per class</p><p class="small">Valid for 6 months</p><a class="btn" href="https://clients.mindbodyonline.com/classic/ws?studioid=188148&amp;stype=41&amp;sTG=22&amp;prodId=10236">Sign up</a></div>
       </div>
-      <p class="refer-line"><strong>Bring a friend, get 2 free classes.</strong> <a href="/referral-program/">How it works →</a></p>
+    </div>
+  </section>
+
+  <section class="section refer-band">
+    <div class="container">
+      <div class="refer-card">
+        <div class="rc-text"><p class="eyebrow">Refer a friend</p><h2>Bring a friend, get 2 free classes.</h2><p>When your friend joins a weekly membership and stays for 4 weeks, or buys a 10 or 20-class pack, we add 2 free classes to your account. No limit.</p></div>
+        <a class="btn" href="/referral-program/">How it works</a>
+      </div>
     </div>
   </section>
 
