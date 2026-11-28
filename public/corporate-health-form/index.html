@@ -214,11 +214,15 @@
             <label><input type="checkbox" name="conditions[]" value="None of the above"> None of the above</label>
           </div>
         </fieldset>
-        <div class="full yn"><span>Do you smoke?</span><label><input type="radio" name="smoker" value="Yes" required> Yes</label><label><input type="radio" name="smoker" value="No"> No</label></div>
+        <div class="full yn"><span>Do you smoke or vape?</span><label><input type="radio" name="smoker" value="Yes" required> Yes</label><label><input type="radio" name="smoker" value="No"> No</label></div>
+        <div class="full" id="smoker-more" hidden><label for="f-smoker-more">How many a day?</label><input id="f-smoker-more" name="smoker_details"></div>
         <div class="full yn"><span>Has a close relative had a stroke, heart attack or heart disease?</span><label><input type="radio" name="family_history" value="Yes" required> Yes</label><label><input type="radio" name="family_history" value="No"> No</label></div>
+        <div class="full" id="family_history-more" hidden><label for="f-family_history-more">Who, and at what age?</label><input id="f-family_history-more" name="family_history_details"></div>
         <div class="full yn"><span>Are you taking any medication?</span><label><input type="radio" name="medication" value="Yes" required> Yes</label><label><input type="radio" name="medication" value="No"> No</label></div>
+        <div class="full" id="medication-more" hidden><label for="f-medication-more">Which medication?</label><input id="f-medication-more" name="medication_details"></div>
         <div class="full yn"><span>Have you been in hospital in the last 12 months?</span><label><input type="radio" name="hospital" value="Yes" required> Yes</label><label><input type="radio" name="hospital" value="No"> No</label></div>
-        <div class="full"><label for="f-details">If you ticked a condition or answered yes above, please tell us more. Also mention any injury or anything else that may limit your training</label><textarea id="f-details" name="health_details"></textarea></div>
+        <div class="full" id="hospital-more" hidden><label for="f-hospital-more">What was the reason?</label><input id="f-hospital-more" name="hospital_details"></div>
+        <div class="full"><label for="f-details">Please tell us about any condition you ticked, any injury, or anything else that may limit your training</label><textarea id="f-details" name="health_details"></textarea></div>
         <div><label for="f-ec">Emergency contact name</label><input id="f-ec" name="emergency_contact" required></div>
         <div><label for="f-ecp">Emergency contact phone</label><input id="f-ecp" name="emergency_phone" type="tel" required></div>
 
@@ -335,12 +339,17 @@
     return any;
   }
   var details = document.getElementById('f-details');
+  ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) {
+    var w = document.getElementById(n + '-more'), inp = w.querySelector('input');
+    form.querySelectorAll('input[name="' + n + '"]').forEach(function (r) {
+      r.addEventListener('change', function () { var y = r.checked && r.value === 'Yes'; w.hidden = !y; inp.required = y; if (!y) inp.value = ''; });
+    });
+  });
   function checkHealth() {
     needOneTicked('conditions[]', 'Please tick any that apply, or "None of the above".');
     needOneTicked('goals[]', 'Please tick at least one goal.');
     var flagged = false;
     form.querySelectorAll('input[name="conditions[]"]:checked').forEach(function (b) { if (b.value !== 'None of the above' && b.value !== 'Over 45 years of age') flagged = true; });
-    ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) { var c = form.querySelector('input[name="' + n + '"]:checked'); if (c && c.value === 'Yes') flagged = true; });
     details.required = flagged;
   }
   function markStars() {

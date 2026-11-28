@@ -192,8 +192,6 @@
         <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div><label for="f-dob">Date of birth</label><input id="f-dob" name="date_of_birth" type="date" autocomplete="bday" required></div>
         <div><label for="f-start">Preferred start date</label><input id="f-start" name="start_date" type="date" required></div>
-        <div><label for="f-location">Where would you like to train?</label>
-          <select id="f-location" name="location" required><option value="" selected disabled>Choose</option><option>Botany home gym</option><option>Coogee</option><option>Bondi</option><option>At my home</option><option>Not sure yet</option></select></div>
         <div><label for="f-found">How did you find us?</label>
           <select id="f-found" name="how_found" required>
             <option value="" selected disabled>Choose</option>
@@ -222,11 +220,15 @@
             <label><input type="checkbox" name="conditions[]" value="None of the above"> None of the above</label>
           </div>
         </fieldset>
-        <div class="full yn"><span>Do you smoke?</span><label><input type="radio" name="smoker" value="Yes" required> Yes</label><label><input type="radio" name="smoker" value="No"> No</label></div>
+        <div class="full yn"><span>Do you smoke or vape?</span><label><input type="radio" name="smoker" value="Yes" required> Yes</label><label><input type="radio" name="smoker" value="No"> No</label></div>
+        <div class="full" id="smoker-more" hidden><label for="f-smoker-more">How many a day?</label><input id="f-smoker-more" name="smoker_details"></div>
         <div class="full yn"><span>Has a close relative had a stroke, heart attack or heart disease?</span><label><input type="radio" name="family_history" value="Yes" required> Yes</label><label><input type="radio" name="family_history" value="No"> No</label></div>
+        <div class="full" id="family_history-more" hidden><label for="f-family_history-more">Who, and at what age?</label><input id="f-family_history-more" name="family_history_details"></div>
         <div class="full yn"><span>Are you taking any medication?</span><label><input type="radio" name="medication" value="Yes" required> Yes</label><label><input type="radio" name="medication" value="No"> No</label></div>
+        <div class="full" id="medication-more" hidden><label for="f-medication-more">Which medication?</label><input id="f-medication-more" name="medication_details"></div>
         <div class="full yn"><span>Have you been in hospital in the last 12 months?</span><label><input type="radio" name="hospital" value="Yes" required> Yes</label><label><input type="radio" name="hospital" value="No"> No</label></div>
-        <div class="full"><label for="f-details">If you ticked a condition or answered yes above, please tell us more. Also mention any injury or anything else that may limit your training</label><textarea id="f-details" name="health_details"></textarea></div>
+        <div class="full" id="hospital-more" hidden><label for="f-hospital-more">What was the reason?</label><input id="f-hospital-more" name="hospital_details"></div>
+        <div class="full"><label for="f-details">Please tell us about any condition you ticked, any injury, or anything else that may limit your training</label><textarea id="f-details" name="health_details"></textarea></div>
         <div><label for="f-ec">Emergency contact name</label><input id="f-ec" name="emergency_contact" required></div>
         <div><label for="f-ecp">Emergency contact phone</label><input id="f-ecp" name="emergency_phone" type="tel" required></div>
 
@@ -235,17 +237,15 @@
         <div><label for="f-diet">Your current diet (1 = poor, 10 = very healthy)</label><select id="f-diet" name="diet_rating" required><option value="" selected disabled>Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
         <div><label for="f-job">Your occupation (optional)</label><input id="f-job" name="occupation"></div>
         <div><label for="f-work">How active is your work? (optional)</label><select id="f-work" name="work_activity"><option value="" selected>Choose</option><option>Mostly sitting</option><option>Lightly active</option><option>Very active</option></select></div>
-        <div><label for="f-freq">How often have you exercised in the last 6 months?</label><select id="f-freq" name="exercise_frequency" required><option value="" selected disabled>Choose</option><option>Not at all</option><option>1 to 3 times a week</option><option>4 to 5 times a week</option><option>More than 5 times a week</option></select></div>
-        <div><label for="f-type">What exercise do you enjoy or dislike? (optional)</label><input id="f-type" name="exercise_likes" placeholder="For example: love running, hate burpees"></div>
 
-        <h3 class="full">Personal training</h3>
-        <div class="full"><label for="f-why">Why are you thinking about personal training?</label><textarea id="f-why" name="why_personal_training" required></textarea></div>
+        <h3 class="full">Exercise history</h3>
+        <div><label for="f-freq">How often have you exercised in the last 6 months?</label><select id="f-freq" name="exercise_frequency" required><option value="" selected disabled>Choose</option><option>Not at all</option><option>1 to 3 times a week</option><option>4 to 5 times a week</option><option>More than 5 times a week</option></select></div>
         <div><label for="f-dur">How long do you usually exercise for?</label><select id="f-dur" name="exercise_duration" required><option value="" selected disabled>Choose</option><option>I don't exercise at the moment</option><option>Up to 30 minutes</option><option>30 to 60 minutes</option><option>60 to 90 minutes</option><option>More than 90 minutes</option></select></div>
         <div><label for="f-daily">How active are you during the day?</label><select id="f-daily" name="daily_activity" required><option value="" selected disabled>Choose</option><option>Low</option><option>Medium</option><option>High</option></select></div>
-        <div><label for="f-with">Would you like to train on your own or with others?</label><select id="f-with" name="train_with" required><option value="" selected disabled>Choose</option><option>On my own</option><option>With a friend</option><option>Small group (up to 4)</option><option>Not sure yet</option></select></div>
-        <div><label for="f-times">Which days and times suit you best? (optional)</label><input id="f-times" name="preferred_times" placeholder="For example: weekday mornings"></div>
+        <div><label for="f-type">What exercise do you enjoy or dislike? (optional)</label><input id="f-type" name="exercise_likes" placeholder="For example: love running, hate burpees"></div>
 
         <h3 class="full">Your goals</h3>
+        <div class="full"><label for="f-why">Why are you thinking about personal training?</label><textarea id="f-why" name="why_personal_training" required></textarea></div>
         <fieldset class="full"><legend>What would you like to achieve? Tick all that apply.</legend>
           <div class="checks">
             <label><input type="checkbox" name="goals[]" value="Improve general health"> Improve general health</label>
@@ -268,6 +268,13 @@
         <div class="full" id="other-goal-wrap" hidden><label for="f-other-goal">What is your other goal?</label><input id="f-other-goal" name="other_goal"></div>
         <div id="gain-wrap" hidden><label for="f-gain">How much weight would you like to gain?</label><select id="f-gain" name="weight_gain_target"><option>0 to 5 kg</option><option>5 to 10 kg</option><option>10 to 20 kg</option><option>More than 20 kg</option></select></div>
         <div class="full"><label for="f-goals">Anything else you'd like us to know? For example, an event date (optional)</label><textarea id="f-goals" name="anything_else"></textarea></div>
+
+        <h3 class="full">Your sessions</h3>
+        <div><label for="f-location">Where would you like to train?</label>
+          <select id="f-location" name="location" required><option value="" selected disabled>Choose</option><option>Botany home gym</option><option>Coogee</option><option>Bondi</option><option>At my home</option><option>Other</option><option>Not sure yet</option></select></div>
+        <div><label for="f-with">Would you like to train on your own or with others?</label><select id="f-with" name="train_with" required><option value="" selected disabled>Choose</option><option>On my own</option><option>With a friend</option><option>Small group (up to 4)</option><option>Not sure yet</option></select></div>
+        <div class="full" id="location-more" hidden><label for="f-location-more" id="location-more-label">Your address</label><input id="f-location-more" name="location_details"></div>
+        <div class="full"><label for="f-times">Which days and times suit you best? (optional)</label><input id="f-times" name="preferred_times" placeholder="For example: weekday mornings"></div>
 
         <h3 class="full">Waiver</h3>
         <div class="full waiver" id="waiver">
@@ -354,12 +361,22 @@
     return any;
   }
   var details = document.getElementById('f-details');
+  var loc = document.getElementById('f-location'), lmWrap = document.getElementById('location-more'), lmIn = document.getElementById('f-location-more'), lmLab = document.getElementById('location-more-label');
+  loc.addEventListener('change', function () {
+    var q = { 'At my home': 'Your address', 'Other': 'Where would you like to train?' }[loc.value];
+    lmWrap.hidden = !q; lmIn.required = !!q; if (q) { lmLab.textContent = q; } else { lmIn.value = ''; }
+  });
+  ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) {
+    var w = document.getElementById(n + '-more'), inp = w.querySelector('input');
+    form.querySelectorAll('input[name="' + n + '"]').forEach(function (r) {
+      r.addEventListener('change', function () { var y = r.checked && r.value === 'Yes'; w.hidden = !y; inp.required = y; if (!y) inp.value = ''; });
+    });
+  });
   function checkHealth() {
     needOneTicked('conditions[]', 'Please tick any that apply, or "None of the above".');
     needOneTicked('goals[]', 'Please tick at least one goal.');
     var flagged = false;
     form.querySelectorAll('input[name="conditions[]"]:checked').forEach(function (b) { if (b.value !== 'None of the above' && b.value !== 'Over 45 years of age') flagged = true; });
-    ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) { var c = form.querySelector('input[name="' + n + '"]:checked'); if (c && c.value === 'Yes') flagged = true; });
     details.required = flagged;
   }
   function markStars() {
