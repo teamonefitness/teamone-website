@@ -116,6 +116,7 @@
   .page-hero h1 { font-size: clamp(36px, 5.4vw, 64px); line-height: 1; }
   .page-hero .sub { font-size: 19px; margin: 18px 0 0; }
   .section { padding: 72px 0 88px; }
+  #form form.enquiry > div:not(.full):not([hidden]) { display: flex; flex-direction: column; justify-content: flex-end; }
   #form form.enquiry { background: var(--white); border-radius: 10px; border-top: 4px solid var(--orange); padding: 32px; box-shadow: 0 14px 40px rgba(0,0,0,0.07); }
   @media (max-width: 780px) { .section { padding: 56px 0 64px; } #form form.enquiry { padding: 22px 18px; } }
 </style>
@@ -273,7 +274,7 @@
         <h3 class="full">Your sessions</h3>
         <div><label for="f-location">Where would you like to train?</label>
           <select id="f-location" name="location" required><option value="" selected disabled>Choose</option><option>Botany home gym</option><option>Coogee</option><option>Bondi</option><option>At my home</option><option>Other</option><option>Not sure yet</option></select></div>
-        <div><label for="f-with">Would you like to train on your own or with others?</label><select id="f-with" name="train_with" required><option value="" selected disabled>Choose</option><option>On my own</option><option>With a friend</option><option>Small group (up to 4)</option><option>Not sure yet</option></select></div>
+        <div><label for="f-with">On your own or with others?</label><select id="f-with" name="train_with" required><option value="" selected disabled>Choose</option><option>On my own</option><option>With a friend</option><option>Small group (up to 4)</option><option>Not sure yet</option></select></div>
         <div class="full" id="location-more" hidden><label for="f-location-more" id="location-more-label">Your address</label><input id="f-location-more" name="location_details"></div>
         <div class="full"><label for="f-times">Which days and times suit you best? (optional)</label><input id="f-times" name="preferred_times" placeholder="For example: weekday mornings"></div>
 
