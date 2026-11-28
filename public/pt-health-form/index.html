@@ -367,7 +367,7 @@
   var details = document.getElementById('f-details');
   var loc = document.getElementById('f-location'), lmWrap = document.getElementById('location-more'), lmIn = document.getElementById('f-location-more'), lmLab = document.getElementById('location-more-label');
   loc.addEventListener('change', function () {
-    var q = { 'At my home': 'Your address', 'Other': 'Where would you like to train?' }[loc.value];
+    var q = { 'At my home': 'Your address', 'Other': 'Which place or suburb?' }[loc.value];
     lmWrap.hidden = !q; lmIn.required = !!q; if (q) { lmLab.textContent = q; } else { lmIn.value = ''; }
   });
   ['smoker', 'family_history', 'medication', 'hospital'].forEach(function (n) {
